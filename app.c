@@ -5,6 +5,7 @@ int main (void)
 {
   printf("Ola mundo!!!\n");
   printf("Este e um programa escrito em linguagem C\n");
+    int i=0;
   
   return 0;
 }
