@@ -1,6 +1,32 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
+int vAvg(int *array)
+{
+int sum=0;
+double media=0.0;
+
+for(int i=0;i< length(array);i++){
+sum=sum+array[i];
+}
+
+media= (double) (sum/lenght(array));
+return media;
+}
+int vSum(){
+
+
+
+
+}
+
+int vInit(){
+
+
+
+}
+
 int main (void)
 {
   printf("Ola mundo!!!\n");
