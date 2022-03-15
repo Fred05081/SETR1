@@ -14,10 +14,13 @@ sum=sum+array[i];
 media= (double) (sum/lenght(array));
 return media;
 }
-int vSum(){
-
-
-
+int vSum(int * vect){
+  int vSum = 0;
+for( int i = 0; i <sizeof(vect) ;i++)
+  {
+    vSum += vect [i];
+  }
+  return vSum;
 
 }
 
