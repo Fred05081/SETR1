@@ -1,11 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int main (void)
+int vSum (int *vect )
 {
   
     int i = 0;
-    
+
   
   return 0;
 }
