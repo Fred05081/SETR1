@@ -7,6 +7,7 @@ static int fifo_array[MAX_SIZE];
 static int head;
 static int tail;
 static int size_T;
+static int flag=0;
 void MyFIFOInit(int tamanho)
 {
     if (tamanho > MAX_SIZE)
@@ -26,9 +27,29 @@ void MyFIFOInit(int tamanho)
 }
 
 void MyFIFOInsert(int add)
-{
+{   
+    if (flag==0){
+
+        fifo_array[head % size_T] = add;
+        head++;
+        flag=1;
+    }
+    else{
+
+      if ((head % size_T) == (tail % size_T) ){
+        printf("the oldest element are removed and inserted a new value\n");
+        fifo_array[head % size_T] = add;
+        head++;
+        tail++;
+    }
+    else{
     fifo_array[head % size_T] = add;
     head++;
+
+    }  
+    }
+    
+    
 }
 
 int MyFIFORemove(void)
