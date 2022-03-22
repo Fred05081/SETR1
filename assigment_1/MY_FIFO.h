@@ -1,17 +1,10 @@
-/** @file module1.h
- * @brief Brief description of module1 
+/** @file MY_FIFO.h
+ * @brief FIFO means First In First Out 
  *
- * Follows the detailed description for module1
- * It is separated from the brief one by a blank line.
- * Typically includes a more extensive explanation of what the module 
- * does. 
- * Note that Doxygens tags are words preceeded by either 
- * a backslash @\ or by an at symbol @@.
- * @see https://www.doxygen.nl/manual/index.html 
- * 
- * 
- * @author Paulo Pedreiras
- * @date 3 March 2022
+ * Contém as funções necessárias para criar um FIFO assim como adicionar
+ * ou remover elementos e saber qual o ultimo elemento.
+ * @author Frederico Moreira, Ana Sousa, Pedro Rodrigues
+ * @date 22 March 2022
  * @bug No known bugs.
  */
 
@@ -19,89 +12,60 @@
 #define _MY_FIFO_h
 
 
-
 /**
- * @brief brief description of elem typedef struct.
- * 
+ * @brief Initialize a FIFO with size <b>tamanho</b>.
  *
- * Then it may follow a detailed explanation of the elem structure.
- */ 
-typedef struct 
-{
-    int struct_element_a; /**< Some info for this elem struct member */
-    char struct_element_b;/**< Some info for this elem struct member */
-} elem;
-
-
-/**
- * @brief Brief decription of function1 prototype.
- *
- * Here it goes the long description of fucntion 1.
- * Description of what the function does. Usually this part describes 
- * whatr the fiunction does and its interface, namelly input 
- * arguments and return value.
- * Verbatim text can also be used:
- * @verbatim 
- * This is my email:pbrp@ua.pt
- * @endverbatim
- * You can also include an example of usage:
+ * A função inicializa um FIFO ("Array") com tamanho do argumento de entrada
+ * <b>tamanho</b> e não retorna nada 
+ * Example of usage:
  * @code
  * res = function1(param1, param2);
  * printf("res=%d\n",res);
  * @endcode
- * You can uset HTML tags e.g. to make <b>bold text</b>
- * @param arg1 Description of the first parameter of the function.
- * @param arg2 Description of the second parameter of the function.
- * @return Describe the function return value 
+ * @param tamanho size of the FIFO.
+ * @return Não retorna nada.
  */
 int MyFIFOInit(int tamanho);
 
-
 /**
- * @brief Brief decription of function1 prototype.
+ * @brief Insert an element in the FIFO.
  *
- * Here it goes the long description of fucntion 1.
- * Description of what the function does. Usually this part describes 
- * whatr the fiunction does and its interface, namelly input 
- * arguments and return value.
- * Verbatim text can also be used:
- * @verbatim 
- * This is my email:pbrp@ua.pt
- * @endverbatim
- * You can also include an example of usage:
+ * Esta função adiciona um determinado elemento inserido pelo utilizador na
+ * posição certa do FIFO. Tem assim como argumento o elemento a adicionar ao fifo
+ * e não retorna nada
  * @code
  * res = function1(param1, param2);
  * printf("res=%d\n",res);
  * @endcode
- * You can uset HTML tags e.g. to make <b>bold text</b>
- * @param arg1 Description of the first parameter of the function.
- * @param arg2 Description of the second parameter of the function.
- * @return Describe the function return value 
+ * @param add elemento a adicionar ao FIFO.
+ * @return Não retorna nada.
  */
+
 int MyFIFOInsert(int add);
 
 /**
- * @brief Brief decription of function1 prototype.
- *
- * Here it goes the long description of fucntion 1.
- * Description of what the function does. Usually this part describes 
- * whatr the fiunction does and its interface, namelly input 
- * arguments and return value.
- * Verbatim text can also be used:
- * @verbatim 
- * This is my email:pbrp@ua.pt
- * @endverbatim
- * You can also include an example of usage:
+ * @brief remover o ultimo elemento inserido.
+ * Esta função remove o elemento mais antigo inserido no FIFO e devolve
+ * -1 se o FIFO estiver vazio
  * @code
  * res = function1(param1, param2);
  * printf("res=%d\n",res);
  * @endcode
- * You can uset HTML tags e.g. to make <b>bold text</b>
- * @param arg1 Description of the first parameter of the function.
- * @param arg2 Description of the second parameter of the function.
- * @return Describe the function return value 
+ * @param No_param No parameters
+ * @return retorna -1 se nao existir elementos 
  */
-int MyFIFORemove(int rem);
+int MyFIFORemove(void);
+
+/**
+ * @brief Apenas ver o elemento mais antigo do FIFO.
+ * @code
+ * res = function1(param1, param2);
+ * printf("res=%d\n",res);
+ * @endcode
+ * @param NO_args sem argumentos
+ * @return Retorna o valor mais antigo do FIFO 
+ */
+int MyFIFOPeep(void);
 
 /**
  * @brief Brief decription of function1 prototype.
@@ -124,27 +88,4 @@ int MyFIFORemove(int rem);
  * @param arg2 Description of the second parameter of the function.
  * @return Describe the function return value 
  */
-int MyFIFOPeep(int look);
-
-/**
- * @brief Brief decription of function1 prototype.
- *
- * Here it goes the long description of fucntion 1.
- * Description of what the function does. Usually this part describes 
- * whatr the fiunction does and its interface, namelly input 
- * arguments and return value.
- * Verbatim text can also be used:
- * @verbatim 
- * This is my email:pbrp@ua.pt
- * @endverbatim
- * You can also include an example of usage:
- * @code
- * res = function1(param1, param2);
- * printf("res=%d\n",res);
- * @endcode
- * You can uset HTML tags e.g. to make <b>bold text</b>
- * @param arg1 Description of the first parameter of the function.
- * @param arg2 Description of the second parameter of the function.
- * @return Describe the function return value 
- */
-int MyFIFOSize(int tam);
+int MyFIFOSize(void);
