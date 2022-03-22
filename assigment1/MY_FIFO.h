@@ -80,3 +80,4 @@ contém no determinado momento e devolve este valor
  * @return retorna o numero de elemontos total do FIFO
  */
 int MyFIFOSize(void);
+#endif
