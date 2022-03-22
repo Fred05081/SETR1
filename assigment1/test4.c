@@ -1,9 +1,9 @@
 /** @file test4.c
- * @brief test4.c file brief decription 
+ * @brief test4.c Insert a value when the FIFO is Full
  *
- * Follows the detailed description of MY_FIFO.c. It is separated from 
- * the brief one by a blank line.
- * In this case test.c is the file that contains the main() function. 
+ * In this script we want to know what happens when the FIFO are 
+ * already full and we want insert a new element
+ *  
  * 
  * @author Ana Sousa, Frederico Moreira, Pedro Rodrigues
  * @date 22 March 2022

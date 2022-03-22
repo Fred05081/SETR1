@@ -48,8 +48,21 @@ Initialize a F\+I\+FO with size {\bfseries{tamanho}}.
 
 A função inicializa um F\+I\+FO (\char`\"{}\+Array\char`\"{}) com tamanho do argumento de entrada {\bfseries{tamanho}} e não retorna nada Example of usage\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{res = function1(param1, param2);}
-\DoxyCodeLine{printf(\textcolor{stringliteral}{"res=\%d\(\backslash\)n"},res);}
+\DoxyCodeLine{   \textcolor{keywordflow}{if} (tamanho > \mbox{\hyperlink{MY__FIFO_8c_a0592dba56693fad79136250c11e5a7fe}{MAX\_SIZE}})}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        size\_T = \mbox{\hyperlink{MY__FIFO_8c_a0592dba56693fad79136250c11e5a7fe}{MAX\_SIZE}};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{        size\_T = tamanho;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    head = 0;}
+\DoxyCodeLine{    tail = 0;}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size\_T; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        fifo\_array[i] = 0;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
 \end{DoxyCode}
  
 \begin{DoxyParams}{Parameters}

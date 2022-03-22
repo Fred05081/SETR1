@@ -19,8 +19,21 @@
  * <b>tamanho</b> e não retorna nada 
  * Example of usage:
  * @code
- * res = function1(param1, param2);
- * printf("res=%d\n",res);
+ * if (tamanho > MAX_SIZE)
+    {
+        size_T = MAX_SIZE;
+    }
+    else{
+
+        size_T = tamanho;
+    }
+    head = 0;
+    tail = 0;
+    for (int i = 0; i < size_T; i++)
+    {
+        fifo_array[i] = 0;
+    }
+}
  * @endcode
  * @param tamanho size of the FIFO.
  * @return Não retorna nada.
@@ -34,8 +47,30 @@ void MyFIFOInit(int tamanho);
  * posição certa do FIFO. Tem assim como argumento o elemento a adicionar ao fifo
  * e não retorna nada
  * @code
- * res = function1(param1, param2);
- * printf("res=%d\n",res);
+ * void MyFIFOInsert(int add)
+{   
+    if (flag==0){
+
+        fifo_array[head % size_T] = add;
+        head++;
+        flag=1;
+    }
+    else{
+
+        if ((head % size_T) == (tail % size_T) ){
+            printf("the oldest element are removed and inserted a new value\n");
+            fifo_array[head % size_T] = add;
+            head++;
+            tail++;
+        }
+        else{
+            fifo_array[head % size_T] = add;
+            head++;
+        }  
+    }
+    
+    
+}
  * @endcode
  * @param add elemento a adicionar ao FIFO.
  * @return Não retorna nada.
@@ -48,8 +83,22 @@ void MyFIFOInsert(int add);
  * Esta função remove o elemento mais antigo inserido no FIFO e devolve
  * -1 se o FIFO estiver vazio
  * @code
- * res = function1(param1, param2);
- * printf("res=%d\n",res);
+ * int MyFIFORemove(void)
+{
+    int const1=0;
+    if (tail == head)
+    {   printf("O FIFO está vazio\n");
+        return -1;
+        
+    }
+
+    else
+    {   const1= fifo_array[tail % size_T];
+        fifo_array[tail % size_T] = 0;
+        tail++;
+        return const1;
+    }
+}
  * @endcode
  * @param No_param No parameters
  * @return retorna -1 se nao existir elementos 
@@ -59,8 +108,15 @@ int MyFIFORemove(void);
 /**
  * @brief Apenas ver o elemento mais antigo do FIFO.
  * @code
- * res = function1(param1, param2);
- * printf("res=%d\n",res);
+ * 
+int MyFIFOPeep(void)
+{
+    int num;
+
+    num = fifo_array[tail % size_T];
+    //printf("O elemento mais antigo é %d",num);
+    return num;
+}
  * @endcode
  * @param NO_args sem argumentos
  * @return Retorna o valor mais antigo do FIFO 
@@ -72,8 +128,13 @@ int MyFIFOPeep(void);
  *Esta função devovlve o numero total de elentos que o FIFO
 contém no determinado momento e devolve este valor
  * @code
- * res = function1(param1, param2);
- * printf("res=%d\n",res);
+ *int MyFIFOSize(void)
+{
+    int size;
+    size = head - tail;
+    //printf("FIFO Size:  %d", size);
+    return size;
+}
  * @endcode
  * @param no_args nao tem argumentos
  * @param arg2 Description of the second parameter of the function.
