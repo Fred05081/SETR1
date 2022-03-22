@@ -25,7 +25,7 @@
  * @param tamanho size of the FIFO.
  * @return Não retorna nada.
  */
-int MyFIFOInit(int tamanho);
+void MyFIFOInit(int tamanho);
 
 /**
  * @brief Insert an element in the FIFO.
@@ -41,7 +41,7 @@ int MyFIFOInit(int tamanho);
  * @return Não retorna nada.
  */
 
-int MyFIFOInsert(int add);
+void MyFIFOInsert(int add);
 
 /**
  * @brief remover o ultimo elemento inserido.
@@ -68,24 +68,15 @@ int MyFIFORemove(void);
 int MyFIFOPeep(void);
 
 /**
- * @brief Brief decription of function1 prototype.
- *
- * Here it goes the long description of fucntion 1.
- * Description of what the function does. Usually this part describes 
- * whatr the fiunction does and its interface, namelly input 
- * arguments and return value.
- * Verbatim text can also be used:
- * @verbatim 
- * This is my email:pbrp@ua.pt
- * @endverbatim
- * You can also include an example of usage:
+ * @brief numero total de elemntos
+ *Esta função devovlve o numero total de elentos que o FIFO
+contém no determinado momento e devolve este valor
  * @code
  * res = function1(param1, param2);
  * printf("res=%d\n",res);
  * @endcode
- * You can uset HTML tags e.g. to make <b>bold text</b>
- * @param arg1 Description of the first parameter of the function.
+ * @param no_args nao tem argumentos
  * @param arg2 Description of the second parameter of the function.
- * @return Describe the function return value 
+ * @return retorna o numero de elemontos total do FIFO
  */
 int MyFIFOSize(void);
