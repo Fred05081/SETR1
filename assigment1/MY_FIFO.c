@@ -1,9 +1,9 @@
-//#include "MY_FIFO.h"
+#include "MY_FIFO.h"
 #include <stdio.h>
 #include <stdlib.h>
 #ifndef MAX_SIZE
 #define MAX_SIZE 10
-static int fifo_array[];
+static int fifo_array[MAX_SIZE];
 static int head;
 static int tail;
 static int size_T;
@@ -35,9 +35,9 @@ int MyFIFORemove(void)
 {
     int const1=0;
     if (tail == head)
-    {
+    {   printf("O FIFO está vazio\n");
         return -1;
-        printf("O FIFO está vazio");
+        
     }
 
     else
@@ -53,7 +53,7 @@ int MyFIFOPeep(void)
     int num;
 
     num = fifo_array[tail % size_T];
-    printf("O elemento mais antigo é %d",num);
+    //printf("O elemento mais antigo é %d",num);
     return num;
 }
 
@@ -61,6 +61,7 @@ int MyFIFOSize(void)
 {
     int size;
     size = head - tail;
-    printf("FIFO Size:  %d", size);
+    //printf("FIFO Size:  %d", size);
+    return size;
 }
 #endif

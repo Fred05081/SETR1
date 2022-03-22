@@ -1,5 +1,5 @@
-/** @file test2.c
- * @brief test2.c file brief decription 
+/** @file test3.c
+ * @brief test3.c file brief decription 
  *
  * Follows the detailed description of MY_FIFO.c. It is separated from 
  * the brief one by a blank line.
@@ -44,8 +44,15 @@ int main(void)
     int var2= MyFIFOPeep();
     printf ("elemento mais antigo 2: %d \n",var2);//o elemnto mais antigo passa a ser o 2
     int total= MyFIFOSize();
-    printf ("toal de elementos: %d \n",total); //tem de devolver 2
-
+    printf ("total de elementos: %d \n",total); //tem de devolver 2
+    int rem2 =MyFIFORemove();
+    int rem3 =MyFIFORemove();
+    int rem4 =MyFIFORemove();
+    int total3= MyFIFOSize();
+    printf ("total de elementos: %d \n",total3); //tem de devolver 0
+    MyFIFOInsert(10);
+    int total2= MyFIFOSize();
+    printf ("total de elementos: %d \n",total2); //tem de devolver 1
 
 	return 0;
 }
