@@ -7,7 +7,7 @@ digraph "MY_FIFO.h"
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="MY_FIFO.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MY__FIFO_8c.html",tooltip=" "];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="test.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test_8c.html",tooltip="test.c file brief decription"];
+  Node3 [label="test.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test_8c.html",tooltip="test.c file user interface: In this script we can create a FIFO with variable size and interact with ..."];
   Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="test2.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test2_8c.html",tooltip="test2.c file brief decription"];
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

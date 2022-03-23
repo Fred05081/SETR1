@@ -93,13 +93,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:aa3f433abcfc07db50a1aa515582887dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert an element in the FIFO.  <a href="MY__FIFO_8c.html#aa3f433abcfc07db50a1aa515582887dd">More...</a><br /></td></tr>
 <tr class="separator:aa3f433abcfc07db50a1aa515582887dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6924a70e7f8335133db957b5dbcfe0ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MY__FIFO_8c.html#a6924a70e7f8335133db957b5dbcfe0ce">MyFIFORemove</a> (void)</td></tr>
-<tr class="memdesc:a6924a70e7f8335133db957b5dbcfe0ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">remover o ultimo elemento inserido. Esta função remove o elemento mais antigo inserido no FIFO e devolve -1 se o FIFO estiver vazio  <a href="MY__FIFO_8c.html#a6924a70e7f8335133db957b5dbcfe0ce">More...</a><br /></td></tr>
+<tr class="memdesc:a6924a70e7f8335133db957b5dbcfe0ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove the last inserted element. This function removes the oldest element inserted in the FIFO and returns -1 if the FIFO is empty  <a href="MY__FIFO_8c.html#a6924a70e7f8335133db957b5dbcfe0ce">More...</a><br /></td></tr>
 <tr class="separator:a6924a70e7f8335133db957b5dbcfe0ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81c9e4185df8897dd691b1c201a3a955"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MY__FIFO_8c.html#a81c9e4185df8897dd691b1c201a3a955">MyFIFOPeep</a> (void)</td></tr>
-<tr class="memdesc:a81c9e4185df8897dd691b1c201a3a955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apenas ver o elemento mais antigo do FIFO.  <a href="MY__FIFO_8c.html#a81c9e4185df8897dd691b1c201a3a955">More...</a><br /></td></tr>
+<tr class="memdesc:a81c9e4185df8897dd691b1c201a3a955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only see oldest FIFO element.  <a href="MY__FIFO_8c.html#a81c9e4185df8897dd691b1c201a3a955">More...</a><br /></td></tr>
 <tr class="separator:a81c9e4185df8897dd691b1c201a3a955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a306ac4924fca6f5dc13bd09c5fda298b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MY__FIFO_8c.html#a306ac4924fca6f5dc13bd09c5fda298b">MyFIFOSize</a> (void)</td></tr>
-<tr class="memdesc:a306ac4924fca6f5dc13bd09c5fda298b"><td class="mdescLeft">&#160;</td><td class="mdescRight">numero total de elemntos Esta função devovlve o numero total de elentos que o FIFO contém no determinado momento e devolve este valor  <a href="MY__FIFO_8c.html#a306ac4924fca6f5dc13bd09c5fda298b">More...</a><br /></td></tr>
+<tr class="memdesc:a306ac4924fca6f5dc13bd09c5fda298b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of elements This function returns the total numbers that the FIFO contains at the given time and returns this value.  <a href="MY__FIFO_8c.html#a306ac4924fca6f5dc13bd09c5fda298b">More...</a><br /></td></tr>
 <tr class="separator:a306ac4924fca6f5dc13bd09c5fda298b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -135,7 +135,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a FIFO with size <b>tamanho</b>. </p>
-<p>A função inicializa um FIFO ("Array") com tamanho do argumento de entrada <b>tamanho</b> e não retorna nada Example of usage: </p><div class="fragment"><div class="line">   <span class="keywordflow">if</span> (tamanho &gt; <a class="code" href="MY__FIFO_8c.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>)</div>
+<p>The function initializes a FIFO ("Array") with input argument size <b>tamanho</b> and it doesn't return anything Example of usage: </p><div class="fragment"><div class="line">   <span class="keywordflow">if</span> (tamanho &gt; <a class="code" href="MY__FIFO_8c.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>)</div>
 <div class="line">    {</div>
 <div class="line">        size_T = <a class="code" href="MY__FIFO_8c.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>;</div>
 <div class="line">    }</div>
@@ -156,7 +156,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Não retorna nada. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>it doesn't return anything. </dd></dl>
 
 </div>
 </div>
@@ -177,7 +177,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Insert an element in the FIFO. </p>
-<p>Esta função adiciona um determinado elemento inserido pelo utilizador na posição certa do FIFO. Tem assim como argumento o elemento a adicionar ao fifo e não retorna nada </p><div class="fragment"><div class="line">   <span class="keywordtype">void</span> <a class="code" href="MY__FIFO_8c.html#aa3f433abcfc07db50a1aa515582887dd">MyFIFOInsert</a>(<span class="keywordtype">int</span> add)</div>
+<p>This function adds a certain element inserted by the user at the rigth position of the FIFO.It also has the element to add to the FIFO as an arguement and doesn't return anything </p><div class="fragment"><div class="line">   <span class="keywordtype">void</span> <a class="code" href="MY__FIFO_8c.html#aa3f433abcfc07db50a1aa515582887dd">MyFIFOInsert</a>(<span class="keywordtype">int</span> add)</div>
 <div class="line">{   </div>
 <div class="line">    <span class="keywordflow">if</span> (flag==0){</div>
 <div class="line"> </div>
@@ -203,11 +203,11 @@ Functions</h2></td></tr>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">add</td><td>elemento a adicionar ao FIFO. </td></tr>
+    <tr><td class="paramname">add</td><td>element to add to FIFO. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Não retorna nada. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>it doesn't return anything. </dd></dl>
 
 </div>
 </div>
@@ -227,7 +227,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Apenas ver o elemento mais antigo do FIFO. </p>
+<p>Only see oldest FIFO element. </p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="MY__FIFO_8c.html#a81c9e4185df8897dd691b1c201a3a955">MyFIFOPeep</a>(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">int</span> num;</div>
@@ -238,11 +238,12 @@ Functions</h2></td></tr>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">NO_args</td><td>sem argumentos </td></tr>
+    <tr><td class="paramname">NO_args</td><td>without arguments </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Retorna o valor mais antigo do FIFO </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Return the oldest FIFO value <br  />
+ </dd></dl>
 
 </div>
 </div>
@@ -262,7 +263,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>remover o ultimo elemento inserido. Esta função remove o elemento mais antigo inserido no FIFO e devolve -1 se o FIFO estiver vazio </p>
+<p>remove the last inserted element. This function removes the oldest element inserted in the FIFO and returns -1 if the FIFO is empty </p>
 <div class="fragment"><div class="line">   <span class="keywordtype">int</span> <a class="code" href="MY__FIFO_8c.html#a6924a70e7f8335133db957b5dbcfe0ce">MyFIFORemove</a>(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">int</span> const1=0;</div>
@@ -285,7 +286,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>retorna -1 se nao existir elementos </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>return -1 if there is no element </dd></dl>
 
 </div>
 </div>
@@ -305,7 +306,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>numero total de elemntos Esta função devovlve o numero total de elentos que o FIFO contém no determinado momento e devolve este valor </p>
+<p>Total number of elements This function returns the total numbers that the FIFO contains at the given time and returns this value. </p>
 <div class="fragment"><div class="line"> *<span class="keywordtype">int</span> <a class="code" href="MY__FIFO_8c.html#a306ac4924fca6f5dc13bd09c5fda298b">MyFIFOSize</a>(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">int</span> size;</div>
@@ -315,21 +316,21 @@ Functions</h2></td></tr>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">no_args</td><td>nao tem argumentos </td></tr>
+    <tr><td class="paramname">no_args</td><td>without arguments </td></tr>
     <tr><td class="paramname">arg2</td><td>Description of the second parameter of the function. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>retorna o numero de elemontos total do FIFO </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the total number of FIFO elements. </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="aMY__FIFO_8c_html_a81c9e4185df8897dd691b1c201a3a955"><div class="ttname"><a href="MY__FIFO_8c.html#a81c9e4185df8897dd691b1c201a3a955">MyFIFOPeep</a></div><div class="ttdeci">int MyFIFOPeep(void)</div><div class="ttdoc">Apenas ver o elemento mais antigo do FIFO.</div><div class="ttdef"><b>Definition:</b> MY_FIFO.c:72</div></div>
+<div class="ttc" id="aMY__FIFO_8c_html_a81c9e4185df8897dd691b1c201a3a955"><div class="ttname"><a href="MY__FIFO_8c.html#a81c9e4185df8897dd691b1c201a3a955">MyFIFOPeep</a></div><div class="ttdeci">int MyFIFOPeep(void)</div><div class="ttdoc">Only see oldest FIFO element.</div><div class="ttdef"><b>Definition:</b> MY_FIFO.c:72</div></div>
 <div class="ttc" id="aMY__FIFO_8c_html_a0592dba56693fad79136250c11e5a7fe"><div class="ttname"><a href="MY__FIFO_8c.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a></div><div class="ttdeci">#define MAX_SIZE</div><div class="ttdef"><b>Definition:</b> MY_FIFO.c:5</div></div>
 <div class="ttc" id="aMY__FIFO_8c_html_aa3f433abcfc07db50a1aa515582887dd"><div class="ttname"><a href="MY__FIFO_8c.html#aa3f433abcfc07db50a1aa515582887dd">MyFIFOInsert</a></div><div class="ttdeci">void MyFIFOInsert(int add)</div><div class="ttdoc">Insert an element in the FIFO.</div><div class="ttdef"><b>Definition:</b> MY_FIFO.c:29</div></div>
-<div class="ttc" id="aMY__FIFO_8c_html_a306ac4924fca6f5dc13bd09c5fda298b"><div class="ttname"><a href="MY__FIFO_8c.html#a306ac4924fca6f5dc13bd09c5fda298b">MyFIFOSize</a></div><div class="ttdeci">int MyFIFOSize(void)</div><div class="ttdoc">numero total de elemntos Esta função devovlve o numero total de elentos que o FIFO contém no determin...</div><div class="ttdef"><b>Definition:</b> MY_FIFO.c:81</div></div>
-<div class="ttc" id="aMY__FIFO_8c_html_a6924a70e7f8335133db957b5dbcfe0ce"><div class="ttname"><a href="MY__FIFO_8c.html#a6924a70e7f8335133db957b5dbcfe0ce">MyFIFORemove</a></div><div class="ttdeci">int MyFIFORemove(void)</div><div class="ttdoc">remover o ultimo elemento inserido. Esta função remove o elemento mais antigo inserido no FIFO e devo...</div><div class="ttdef"><b>Definition:</b> MY_FIFO.c:55</div></div>
+<div class="ttc" id="aMY__FIFO_8c_html_a306ac4924fca6f5dc13bd09c5fda298b"><div class="ttname"><a href="MY__FIFO_8c.html#a306ac4924fca6f5dc13bd09c5fda298b">MyFIFOSize</a></div><div class="ttdeci">int MyFIFOSize(void)</div><div class="ttdoc">Total number of elements This function returns the total numbers that the FIFO contains at the given ...</div><div class="ttdef"><b>Definition:</b> MY_FIFO.c:81</div></div>
+<div class="ttc" id="aMY__FIFO_8c_html_a6924a70e7f8335133db957b5dbcfe0ce"><div class="ttname"><a href="MY__FIFO_8c.html#a6924a70e7f8335133db957b5dbcfe0ce">MyFIFORemove</a></div><div class="ttdeci">int MyFIFORemove(void)</div><div class="ttdoc">remove the last inserted element. This function removes the oldest element inserted in the FIFO and r...</div><div class="ttdef"><b>Definition:</b> MY_FIFO.c:55</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

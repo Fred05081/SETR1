@@ -1,9 +1,8 @@
 /** @file test.c
- * @brief test.c file brief decription 
- *
- * Follows the detailed description of MY_FIFO.c. It is separated from 
- * the brief one by a blank line.
- * In this case test.c is the file that contains the main() function. 
+ * @brief test.c file user interface:
+ * In this script we can create a FIFO with variable size 
+ * and interact with it
+ * 
  * 
  * @author Ana Sousa, Frederico Moreira, Pedro Rodrigues
  * @date 22 March 2022
@@ -19,10 +18,19 @@
 /**
  * @brief Brief decription of main().
  *
- * Here it goes the long description of main()
- * main has no input arguments.
- * It then prints the result and returns.
  * 
+ * Main has no input arguments.
+ * The main has an infinite loop that you can
+ * create and interact with a FIFO in particular:
+ * 
+ * -insert elements
+ * 
+ * -remove elements
+ * 
+ * -peep the oldest element present in the FIFO
+ * 
+ * -know the size of the FIFO
+  
  * @return main() always returns 0
  */
 int main(void)
