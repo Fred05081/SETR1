@@ -29,25 +29,27 @@ int main(void)
 {
 
 	int choice; // Escolher um dos 5 módulos
-	
-
+	int siz;
+	int ins;
 	printf ("FIFO IMPLEMENTATION\n\n");
 
-	do{
+	while(1){
 	
-		printf("1. Init\n2. Insert\n3. Remove\n4. Peep\n5.Length of array\n\n");
+		printf("1. Init\n2. Insert\n3. Remove\n4. Peep\n5.Length of array\n 6.Exit\n");
 		printf("Enter your choice:");
 		scanf("%d",&choice);
 
 		switch(choice)
 		{
 			case 1:
-				
-				MyFIFOInit();
+				printf("Size of FIFO: \n");
+				scanf("%d",&siz);
+				MyFIFOInit(siz);
 			break;
 			case 2:
-				//printf("Enter the element to be inserted:");
-				MyFIFOInsert();
+				printf("Enter the element to be inserted:\n");
+				scanf("%d",&ins);
+				MyFIFOInsert(ins);
 			break;
 			case 3:
 				MyFIFORemove();
@@ -59,13 +61,13 @@ int main(void)
 				MyFIFOSize();
 			break;
 			case 6:
-				exit(0);
+				return 0;
 			break;
 			default:
 			printf("Sorry, invalid choice!\n");
 			break;
 		}
-	} while(choice!=5);
+	}
 	
 	return 0;
 }

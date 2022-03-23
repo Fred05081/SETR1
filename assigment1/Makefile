@@ -1,5 +1,5 @@
-DEFAULT_TARGET=test4
-OBJECTS = MY_FIFO.o test4.o
+DEFAULT_TARGET=test
+OBJECTS = MY_FIFO.o test.o
 
 CFLAGS = -g -Wall -O3
 LDLIBS=

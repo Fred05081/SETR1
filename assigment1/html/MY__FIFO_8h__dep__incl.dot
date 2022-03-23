@@ -13,5 +13,5 @@ digraph "MY_FIFO.h"
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node5 [label="test3.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test3_8c.html",tooltip="test3.c file brief decription"];
   Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="test4.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test4_8c.html",tooltip="test4.c file brief decription"];
+  Node6 [label="test4.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test4_8c.html",tooltip="test4.c Insert a value when the FIFO is Full"];
 }

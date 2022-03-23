@@ -74,7 +74,7 @@ int MyFIFOPeep(void)
     int num;
 
     num = fifo_array[tail % size_T];
-    //printf("O elemento mais antigo é %d",num);
+    printf("O elemento mais antigo é %d\n",num);
     return num;
 }
 
@@ -82,7 +82,7 @@ int MyFIFOSize(void)
 {
     int size;
     size = head - tail;
-    //printf("FIFO Size:  %d", size);
+    printf("FIFO Size:  %d\n", size);
     return size;
 }
 #endif
