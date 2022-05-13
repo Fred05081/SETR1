@@ -44,7 +44,7 @@ int main(void)
     int var2= MyFIFOPeep();
     printf ("elemento mais antigo 2: %d \n",var2);//o elemnto mais antigo passa a ser o 2
     int total= MyFIFOSize();
-    printf ("toal de elementos: %d \n",total); //tem de devolver 2
+    printf ("total de elementos: %d \n",total); //tem de devolver 2
 
 
 	return 0;
