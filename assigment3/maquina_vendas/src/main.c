@@ -45,13 +45,9 @@ Purpose : Generic application start
 
 /* Refer to dts file */
 #define GPIO0_NID DT_NODELABEL(gpio0)
-
-#define BOARDLED1 0xd /* Pin at which LED is connected. Addressing is direct (i.e., pin number) */
-#define BOARDLED2 0xe // pin at which LED is connected.
-#define BOARDLED3 0xf
-#define BOARDLED4 0x10 
 /* Refer to dts file */
-//#define PWM0_NID DT_NODELABEL(pwm0) 
+
+
 #define BOARDBUT1 0xb /* Pin at which BUT1 is connected. Addressing is direct (i.e., pin number) */
 #define BOARDBUT2 0xc
 #define BOARDBUT3 0x18
@@ -61,12 +57,16 @@ Purpose : Generic application start
 #define BOARDBUT7 28
 #define BOARDBUT8 29
 
+
+/* Define states*/ 
 #define State_0 0
 #define credit_return 1
 #define check_credit_available 2
-#define Up 3
-#define Down 4
+#define Next_Product 3
+#define Previous_Product 4
+#define credit_sum 5
 
+/* Define prices of products*/ 
 #define Beer 150
 #define Tuna_sandwich 100
 #define coffee 50
@@ -85,87 +85,64 @@ static struct gpio_callback but7_cb_data; /* Callback structure */
 static struct gpio_callback but8_cb_data; /* Callback structure */
 
 // Variables that determine which button was selected
-volatile int dcToggleFlag1 = 0; /* Flag to signal a BUT1 press */
-volatile int dcToggleFlag2 = 0; /* Flag to signal a BUT1 press */
-volatile int dcToggleFlag3 = 0; /* Flag to signal a BUT1 press */
-volatile int dcToggleFlag4 = 0; /* Flag to signal a BUT1 press */
-volatile int dcToggleFlag5 = 0; /* Flag to signal a BUT1 press */
-volatile int dcToggleFlag6 = 0; /* Flag to signal a BUT1 press */
-volatile int dcToggleFlag7 = 0; /* Flag to signal a BUT1 press */
-volatile int dcToggleFlag8 = 0; /* Flag to signal a BUT1 press */
+volatile int Flag_10_Cent = 0; /* Flag to signal a BUT1 press */
+volatile int Flag_20_Cent = 0; /* Flag to signal a BUT1 press */
+volatile int Flag_50_Cent = 0; /* Flag to signal a BUT1 press */
+volatile int Flag_100_Cent = 0; /* Flag to signal a BUT1 press */
+volatile int Up_Flag = 0; /* Flag to signal a BUT1 press */
+volatile int Down_Flag = 0; /* Flag to signal a BUT1 press */
+volatile int Check_credit_Flag = 0; /* Flag to signal a BUT1 press */
+volatile int Return_Flag = 0; /* Flag to signal a BUT1 press */
 
-volatile int NS = 0;
-volatile int product= 150;
+volatile int NS = 0; /* variable next state*/
+
+volatile int product= 150;/* Product selected by default-- Beer*/
 
 void but1press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {    
-    /* Inform that button was hit*/
-    printk("But1 pressed at %d\n\r", k_cycle_get_32());
-    
     /* Update Flag*/
-    dcToggleFlag1 = 1;
+    Flag_10_Cent = 1;
 }
 
 void but2press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {    
-    /* Inform that button was hit*/
-    printk("But2 pressed at %d\n\r", k_cycle_get_32());
-    
     /* Update Flag*/
-    dcToggleFlag2 = 1;
+    Flag_20_Cent = 1;
 }
 
 void but3press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {    
-    /* Inform that button was hit*/
-    printk("But3 pressed at %d\n\r", k_cycle_get_32());
-    
     /* Update Flag*/
-    dcToggleFlag3 = 1;
+    Flag_50_Cent = 1;
 }
 
 void but4press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {    
-    /* Inform that button was hit*/
-    printk("But4 pressed at %d\n\r", k_cycle_get_32());
-    
     /* Update Flag*/
-    dcToggleFlag4 = 1;
+    Flag_100_Cent = 1;
 }
 void but5press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {    
-    /* Inform that button was hit*/
-    printk("But5 pressed at %d\n\r", k_cycle_get_32());
-    
     /* Update Flag*/
-    dcToggleFlag5 = 1;
+    Up_Flag = 1;
 }
 
 void but6press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {    
-    /* Inform that button was hit*/
-    printk("But6 pressed at %d\n\r", k_cycle_get_32());
-    
     /* Update Flag*/
-    dcToggleFlag6 = 1;
+    Down_Flag = 1;
 }
 
 void but7press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {    
-    /* Inform that button was hit*/
-    printk("But7 pressed at %d\n\r", k_cycle_get_32());
-    
     /* Update Flag*/
-    dcToggleFlag7 = 1;
+    Check_credit_Flag = 1;
 }
 
 void but8press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {    
-    /* Inform that button was hit*/
-    printk("But8 pressed at %d\n\r", k_cycle_get_32());
-    
     /* Update Flag*/
-    dcToggleFlag8 = 1;
+    Return_Flag = 1;  
 }
 
 const struct device *gpio0_dev;         /* Pointer to GPIO device structure */
@@ -174,11 +151,11 @@ const struct device *gpio0_dev;         /* Pointer to GPIO device structure */
 void main(void) {
 
     /* Local vars */    
-    int money=0;
-    int product_Array[3]={150, 100, 50};
+    int money=0; 
     
     /* Bind to GPIO 0 */
     gpio0_dev = device_get_binding(DT_LABEL(GPIO0_NID));
+
     if (gpio0_dev == NULL) {
         printk("Failed to bind to GPIO0\n\r");        
 	return;
@@ -187,61 +164,67 @@ void main(void) {
         printk("Bind to GPIO0 successfull \n\r");        
     }
 
-
-    /* Blink loop */
-    CONFIG_LEDS();
-    CONFIG_BUTTONS();
+    CONF_BUTT();
 
     while(1) {
     
     
     switch  (NS){
-      case (State_0):
 
-        if (dcToggleFlag1==1){
+      case (State_0):
+        if (Flag_10_Cent==1 || Flag_20_Cent==1 || Flag_50_Cent==1|| Flag_100_Cent==1) {
+          NS=credit_sum;
+        }
+        if (Return_Flag==1){
+        NS=credit_return;
+        Return_Flag=0;
+        }
+
+        if(Check_credit_Flag==1){/* select product*/
+        NS= check_credit_available;
+        Check_credit_Flag=0;
+        }
+
+        if(Up_Flag==1){/* select product*/
+        NS= Next_Product;
+        Up_Flag=0;
+        }
+
+        if(Down_Flag==1){/* select product*/
+        NS= Previous_Product;
+        Down_Flag=0;
+        }
+
+        break; 
+/* ________________________________________________________________________ End of case */
+      case(credit_sum):
+      if (Flag_10_Cent==1){
         money=money+10;
-        dcToggleFlag1=0;
+        Flag_10_Cent=0;
         printk("Total Money: %d.%d EUR\n\r",money/100, money%100);
         
         }
         
-        if (dcToggleFlag2==1){
+        if (Flag_20_Cent==1){
         money=money+20;
-        dcToggleFlag2=0;
+        Flag_20_Cent=0;
         printk("Total Money:  %d.%d EUR\n\r",money/100, money%100);
         }
        
-        if (dcToggleFlag3==1){
+        if (Flag_50_Cent==1){
         money=money+50;
-        dcToggleFlag3=0;
+        Flag_50_Cent=0;
         printk("Total Money:  %d.%d EUR\n\r",money/100, money%100);
         }
         
-        if (dcToggleFlag4==1){
+        if (Flag_100_Cent==1){
         money=money+100;
-        dcToggleFlag4=0;
+        Flag_100_Cent=0;
         printk("Total Money: %d.%d EUR\n\r",money/100, money%100);
         }
-        if (dcToggleFlag8==1){
-        NS=credit_return;
-        dcToggleFlag8=0;
-        }
-
-        if(dcToggleFlag7==1){/* select product*/
-        NS= check_credit_available;
-        dcToggleFlag7=0;
-        }
-
-        if(dcToggleFlag5==1){/* select product*/
-        NS= Up;
-        dcToggleFlag5=0;
-        }
-
-        if(dcToggleFlag6==1){/* select product*/
-        NS= Down;
-        dcToggleFlag6=0;
-        }
-        break;
+        NS= State_0;
+      break;
+/* ________________________________________________________________________ End of case */
 
       case (credit_return):
         printk("Credit return: %d.%d EUR\n\r",money/100, money%100);
@@ -249,6 +232,7 @@ void main(void) {
         NS=0;
         printk("Total Money:  %d.%d EUR\n\r",money/100, money%100);
         break;
+/* ________________________________________________________________________ End of case */
 
       case(check_credit_available):
         if (money >= product){
@@ -284,8 +268,9 @@ void main(void) {
           NS= State_0;
           }
         break;
+/* ________________________________________________________________________ End of case */
 
-      case(Up):
+      case(Next_Product):
         printk("\n\r");
         if(product== 150){
           product= 100;
@@ -306,7 +291,9 @@ void main(void) {
           NS=State_0;
         }
         break;
-        case(Down):
+/* ________________________________________________________________________ End of case */
+
+        case(Previous_Product):
           printk("\n\r");
           if(product== 150){
           product= 50;
@@ -327,37 +314,17 @@ void main(void) {
           NS=State_0;
         }
         break;
-
+/* ________________________________________________________________________ End of case */
       default:
         break;
       
       }
-    
-    
-    
-    
-    }                          
-        
-    
-    
+
+    }                               
     return;
 } 
 
-void CONFIG_LEDS()
-{
-    int ret = 0;
-    ret = gpio_pin_configure(gpio0_dev, BOARDLED1, GPIO_OUTPUT_ACTIVE);
-    ret = gpio_pin_configure(gpio0_dev, BOARDLED2, GPIO_OUTPUT_ACTIVE);
-    ret = gpio_pin_configure(gpio0_dev, BOARDLED3, GPIO_OUTPUT_ACTIVE);
-    ret = gpio_pin_configure(gpio0_dev, BOARDLED4, GPIO_OUTPUT_ACTIVE);
-
-    if (ret < 0) {
-        printk("gpio_pin_configure() failed with error %d\n\r", ret);        
-	return;
-    }    
-}
-
-void CONFIG_BUTTONS()
+void CONF_BUTT()
 {
     int ret = 0;
     ret = gpio_pin_configure(gpio0_dev, BOARDBUT1, GPIO_INPUT | GPIO_PULL_UP);
@@ -413,3 +380,4 @@ void CONFIG_BUTTONS()
 
 
 /*************************** End of file ****************************/
+
