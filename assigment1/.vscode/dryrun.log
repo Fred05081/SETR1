@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/sirpedro/Desktop/SETR1/assigment1'
+gcc -g -Wall -O3   -c -o test.o test.c
+gcc -g -Wall -O3 -o test MY_FIFO.o test.o
+make: Leaving directory '/home/sirpedro/Desktop/SETR1/assigment1'
+ 

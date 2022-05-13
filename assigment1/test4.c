@@ -19,9 +19,8 @@
 /**
  * @brief Brief decription of main().
  *
- * Here it goes the long description of main()
- * main has no input arguments.
- * It then prints the result and returns.
+ *Let's insert several values until filling the FIFO and 
+ *then replace it with the last value inserted
  * 
  * @return main() always returns 0
  */

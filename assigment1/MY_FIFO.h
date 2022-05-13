@@ -1,8 +1,8 @@
 /** @file MY_FIFO.h
  * @brief FIFO means First In First Out 
  *
- * Contém as funções necessárias para criar um FIFO assim como adicionar
- * ou remover elementos e saber qual o ultimo elemento.
+ * Contains the functions needed to create a FIFO as well as add
+ * or remove elements and it know what the last element. 
  * @author Frederico Moreira, Ana Sousa, Pedro Rodrigues
  * @date 22 March 2022
  * @bug No known bugs.
@@ -15,8 +15,8 @@
 /**
  * @brief Initialize a FIFO with size <b>tamanho</b>.
  *
- * A função inicializa um FIFO ("Array") com tamanho do argumento de entrada
- * <b>tamanho</b> e não retorna nada 
+ * The function initializes a FIFO ("Array") with input argument size
+ * <b>tamanho</b> and it doesn't return anything
  * Example of usage:
  * @code
  * if (tamanho > MAX_SIZE)
@@ -36,16 +36,16 @@
 }
  * @endcode
  * @param tamanho size of the FIFO.
- * @return Não retorna nada.
+ * @return it doesn't return anything.
  */
 void MyFIFOInit(int tamanho);
 
 /**
  * @brief Insert an element in the FIFO.
  *
- * Esta função adiciona um determinado elemento inserido pelo utilizador na
- * posição certa do FIFO. Tem assim como argumento o elemento a adicionar ao fifo
- * e não retorna nada
+ * This function adds a certain element inserted by the user at the 
+ * rigth position of the FIFO.It also has the element to add to the FIFO as an arguement
+ * and doesn't return anything
  * @code
  * void MyFIFOInsert(int add)
 {   
@@ -72,16 +72,16 @@ void MyFIFOInit(int tamanho);
     
 }
  * @endcode
- * @param add elemento a adicionar ao FIFO.
- * @return Não retorna nada.
+ * @param add element to add to FIFO.
+ * @return it doesn't return anything.
  */
 
 void MyFIFOInsert(int add);
 
 /**
- * @brief remover o ultimo elemento inserido.
- * Esta função remove o elemento mais antigo inserido no FIFO e devolve
- * -1 se o FIFO estiver vazio
+ * @brief remove the last inserted element.
+ * This function removes the oldest element inserted in the FIFO and returns 
+ * -1 if the FIFO is empty
  * @code
  * int MyFIFORemove(void)
 {
@@ -101,12 +101,12 @@ void MyFIFOInsert(int add);
 }
  * @endcode
  * @param No_param No parameters
- * @return retorna -1 se nao existir elementos 
+ * @return return -1 if there is no element 
  */
 int MyFIFORemove(void);
 
 /**
- * @brief Apenas ver o elemento mais antigo do FIFO.
+ * @brief Only see oldest FIFO element.
  * @code
  * 
 int MyFIFOPeep(void)
@@ -118,15 +118,15 @@ int MyFIFOPeep(void)
     return num;
 }
  * @endcode
- * @param NO_args sem argumentos
- * @return Retorna o valor mais antigo do FIFO 
+ * @param NO_args without arguments
+ * @return Return the oldest FIFO value  
  */
 int MyFIFOPeep(void);
 
 /**
- * @brief numero total de elemntos
- *Esta função devovlve o numero total de elentos que o FIFO
-contém no determinado momento e devolve este valor
+ * @brief Total number of elements
+ * This function returns the total numbers that the FIFO
+ * contains at the given time and returns this value
  * @code
  *int MyFIFOSize(void)
 {
@@ -136,9 +136,9 @@ contém no determinado momento e devolve este valor
     return size;
 }
  * @endcode
- * @param no_args nao tem argumentos
+ * @param no_args without arguments
  * @param arg2 Description of the second parameter of the function.
- * @return retorna o numero de elemontos total do FIFO
+ * @return Returns the total number of FIFO elements. 
  */
 int MyFIFOSize(void);
 #endif

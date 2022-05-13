@@ -15,17 +15,17 @@ void \mbox{\hyperlink{MY__FIFO_8h_a25b51a6cb1d28dec13610b21fb737374}{My\+F\+I\+F
 void \mbox{\hyperlink{MY__FIFO_8h_aa3f433abcfc07db50a1aa515582887dd}{My\+F\+I\+F\+O\+Insert}} (int add)
 \begin{DoxyCompactList}\small\item\em Insert an element in the F\+I\+FO. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{MY__FIFO_8h_a6924a70e7f8335133db957b5dbcfe0ce}{My\+F\+I\+F\+O\+Remove}} (void)
-\begin{DoxyCompactList}\small\item\em remover o ultimo elemento inserido. Esta função remove o elemento mais antigo inserido no F\+I\+FO e devolve -\/1 se o F\+I\+FO estiver vazio \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em remove the last inserted element. This function removes the oldest element inserted in the F\+I\+FO and returns -\/1 if the F\+I\+FO is empty \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{MY__FIFO_8h_a81c9e4185df8897dd691b1c201a3a955}{My\+F\+I\+F\+O\+Peep}} (void)
-\begin{DoxyCompactList}\small\item\em Apenas ver o elemento mais antigo do F\+I\+FO. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Only see oldest F\+I\+FO element. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{MY__FIFO_8h_a306ac4924fca6f5dc13bd09c5fda298b}{My\+F\+I\+F\+O\+Size}} (void)
-\begin{DoxyCompactList}\small\item\em numero total de elemntos Esta função devovlve o numero total de elentos que o F\+I\+FO contém no determinado momento e devolve este valor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Total number of elements This function returns the total numbers that the F\+I\+FO contains at the given time and returns this value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 F\+I\+FO means First In First Out. 
 
-Contém as funções necessárias para criar um F\+I\+FO assim como adicionar ou remover elementos e saber qual o ultimo elemento. \begin{DoxyAuthor}{Author}
+Contains the functions needed to create a F\+I\+FO as well as add or remove elements and it know what the last element. \begin{DoxyAuthor}{Author}
 Frederico Moreira, Ana Sousa, Pedro Rodrigues 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
@@ -46,7 +46,7 @@ Frederico Moreira, Ana Sousa, Pedro Rodrigues
 
 Initialize a F\+I\+FO with size {\bfseries{tamanho}}. 
 
-A função inicializa um F\+I\+FO (\char`\"{}\+Array\char`\"{}) com tamanho do argumento de entrada {\bfseries{tamanho}} e não retorna nada Example of usage\+: 
+The function initializes a F\+I\+FO (\char`\"{}\+Array\char`\"{}) with input argument size {\bfseries{tamanho}} and it doesn\textquotesingle{}t return anything Example of usage\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{   \textcolor{keywordflow}{if} (tamanho > \mbox{\hyperlink{MY__FIFO_8c_a0592dba56693fad79136250c11e5a7fe}{MAX\_SIZE}})}
 \DoxyCodeLine{    \{}
@@ -70,7 +70,7 @@ A função inicializa um F\+I\+FO (\char`\"{}\+Array\char`\"{}) com tamanho do a
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Não retorna nada. 
+it doesn\textquotesingle{}t return anything. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{MY__FIFO_8h_aa3f433abcfc07db50a1aa515582887dd}\label{MY__FIFO_8h_aa3f433abcfc07db50a1aa515582887dd}} 
 \index{MY\_FIFO.h@{MY\_FIFO.h}!MyFIFOInsert@{MyFIFOInsert}}
@@ -82,18 +82,40 @@ Não retorna nada.
 
 Insert an element in the F\+I\+FO. 
 
-Esta função adiciona um determinado elemento inserido pelo utilizador na posição certa do F\+I\+FO. Tem assim como argumento o elemento a adicionar ao fifo e não retorna nada 
+This function adds a certain element inserted by the user at the rigth position of the F\+I\+F\+O.\+It also has the element to add to the F\+I\+FO as an arguement and doesn\textquotesingle{}t return anything 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{res = function1(param1, param2);}
-\DoxyCodeLine{printf(\textcolor{stringliteral}{"res=\%d\(\backslash\)n"},res);}
+\DoxyCodeLine{   \textcolor{keywordtype}{void} \mbox{\hyperlink{MY__FIFO_8c_aa3f433abcfc07db50a1aa515582887dd}{MyFIFOInsert}}(\textcolor{keywordtype}{int} add)}
+\DoxyCodeLine{\{   }
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (flag==0)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fifo\_array[head \% size\_T] = add;}
+\DoxyCodeLine{        head++;}
+\DoxyCodeLine{        flag=1;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} ((head \% size\_T) == (tail \% size\_T) )\{}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"the oldest element are removed and inserted a new value\(\backslash\)n"});}
+\DoxyCodeLine{            fifo\_array[head \% size\_T] = add;}
+\DoxyCodeLine{            head++;}
+\DoxyCodeLine{            tail++;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{            fifo\_array[head \% size\_T] = add;}
+\DoxyCodeLine{            head++;}
+\DoxyCodeLine{        \}  }
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    }
+\DoxyCodeLine{\}}
 \end{DoxyCode}
  
 \begin{DoxyParams}{Parameters}
-{\em add} & elemento a adicionar ao F\+I\+FO. \\
+{\em add} & element to add to F\+I\+FO. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Não retorna nada. 
+it doesn\textquotesingle{}t return anything. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{MY__FIFO_8h_a81c9e4185df8897dd691b1c201a3a955}\label{MY__FIFO_8h_a81c9e4185df8897dd691b1c201a3a955}} 
 \index{MY\_FIFO.h@{MY\_FIFO.h}!MyFIFOPeep@{MyFIFOPeep}}
@@ -103,20 +125,27 @@ Não retorna nada.
 
 
 
-Apenas ver o elemento mais antigo do F\+I\+FO. 
+Only see oldest F\+I\+FO element. 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{res = function1(param1, param2);}
-\DoxyCodeLine{printf(\textcolor{stringliteral}{"res=\%d\(\backslash\)n"},res);}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{MY__FIFO_8c_a81c9e4185df8897dd691b1c201a3a955}{MyFIFOPeep}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} num;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    num = fifo\_array[tail \% size\_T];}
+\DoxyCodeLine{    \textcolor{comment}{//printf("O elemento mais antigo é \%d",num);}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} num;}
+\DoxyCodeLine{\}}
 \end{DoxyCode}
  
 \begin{DoxyParams}{Parameters}
-{\em N\+O\+\_\+args} & sem argumentos \\
+{\em N\+O\+\_\+args} & without arguments \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Retorna o valor mais antigo do F\+I\+FO 
+Return the oldest F\+I\+FO value ~\newline
+ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{MY__FIFO_8h_a6924a70e7f8335133db957b5dbcfe0ce}\label{MY__FIFO_8h_a6924a70e7f8335133db957b5dbcfe0ce}} 
 \index{MY\_FIFO.h@{MY\_FIFO.h}!MyFIFORemove@{MyFIFORemove}}
@@ -126,12 +155,26 @@ Retorna o valor mais antigo do F\+I\+FO
 
 
 
-remover o ultimo elemento inserido. Esta função remove o elemento mais antigo inserido no F\+I\+FO e devolve -\/1 se o F\+I\+FO estiver vazio 
+remove the last inserted element. This function removes the oldest element inserted in the F\+I\+FO and returns -\/1 if the F\+I\+FO is empty 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{res = function1(param1, param2);}
-\DoxyCodeLine{printf(\textcolor{stringliteral}{"res=\%d\(\backslash\)n"},res);}
+\DoxyCodeLine{   \textcolor{keywordtype}{int} \mbox{\hyperlink{MY__FIFO_8c_a6924a70e7f8335133db957b5dbcfe0ce}{MyFIFORemove}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} const1=0;}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (tail == head)}
+\DoxyCodeLine{    \{   printf(\textcolor{stringliteral}{"O FIFO está vazio\(\backslash\)n"});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{        }
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{    \{   const1= fifo\_array[tail \% size\_T];}
+\DoxyCodeLine{        fifo\_array[tail \% size\_T] = 0;}
+\DoxyCodeLine{        tail++;}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} const1;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
 \end{DoxyCode}
  
 \begin{DoxyParams}{Parameters}
@@ -139,7 +182,7 @@ remover o ultimo elemento inserido. Esta função remove o elemento mais antigo 
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-retorna -\/1 se nao existir elementos 
+return -\/1 if there is no element 
 \end{DoxyReturn}
 \mbox{\Hypertarget{MY__FIFO_8h_a306ac4924fca6f5dc13bd09c5fda298b}\label{MY__FIFO_8h_a306ac4924fca6f5dc13bd09c5fda298b}} 
 \index{MY\_FIFO.h@{MY\_FIFO.h}!MyFIFOSize@{MyFIFOSize}}
@@ -149,20 +192,25 @@ retorna -\/1 se nao existir elementos
 
 
 
-numero total de elemntos Esta função devovlve o numero total de elentos que o F\+I\+FO contém no determinado momento e devolve este valor 
+Total number of elements This function returns the total numbers that the F\+I\+FO contains at the given time and returns this value. 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{res = function1(param1, param2);}
-\DoxyCodeLine{printf(\textcolor{stringliteral}{"res=\%d\(\backslash\)n"},res);}
+\DoxyCodeLine{ *\textcolor{keywordtype}{int} \mbox{\hyperlink{MY__FIFO_8c_a306ac4924fca6f5dc13bd09c5fda298b}{MyFIFOSize}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{    size = head -\/ tail;}
+\DoxyCodeLine{    \textcolor{comment}{//printf("FIFO Size:  \%d", size);}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{\}}
 \end{DoxyCode}
  
 \begin{DoxyParams}{Parameters}
-{\em no\+\_\+args} & nao tem argumentos \\
+{\em no\+\_\+args} & without arguments \\
 \hline
 {\em arg2} & Description of the second parameter of the function. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-retorna o numero de elemontos total do F\+I\+FO 
+Returns the total number of F\+I\+FO elements. 
 \end{DoxyReturn}
