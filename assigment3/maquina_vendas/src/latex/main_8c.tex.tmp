@@ -1,0 +1,188 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+\mbox{\hyperlink{main_8c}{main.\+c}} Insert a coin to take a product.  
+
+
+{\ttfamily \#include $<$zephyr.\+h$>$}\newline
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include $<$devicetree.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$sys/printk.\+h$>$}\newline
+{\ttfamily \#include $<$sys/\+\_\+\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$timing/timing.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}{G\+P\+I\+O0\+\_\+\+N\+ID}}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(gpio0)
+\begin{DoxyCompactList}\small\item\em Brief decription of main(). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ad3c05b8933cd253785fdd123f6dbfc18}\label{main_8c_ad3c05b8933cd253785fdd123f6dbfc18}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T1}~0xb /$\ast$ Pin at which B\+U\+T1 is connected. Addressing is direct (i.\+e., pin number) $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_a590d906828bd5948fafbef47dc1c3b0c}\label{main_8c_a590d906828bd5948fafbef47dc1c3b0c}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T2}~0xc
+\item 
+\mbox{\Hypertarget{main_8c_a2e82ac21050552495e5a8551178bf258}\label{main_8c_a2e82ac21050552495e5a8551178bf258}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T3}~0x18
+\item 
+\mbox{\Hypertarget{main_8c_abee96e1280405ff973ee2b6b07eec104}\label{main_8c_abee96e1280405ff973ee2b6b07eec104}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T4}~0x19
+\item 
+\mbox{\Hypertarget{main_8c_a6c8f70d52de27690d00e5abc5a9af9a6}\label{main_8c_a6c8f70d52de27690d00e5abc5a9af9a6}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T5}~0x03
+\item 
+\mbox{\Hypertarget{main_8c_af667030807737584d19b445db1eb5e28}\label{main_8c_af667030807737584d19b445db1eb5e28}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T6}~0x04
+\item 
+\mbox{\Hypertarget{main_8c_a802576d7763a8d847c79cca4cad9de7d}\label{main_8c_a802576d7763a8d847c79cca4cad9de7d}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T7}~28
+\item 
+\mbox{\Hypertarget{main_8c_aca5ef79d56764db4312b35a8b5924bee}\label{main_8c_aca5ef79d56764db4312b35a8b5924bee}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T8}~29
+\item 
+\mbox{\Hypertarget{main_8c_a9cb74714db168430a19295c4baa372e6}\label{main_8c_a9cb74714db168430a19295c4baa372e6}} 
+\#define {\bfseries State\+\_\+0}~0
+\item 
+\mbox{\Hypertarget{main_8c_ae2ce23bfaeaca5f8bce164392050bdc7}\label{main_8c_ae2ce23bfaeaca5f8bce164392050bdc7}} 
+\#define {\bfseries credit\+\_\+return}~1
+\item 
+\mbox{\Hypertarget{main_8c_a5c5801b87b381307a6384a9a17628be6}\label{main_8c_a5c5801b87b381307a6384a9a17628be6}} 
+\#define {\bfseries check\+\_\+credit\+\_\+available}~2
+\item 
+\mbox{\Hypertarget{main_8c_a02375be257b31fcb124fc6160a8aa2ff}\label{main_8c_a02375be257b31fcb124fc6160a8aa2ff}} 
+\#define {\bfseries Next\+\_\+\+Product}~3
+\item 
+\mbox{\Hypertarget{main_8c_a4160763c53ad2d47752740681f253eab}\label{main_8c_a4160763c53ad2d47752740681f253eab}} 
+\#define {\bfseries Previous\+\_\+\+Product}~4
+\item 
+\mbox{\Hypertarget{main_8c_ac321bf280c4cd43ca1bcc8e3d96a99d0}\label{main_8c_ac321bf280c4cd43ca1bcc8e3d96a99d0}} 
+\#define {\bfseries credit\+\_\+sum}~5
+\item 
+\mbox{\Hypertarget{main_8c_a4030cd86b7cf59ed6bdb2eea60acf63c}\label{main_8c_a4030cd86b7cf59ed6bdb2eea60acf63c}} 
+\#define {\bfseries Beer}~150
+\item 
+\mbox{\Hypertarget{main_8c_aa5da9240f1722262e8edd1ab56a7c5f4}\label{main_8c_aa5da9240f1722262e8edd1ab56a7c5f4}} 
+\#define {\bfseries Tuna\+\_\+sandwich}~100
+\item 
+\mbox{\Hypertarget{main_8c_a0b661ea455bfccc1ae76d84987d6bd88}\label{main_8c_a0b661ea455bfccc1ae76d84987d6bd88}} 
+\#define {\bfseries coffee}~50
+\item 
+\mbox{\Hypertarget{main_8c_a088e8004fb90eb4bd0f0880ddc89c97d}\label{main_8c_a088e8004fb90eb4bd0f0880ddc89c97d}} 
+\#define {\bfseries B\+L\+I\+N\+K\+P\+E\+R\+I\+O\+D\+\_\+\+MS}~500 /$\ast$ Blink period in ms$\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}\label{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}} 
+void {\bfseries but1press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+\mbox{\Hypertarget{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}\label{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}} 
+void {\bfseries but2press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+\mbox{\Hypertarget{main_8c_a36024e853b8d234c3c045c4e30327e57}\label{main_8c_a36024e853b8d234c3c045c4e30327e57}} 
+void {\bfseries but3press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+\mbox{\Hypertarget{main_8c_ad98aaf56309e1b0b996d247f18b73b0e}\label{main_8c_ad98aaf56309e1b0b996d247f18b73b0e}} 
+void {\bfseries but4press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+\mbox{\Hypertarget{main_8c_af65ae74d31255b4cd88275ba69509fe8}\label{main_8c_af65ae74d31255b4cd88275ba69509fe8}} 
+void {\bfseries but5press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+\mbox{\Hypertarget{main_8c_a60249504a7a106611160a79c30562efc}\label{main_8c_a60249504a7a106611160a79c30562efc}} 
+void {\bfseries but6press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+\mbox{\Hypertarget{main_8c_a3e91e7f1248de58955db50abc9e35057}\label{main_8c_a3e91e7f1248de58955db50abc9e35057}} 
+void {\bfseries but7press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+\mbox{\Hypertarget{main_8c_a57d7bc8fdd0e9b6e09d6a7b7e0dc2635}\label{main_8c_a57d7bc8fdd0e9b6e09d6a7b7e0dc2635}} 
+void {\bfseries but8press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+\mbox{\Hypertarget{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\label{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}} 
+void {\bfseries main} (void)
+\item 
+\mbox{\Hypertarget{main_8c_aee163f269809b3653f59fa6dd25fd0c2}\label{main_8c_aee163f269809b3653f59fa6dd25fd0c2}} 
+void {\bfseries C\+O\+N\+F\+\_\+\+B\+U\+TT} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a46ce432e4bdc9c66d802c1a7815cc6a2}\label{main_8c_a46ce432e4bdc9c66d802c1a7815cc6a2}} 
+volatile int {\bfseries Flag\+\_\+10\+\_\+\+Cent} = 0
+\item 
+\mbox{\Hypertarget{main_8c_ad6b3687703d4431c2ac93bb549ae90a0}\label{main_8c_ad6b3687703d4431c2ac93bb549ae90a0}} 
+volatile int {\bfseries Flag\+\_\+20\+\_\+\+Cent} = 0
+\item 
+\mbox{\Hypertarget{main_8c_afc7aa47973a3adc7fa1cdda6d18f2fd2}\label{main_8c_afc7aa47973a3adc7fa1cdda6d18f2fd2}} 
+volatile int {\bfseries Flag\+\_\+50\+\_\+\+Cent} = 0
+\item 
+\mbox{\Hypertarget{main_8c_ac775a269af8300101990e1a8c62205b6}\label{main_8c_ac775a269af8300101990e1a8c62205b6}} 
+volatile int {\bfseries Flag\+\_\+100\+\_\+\+Cent} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a235f10c9675ff32492e8b7d97faffa45}\label{main_8c_a235f10c9675ff32492e8b7d97faffa45}} 
+volatile int {\bfseries Up\+\_\+\+Flag} = 0
+\item 
+\mbox{\Hypertarget{main_8c_ae73df4c8c1d61dda71cae4d184ea857b}\label{main_8c_ae73df4c8c1d61dda71cae4d184ea857b}} 
+volatile int {\bfseries Down\+\_\+\+Flag} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a73d1f6a9a26d12d619afba8f81fe7921}\label{main_8c_a73d1f6a9a26d12d619afba8f81fe7921}} 
+volatile int {\bfseries Check\+\_\+credit\+\_\+\+Flag} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a64c15726729394d82e3f61d82bb45e17}\label{main_8c_a64c15726729394d82e3f61d82bb45e17}} 
+volatile int {\bfseries Return\+\_\+\+Flag} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a437bb7c1ce2e0db288ad85d8d5822d83}\label{main_8c_a437bb7c1ce2e0db288ad85d8d5822d83}} 
+volatile int {\bfseries NS} = 0
+\item 
+\mbox{\Hypertarget{main_8c_afed8acb01706b4869391e9a64941043a}\label{main_8c_afed8acb01706b4869391e9a64941043a}} 
+volatile int {\bfseries product} = 150
+\item 
+\mbox{\Hypertarget{main_8c_ac8529dec83e91f71d383fb84302cfb27}\label{main_8c_ac8529dec83e91f71d383fb84302cfb27}} 
+const struct device $\ast$ {\bfseries gpio0\+\_\+dev}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{main_8c}{main.\+c}} Insert a coin to take a product. 
+
+In this script we have a vending machine, which when we insert a coin we adding a credit the machine. We have the possibility to choose three product\+: beer, coffee and tuna sandwich. If we have available credict we can buy one of these products and if we choose a product and we stay available credit, we can continue to choose more products. We can too add more coins if necessary. For return the available credit, we can click the return button and the credit is return.
+
+\begin{DoxyAuthor}{Author}
+Ana Sousa, Frederico Moreira, Pedro Rodrigues 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+22 March 2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}\label{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}} 
+\index{main.c@{main.c}!GPIO0\_NID@{GPIO0\_NID}}
+\index{GPIO0\_NID@{GPIO0\_NID}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{GPIO0\_NID}{GPIO0\_NID}}
+{\footnotesize\ttfamily \#define G\+P\+I\+O0\+\_\+\+N\+ID~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(gpio0)}
+
+
+
+Brief decription of main(). 
+
+Main has no input arguments. Our system have eight buttons\+: the button 1 is the 10 cents; the button 2 is the 20 cents; the button 3 is the 50 cents and the button 4 is the 1 eur; the button 5 is the up, the button 6 is the down; the button 7 is the selected product and the button 8 is the return credit.
+
+If we insert a 10 cent coin, we are left with a 10 cent credit; if we add a 20 cent coin, we add 20 cent to the previous credit, that is, we are left with 30 cent and so on.
+
+In the up(5)/down(6) buttons, we can select the desired product; where in the terminal we can see the previous, selected and next product.
+
+If credit is available, it is possible to select and take the desired product. The available credit will be the previously available credit minus the product price.
+
+We can insert the coins and if we don\textquotesingle{}t want to select any product, we can do the return to get the money inserted. When we select a product and we still have credit available, we can return the change.
+
+\begin{DoxyReturn}{Returns}
+main() always returns 0 
+\end{DoxyReturn}
