@@ -3,5 +3,42 @@
 \contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
 \contentsline {chapter}{\numberline {3}File Documentation}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{5}{section.3.1}%
-\contentsline {chapter}{Index}{7}{section*.1}%
+\contentsline {section}{\numberline {3.1}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Make\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lists.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}txt File Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Function Documentation}{5}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}cmake\_minimum\_required()}{5}{subsubsection.3.1.1.1}%
+\contentsline {section}{\numberline {3.2}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{5}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Function Documentation}{6}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}but1press\_cbfunction()}{6}{subsubsection.3.2.1.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.2}but2press\_cbfunction()}{6}{subsubsection.3.2.1.2}%
+\contentsline {subsubsection}{\numberline {3.2.1.3}but3press\_cbfunction()}{7}{subsubsection.3.2.1.3}%
+\contentsline {subsubsection}{\numberline {3.2.1.4}but4press\_cbfunction()}{7}{subsubsection.3.2.1.4}%
+\contentsline {subsubsection}{\numberline {3.2.1.5}but5press\_cbfunction()}{8}{subsubsection.3.2.1.5}%
+\contentsline {subsubsection}{\numberline {3.2.1.6}but6press\_cbfunction()}{8}{subsubsection.3.2.1.6}%
+\contentsline {subsubsection}{\numberline {3.2.1.7}but7press\_cbfunction()}{9}{subsubsection.3.2.1.7}%
+\contentsline {subsubsection}{\numberline {3.2.1.8}but8press\_cbfunction()}{9}{subsubsection.3.2.1.8}%
+\contentsline {subsubsection}{\numberline {3.2.1.9}CONF\_BUTT()}{9}{subsubsection.3.2.1.9}%
+\contentsline {subsubsection}{\numberline {3.2.1.10}main()}{10}{subsubsection.3.2.1.10}%
+\contentsline {subsection}{\numberline {3.2.2}Variable Documentation}{10}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}Check\_credit\_Flag}{10}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}Down\_Flag}{10}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}Flag\_100\_Cent}{10}{subsubsection.3.2.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.2.4}Flag\_10\_Cent}{11}{subsubsection.3.2.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.2.5}Flag\_20\_Cent}{11}{subsubsection.3.2.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.2.6}Flag\_50\_Cent}{11}{subsubsection.3.2.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.2.7}gpio0\_dev}{11}{subsubsection.3.2.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.2.8}NS}{11}{subsubsection.3.2.2.8}%
+\contentsline {subsubsection}{\numberline {3.2.2.9}product}{11}{subsubsection.3.2.2.9}%
+\contentsline {subsubsection}{\numberline {3.2.2.10}Return\_Flag}{11}{subsubsection.3.2.2.10}%
+\contentsline {subsubsection}{\numberline {3.2.2.11}Up\_Flag}{11}{subsubsection.3.2.2.11}%
+\contentsline {section}{\numberline {3.3}vending\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}machine.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{12}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{12}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Function Documentation}{12}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}but1press\_cbfunction()}{12}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}but2press\_cbfunction()}{13}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}but3press\_cbfunction()}{13}{subsubsection.3.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.3.2.4}but4press\_cbfunction()}{14}{subsubsection.3.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.3.2.5}but5press\_cbfunction()}{14}{subsubsection.3.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.3.2.6}but6press\_cbfunction()}{15}{subsubsection.3.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.3.2.7}but7press\_cbfunction()}{15}{subsubsection.3.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.3.2.8}but8press\_cbfunction()}{15}{subsubsection.3.3.2.8}%
+\contentsline {chapter}{Index}{17}{section*.5}%
