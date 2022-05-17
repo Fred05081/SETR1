@@ -8,29 +8,6 @@
 File    : main.c
 Purpose : Generic application start
 
-*/
-/*
- * Paulo Pedreiras, 2022/02
- * Simple Digital Output example
- * 
- * Toggles periodically LED1, which is internally connected to P0.13 
- *
- * Base documentation:
- *        
- *      HW info:
- *          https://infocenter.nordicsemi.com/topic/struct_nrf52/struct/nrf52840.html
- *          Section: nRF52840 Product Specification -> Peripherals -> GPIO / GPIOTE
- * 
- *          Board specific HW info can be found in the nRF52840_DK_User_Guide_20201203. I/O pins available at pg 27
- *
- *      Peripherals:
- *          https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/reference/peripherals/gpio.html 
- * 
- * 
- */
-
-
-  
 /** @file main.c
  * @brief main.c Insert a coin to take a product.
  *
@@ -60,31 +37,7 @@ Purpose : Generic application start
 #include <stdlib.h>
 #include <string.h>
 
-/**
- * @brief Brief decription of main().
- *
- * 
- * Main has no input arguments.
- * Our system have eight buttons: the button 1 is the 10 cents;
- * the button 2 is the 20 cents;
- * the button 3 is the 50 cents and the button 4 is the 1 eur;
- *  the button 5 is the up, the button 6 is the down;
- * the button 7 is the selected product and the button 8 is the return credit.
- * 
- * If we insert a 10 cent coin, we are left with a 10 cent credit; 
- * if we add a 20 cent coin, we add 20 cent to the previous credit, that is, we are left with 30 cent and so on.
- *
- * In the up(5)/down(6) buttons, we can select the desired product;
- * where in the terminal we can see the previous, selected and next product.
- * 
- * If credit is available, it is possible to select and take the desired product. 
- * The available credit will be the previously available credit minus the product price.
- * 
- * We can insert the coins and if we don't want to select any product, we can do the return to get the money inserted. 
- * When we select a product and we still have credit available, we can return the change.
-  
- * @return main() always returns 0
- */
+
 
 /* Refer to dts file */
 #define GPIO0_NID DT_NODELABEL(gpio0)
@@ -190,7 +143,33 @@ void but8press_cbfunction(const struct device *dev, struct gpio_callback *cb, ui
 
 const struct device *gpio0_dev;         /* Pointer to GPIO device structure */
 
+
 /* Main function */
+/**
+ * @brief Brief decription of main().
+ *
+ * 
+ * Main has no input arguments.
+ * Our system have eight buttons: the button 1 is the 10 cents;
+ * the button 2 is the 20 cents;
+ * the button 3 is the 50 cents and the button 4 is the 1 eur;
+ *  the button 5 is the up, the button 6 is the down;
+ * the button 7 is the selected product and the button 8 is the return credit.
+ * 
+ * If we insert a 10 cent coin, we are left with a 10 cent credit; 
+ * if we add a 20 cent coin, we add 20 cent to the previous credit, that is, we are left with 30 cent and so on.
+ *
+ * In the up(5)/down(6) buttons, we can select the desired product;
+ * where in the terminal we can see the previous, selected and next product.
+ * 
+ * If credit is available, it is possible to select and take the desired product. 
+ * The available credit will be the previously available credit minus the product price.
+ * 
+ * We can insert the coins and if we don't want to select any product, we can do the return to get the money inserted. 
+ * When we select a product and we still have credit available, we can return the change.
+  
+ * @return main() always returns 0
+ */
 void main(void) {
 
     /* Local vars */    
