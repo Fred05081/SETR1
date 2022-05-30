@@ -36,16 +36,17 @@ void MyFIFOInsert(int add)
     }
     else{
 
-        if ((head % size_T) == (tail % size_T) ){
-            printf("the oldest element are removed and inserted a new value\n");
-            fifo_array[head % size_T] = add;
-            head++;
-            tail++;
-        }
-        else{
-            fifo_array[head % size_T] = add;
-            head++;
-        }  
+      if ((head % size_T) == (tail % size_T) ){
+        printf("the oldest element are removed and inserted a new value\n");
+        fifo_array[head % size_T] = add;
+        head++;
+        tail++;
+    }
+    else{
+    fifo_array[head % size_T] = add;
+    head++;
+
+    }  
     }
     
     

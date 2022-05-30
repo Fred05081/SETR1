@@ -1,0 +1,119 @@
+\begin{theindex}
+
+  \item {but1press\_cbfunction}
+    \subitem {main.c}, \hyperpage{6}
+    \subitem {vending\_machine.h}, \hyperpage{12}
+  \item {but2press\_cbfunction}
+    \subitem {main.c}, \hyperpage{6}
+    \subitem {vending\_machine.h}, \hyperpage{13}
+  \item {but3press\_cbfunction}
+    \subitem {main.c}, \hyperpage{7}
+    \subitem {vending\_machine.h}, \hyperpage{13}
+  \item {but4press\_cbfunction}
+    \subitem {main.c}, \hyperpage{7}
+    \subitem {vending\_machine.h}, \hyperpage{14}
+  \item {but5press\_cbfunction}
+    \subitem {main.c}, \hyperpage{8}
+    \subitem {vending\_machine.h}, \hyperpage{14}
+  \item {but6press\_cbfunction}
+    \subitem {main.c}, \hyperpage{8}
+    \subitem {vending\_machine.h}, \hyperpage{14}
+  \item {but7press\_cbfunction}
+    \subitem {main.c}, \hyperpage{8}
+    \subitem {vending\_machine.h}, \hyperpage{15}
+  \item {but8press\_cbfunction}
+    \subitem {main.c}, \hyperpage{9}
+    \subitem {vending\_machine.h}, \hyperpage{15}
+
+  \indexspace
+
+  \item {Check\_credit\_Flag}
+    \subitem {main.c}, \hyperpage{10}
+  \item {cmake\_minimum\_required}
+    \subitem {CMakeLists.txt}, \hyperpage{5}
+  \item {CMakeLists.txt}, \hyperpage{5}
+    \subitem {cmake\_minimum\_required}, \hyperpage{5}
+  \item {CONF\_BUTT}
+    \subitem {main.c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Down\_Flag}
+    \subitem {main.c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {Flag\_100\_Cent}
+    \subitem {main.c}, \hyperpage{10}
+  \item {Flag\_10\_Cent}
+    \subitem {main.c}, \hyperpage{10}
+  \item {Flag\_20\_Cent}
+    \subitem {main.c}, \hyperpage{11}
+  \item {Flag\_50\_Cent}
+    \subitem {main.c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {gpio0\_dev}
+    \subitem {main.c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{9}
+  \item {main.c}, \hyperpage{5}
+    \subitem {but1press\_cbfunction}, \hyperpage{6}
+    \subitem {but2press\_cbfunction}, \hyperpage{6}
+    \subitem {but3press\_cbfunction}, \hyperpage{7}
+    \subitem {but4press\_cbfunction}, \hyperpage{7}
+    \subitem {but5press\_cbfunction}, \hyperpage{8}
+    \subitem {but6press\_cbfunction}, \hyperpage{8}
+    \subitem {but7press\_cbfunction}, \hyperpage{8}
+    \subitem {but8press\_cbfunction}, \hyperpage{9}
+    \subitem {Check\_credit\_Flag}, \hyperpage{10}
+    \subitem {CONF\_BUTT}, \hyperpage{9}
+    \subitem {Down\_Flag}, \hyperpage{10}
+    \subitem {Flag\_100\_Cent}, \hyperpage{10}
+    \subitem {Flag\_10\_Cent}, \hyperpage{10}
+    \subitem {Flag\_20\_Cent}, \hyperpage{11}
+    \subitem {Flag\_50\_Cent}, \hyperpage{11}
+    \subitem {gpio0\_dev}, \hyperpage{11}
+    \subitem {main}, \hyperpage{9}
+    \subitem {NS}, \hyperpage{11}
+    \subitem {product}, \hyperpage{11}
+    \subitem {Return\_Flag}, \hyperpage{11}
+    \subitem {Up\_Flag}, \hyperpage{11}
+
+  \indexspace
+
+  \item {NS}
+    \subitem {main.c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {product}
+    \subitem {main.c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {Return\_Flag}
+    \subitem {main.c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {Up\_Flag}
+    \subitem {main.c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {vending\_machine.h}, \hyperpage{12}
+    \subitem {but1press\_cbfunction}, \hyperpage{12}
+    \subitem {but2press\_cbfunction}, \hyperpage{13}
+    \subitem {but3press\_cbfunction}, \hyperpage{13}
+    \subitem {but4press\_cbfunction}, \hyperpage{14}
+    \subitem {but5press\_cbfunction}, \hyperpage{14}
+    \subitem {but6press\_cbfunction}, \hyperpage{14}
+    \subitem {but7press\_cbfunction}, \hyperpage{15}
+    \subitem {but8press\_cbfunction}, \hyperpage{15}
+
+\end{theindex}

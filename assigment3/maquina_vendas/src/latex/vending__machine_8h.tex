@@ -1,0 +1,247 @@
+\hypertarget{vending__machine_8h}{}\doxysection{vending\+\_\+machine.\+h File Reference}
+\label{vending__machine_8h}\index{vending\_machine.h@{vending\_machine.h}}
+
+
+The vending machine accepts a subset of coins and allows the user to browse available products, buy one product and return the credit.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{vending__machine_8h_ae7d90a3db3be4d74a95d59cb9bc36764}{but1press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em If button 1 is pressed, activate the 10 cents flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vending__machine_8h_ad5a577fea0419d075e8b4de7c1416f9b}{but2press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em If button 2 is pressed, activate the 20 cents flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vending__machine_8h_a36024e853b8d234c3c045c4e30327e57}{but3press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em If button 3 is pressed, activate the 50 cents flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vending__machine_8h_ad98aaf56309e1b0b996d247f18b73b0e}{but4press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em If button 4 is pressed, activate the 1 eur flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vending__machine_8h_af65ae74d31255b4cd88275ba69509fe8}{but5press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em If button 5 is pressed, activate the Up flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vending__machine_8h_a60249504a7a106611160a79c30562efc}{but6press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em If button 6 is pressed, activate the Down flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vending__machine_8h_a3e91e7f1248de58955db50abc9e35057}{but7press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em If button 7 is pressed, activate the check\+\_\+credit\+\_\+flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vending__machine_8h_a57d7bc8fdd0e9b6e09d6a7b7e0dc2635}{but8press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em If button 8 is pressed, activate the return flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The vending machine accepts a subset of coins and allows the user to browse available products, buy one product and return the credit. 
+
+Contains the functions needed to create a vending machine. \begin{DoxyAuthor}{Author}
+Frederico Moreira, Ana Sousa, Pedro Rodrigues 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+17 May 2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]No known bugs.\end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vending__machine_8h_ae7d90a3db3be4d74a95d59cb9bc36764}\label{vending__machine_8h_ae7d90a3db3be4d74a95d59cb9bc36764}} 
+\index{vending\_machine.h@{vending\_machine.h}!but1press\_cbfunction@{but1press\_cbfunction}}
+\index{but1press\_cbfunction@{but1press\_cbfunction}!vending\_machine.h@{vending\_machine.h}}
+\doxysubsubsection{\texorpdfstring{but1press\_cbfunction()}{but1press\_cbfunction()}}
+{\footnotesize\ttfamily void but1press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+If button 1 is pressed, activate the 10 cents flag. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}{but1press\_cbfunction}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} device *dev, \textcolor{keyword}{struct} gpio\_callback *cb, uint32\_t pins)}
+\DoxyCodeLine{\{    }
+\DoxyCodeLine{   \mbox{\hyperlink{main_8c_a46ce432e4bdc9c66d802c1a7815cc6a2}{Flag\_10\_Cent}} = 1;}
+\DoxyCodeLine{ \}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vending__machine_8h_ad5a577fea0419d075e8b4de7c1416f9b}\label{vending__machine_8h_ad5a577fea0419d075e8b4de7c1416f9b}} 
+\index{vending\_machine.h@{vending\_machine.h}!but2press\_cbfunction@{but2press\_cbfunction}}
+\index{but2press\_cbfunction@{but2press\_cbfunction}!vending\_machine.h@{vending\_machine.h}}
+\doxysubsubsection{\texorpdfstring{but2press\_cbfunction()}{but2press\_cbfunction()}}
+{\footnotesize\ttfamily void but2press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+If button 2 is pressed, activate the 20 cents flag. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}{but2press\_cbfunction}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} device *dev, \textcolor{keyword}{struct} gpio\_callback *cb, uint32\_t pins)}
+\DoxyCodeLine{\{    }
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_ad6b3687703d4431c2ac93bb549ae90a0}{Flag\_20\_Cent}} = 1;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vending__machine_8h_a36024e853b8d234c3c045c4e30327e57}\label{vending__machine_8h_a36024e853b8d234c3c045c4e30327e57}} 
+\index{vending\_machine.h@{vending\_machine.h}!but3press\_cbfunction@{but3press\_cbfunction}}
+\index{but3press\_cbfunction@{but3press\_cbfunction}!vending\_machine.h@{vending\_machine.h}}
+\doxysubsubsection{\texorpdfstring{but3press\_cbfunction()}{but3press\_cbfunction()}}
+{\footnotesize\ttfamily void but3press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+If button 3 is pressed, activate the 50 cents flag. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_a36024e853b8d234c3c045c4e30327e57}{but3press\_cbfunction}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} device *dev, \textcolor{keyword}{struct} gpio\_callback *cb, uint32\_t pins)}
+\DoxyCodeLine{ \{    }
+\DoxyCodeLine{ \mbox{\hyperlink{main_8c_afc7aa47973a3adc7fa1cdda6d18f2fd2}{Flag\_50\_Cent}} = 1;}
+\DoxyCodeLine{ \}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vending__machine_8h_ad98aaf56309e1b0b996d247f18b73b0e}\label{vending__machine_8h_ad98aaf56309e1b0b996d247f18b73b0e}} 
+\index{vending\_machine.h@{vending\_machine.h}!but4press\_cbfunction@{but4press\_cbfunction}}
+\index{but4press\_cbfunction@{but4press\_cbfunction}!vending\_machine.h@{vending\_machine.h}}
+\doxysubsubsection{\texorpdfstring{but4press\_cbfunction()}{but4press\_cbfunction()}}
+{\footnotesize\ttfamily void but4press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+If button 4 is pressed, activate the 1 eur flag. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_ad98aaf56309e1b0b996d247f18b73b0e}{but4press\_cbfunction}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} device *dev, \textcolor{keyword}{struct} gpio\_callback *cb, uint32\_t pins)}
+\DoxyCodeLine{\{    }
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_ac775a269af8300101990e1a8c62205b6}{Flag\_100\_Cent}} = 1;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vending__machine_8h_af65ae74d31255b4cd88275ba69509fe8}\label{vending__machine_8h_af65ae74d31255b4cd88275ba69509fe8}} 
+\index{vending\_machine.h@{vending\_machine.h}!but5press\_cbfunction@{but5press\_cbfunction}}
+\index{but5press\_cbfunction@{but5press\_cbfunction}!vending\_machine.h@{vending\_machine.h}}
+\doxysubsubsection{\texorpdfstring{but5press\_cbfunction()}{but5press\_cbfunction()}}
+{\footnotesize\ttfamily void but5press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+If button 5 is pressed, activate the Up flag. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ *\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_af65ae74d31255b4cd88275ba69509fe8}{but5press\_cbfunction}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} device *dev, \textcolor{keyword}{struct} gpio\_callback *cb, uint32\_t pins)}
+\DoxyCodeLine{\{    }
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_a235f10c9675ff32492e8b7d97faffa45}{Up\_Flag}} = 1;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg3} & const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vending__machine_8h_a60249504a7a106611160a79c30562efc}\label{vending__machine_8h_a60249504a7a106611160a79c30562efc}} 
+\index{vending\_machine.h@{vending\_machine.h}!but6press\_cbfunction@{but6press\_cbfunction}}
+\index{but6press\_cbfunction@{but6press\_cbfunction}!vending\_machine.h@{vending\_machine.h}}
+\doxysubsubsection{\texorpdfstring{but6press\_cbfunction()}{but6press\_cbfunction()}}
+{\footnotesize\ttfamily void but6press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+If button 6 is pressed, activate the Down flag. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ *\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_a60249504a7a106611160a79c30562efc}{but6press\_cbfunction}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} device *dev, \textcolor{keyword}{struct} gpio\_callback *cb, uint32\_t pins)}
+\DoxyCodeLine{\{    }
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_ae73df4c8c1d61dda71cae4d184ea857b}{Down\_Flag}} = 1;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vending__machine_8h_a3e91e7f1248de58955db50abc9e35057}\label{vending__machine_8h_a3e91e7f1248de58955db50abc9e35057}} 
+\index{vending\_machine.h@{vending\_machine.h}!but7press\_cbfunction@{but7press\_cbfunction}}
+\index{but7press\_cbfunction@{but7press\_cbfunction}!vending\_machine.h@{vending\_machine.h}}
+\doxysubsubsection{\texorpdfstring{but7press\_cbfunction()}{but7press\_cbfunction()}}
+{\footnotesize\ttfamily void but7press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+If button 7 is pressed, activate the check\+\_\+credit\+\_\+flag. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ *\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_a3e91e7f1248de58955db50abc9e35057}{but7press\_cbfunction}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} device *dev, \textcolor{keyword}{struct} gpio\_callback *cb, uint32\_t pins)}
+\DoxyCodeLine{\{    }
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_a73d1f6a9a26d12d619afba8f81fe7921}{Check\_credit\_Flag}} = 1;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vending__machine_8h_a57d7bc8fdd0e9b6e09d6a7b7e0dc2635}\label{vending__machine_8h_a57d7bc8fdd0e9b6e09d6a7b7e0dc2635}} 
+\index{vending\_machine.h@{vending\_machine.h}!but8press\_cbfunction@{but8press\_cbfunction}}
+\index{but8press\_cbfunction@{but8press\_cbfunction}!vending\_machine.h@{vending\_machine.h}}
+\doxysubsubsection{\texorpdfstring{but8press\_cbfunction()}{but8press\_cbfunction()}}
+{\footnotesize\ttfamily void but8press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+If button 8 is pressed, activate the return flag. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ *\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_a57d7bc8fdd0e9b6e09d6a7b7e0dc2635}{but8press\_cbfunction}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} device *dev, \textcolor{keyword}{struct} gpio\_callback *cb, uint32\_t pins)}
+\DoxyCodeLine{\{    }
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_a64c15726729394d82e3f61d82bb45e17}{Return\_Flag}} = 1;  }
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
