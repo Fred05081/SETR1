@@ -24,7 +24,7 @@
 #define thread_C_prio 1
 
 /** Therad periodicity (in ms)*/
-#define SAMP_PERIOD_MS 100       /** Set to have the same period as the PWM, 1ms*/
+#define thread_A_period 100       /** Set to have the same period as the PWM, 1ms*/
 
 /** ADC definitions and includes*/
 #include <hal/nrf_saadc.h>
@@ -147,7 +147,7 @@ void thread_A_code(void *argA , void *argB, void *argC)
     printk("Thread A init (periodic)\n");
 
     /** Compute next release instant */
-    release_time = k_uptime_get() + SAMP_PERIOD_MS;
+    release_time = k_uptime_get() + thread_A_period;
 
     /** ADC setup: bind and initialize */
     adc_dev = device_get_binding(DT_LABEL(ADC_NID));
@@ -188,7 +188,7 @@ void thread_A_code(void *argA , void *argB, void *argC)
         fin_time = k_uptime_get();
         if( fin_time < release_time) {        
             k_msleep(release_time - fin_time);            
-            release_time += SAMP_PERIOD_MS;
+            release_time += thread_A_period;
         }
     }
 }
