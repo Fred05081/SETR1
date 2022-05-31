@@ -228,9 +228,12 @@ void thread_B_code(void *argA , void *argB, void *argC)
         data_ab = k_fifo_get(&fifo_ab, K_FOREVER);
       
  
+        for(int k=len_dados-1; k>0;k--){
+        
+        Array_dados[k]= Array_dados[k-1];
+        }
         Array_dados[0]=data_ab->data ;
-        Array_dados[(k+1)%10]= Array_dados[(k)%10];
-        k=k+1;
+        
   
        
        for(int i = 0; i < len_dados; i++){
@@ -254,7 +257,7 @@ void thread_B_code(void *argA , void *argB, void *argC)
         else 
             media_filtered = 0;
 
-        data_bc.data=media;
+        data_bc.data=media_filtered;
         k_fifo_put(&fifo_bc, &data_bc);
         printk("Thread B set fifo bc value to: %d \n",data_bc.data);     
                

@@ -33,7 +33,7 @@
 #define thread_C_prio 1
 
 /** Therad periodicity (in ms)*/
-#define thread_A_period 100       /** Set to have the same period as the PWM, 1ms*/
+#define thread_A_period 1000       /** Set to have the same period as the PWM, 1ms*/
 
 /** ADC definitions and includes*/
 #include <hal/nrf_saadc.h>
@@ -215,10 +215,13 @@ void thread_B_code(void *argA , void *argB, void *argC)
         
         printk("Task B read ab value: %d\n",ab);
 
-        Array_dados[0]= ab;
-        Array_dados[(k+1)%10]= Array_dados[(k)%10];
-        k=k+1;
+        for(int k=len_dados-1; k>0;k--){
         
+        Array_dados[k]= Array_dados[k-1];
+        }
+        Array_dados[0]= ab;
+        
+        /*printk("0: %d 1: %d 3: %d 4: %d 5: %d 6: %d 7: %d 8: %d 09: %d /n/r",Array_dados[0],Array_dados[1],Array_dados[2],Array_dados[3],Array_dados[4],Array_dados[5],Array_dados[6],Array_dados[7],Array_dados[8],Array_dados[9]);*/
        
        for(int i = 0; i < len_dados; i++){
             if(Array_dados[i] != 0){
@@ -244,7 +247,7 @@ void thread_B_code(void *argA , void *argB, void *argC)
         else 
             media_filtered = 0;
 
-        bc=media;
+        bc=media_filtered;
         printk("Thread B set bc value to: %d\n",bc);  
         k_sem_give(&sem_bc);        
   }
