@@ -1,0 +1,338 @@
+\hypertarget{fifo_8h}{}\doxysection{fifo.\+h File Reference}
+\label{fifo_8h}\index{fifo.h@{fifo.h}}
+
+
+The system to implement does a basic processing of an analog signal. It reads the input voltage from an analog sensor, digitally filters the signal and outputs it using a fifo.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fifo_8h_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Main funtion\+: Initialize semaphores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fifo_8h_a61675a61bbec86901b2fe28f008e881c}{thread\+\_\+\+A\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Read the adc value and save it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fifo_8h_a99cef2c8673e9c73162dd97f0247ca8e}{thread\+\_\+\+B\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em calculates the average of 10 values read from the adc and if the value is outside 10\% it is rejected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fifo_8h_a6eec62f04743b40b6d744ecd2f31cdd2}{thread\+\_\+\+C\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A$\ast$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The system to implement does a basic processing of an analog signal. It reads the input voltage from an analog sensor, digitally filters the signal and outputs it using a fifo. 
+
+Contains the functions needed to process the analog signal \begin{DoxyAuthor}{Author}
+Frederico Moreira, Ana Sousa, Pedro Rodrigues 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+31 May 2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]No known bugs.\end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fifo_8h_a6288eba0f8e8ad3ab1544ad731eb7667}\label{fifo_8h_a6288eba0f8e8ad3ab1544ad731eb7667}} 
+\index{fifo.h@{fifo.h}!main@{main}}
+\index{main@{main}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main funtion\+: Initialize semaphores. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    printk(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)r IPC via FIFO example \(\backslash\)n\(\backslash\)r"});}
+\DoxyCodeLine{    }
+\DoxyCodeLine{  }
+\DoxyCodeLine{    k\_fifo\_init(\&\mbox{\hyperlink{main_8c_a765c9457bf0544d4ee26a355ff1116e3}{fifo\_ab}});}
+\DoxyCodeLine{    k\_fifo\_init(\&\mbox{\hyperlink{main_8c_ae8984bc4afe8a3abec87f1dc0520292b}{fifo\_bc}});}
+\DoxyCodeLine{        }
+\DoxyCodeLine{   }
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_aaac68d6bd12397c115c8f5fb8b8dae16}{thread\_A\_tid}} = k\_thread\_create(\&\mbox{\hyperlink{main_8c_a6d4412666e45fbd3d7bb2e537e3e4921}{thread\_A\_data}}, thread\_A\_stack,}
+\DoxyCodeLine{        K\_THREAD\_STACK\_SIZEOF(thread\_A\_stack), \mbox{\hyperlink{fifo_8h_a61675a61bbec86901b2fe28f008e881c}{thread\_A\_code}},}
+\DoxyCodeLine{        NULL, NULL, NULL, \mbox{\hyperlink{main_8c_a5936222e9802dbe8ceb1e99bd667466a}{thread\_A\_prio}}, 0, K\_NO\_WAIT);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_af2bd9deb85bd5ac0cdf3a0b077411289}{thread\_B\_tid}} = k\_thread\_create(\&\mbox{\hyperlink{main_8c_ad832c1a3de4a77b89216efc38eddcb72}{thread\_B\_data}}, thread\_B\_stack,}
+\DoxyCodeLine{        K\_THREAD\_STACK\_SIZEOF(thread\_B\_stack), \mbox{\hyperlink{fifo_8h_a99cef2c8673e9c73162dd97f0247ca8e}{thread\_B\_code}},}
+\DoxyCodeLine{        NULL, NULL, NULL, \mbox{\hyperlink{main_8c_aa9928aa4491a20c74a19c5904ba9530a}{thread\_B\_prio}}, 0, K\_NO\_WAIT);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_af2bd9deb85bd5ac0cdf3a0b077411289}{thread\_B\_tid}} = k\_thread\_create(\&\mbox{\hyperlink{main_8c_a9723f8aa3cfd56015ee57bc31879f8ec}{thread\_C\_data}}, thread\_C\_stack,}
+\DoxyCodeLine{        K\_THREAD\_STACK\_SIZEOF(thread\_C\_stack), \mbox{\hyperlink{fifo_8h_a6eec62f04743b40b6d744ecd2f31cdd2}{thread\_C\_code}},}
+\DoxyCodeLine{        NULL, NULL, NULL, \mbox{\hyperlink{main_8c_a1bd72aae8d0dd6e887547a1d5e0a8902}{thread\_C\_prio}}, 0, K\_NO\_WAIT);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\} }
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em N\+O\+\_\+args} & without arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_a61675a61bbec86901b2fe28f008e881c}\label{fifo_8h_a61675a61bbec86901b2fe28f008e881c}} 
+\index{fifo.h@{fifo.h}!thread\_A\_code@{thread\_A\_code}}
+\index{thread\_A\_code@{thread\_A\_code}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{thread\_A\_code()}{thread\_A\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+A\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Read the adc value and save it. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{fifo_8h_a61675a61bbec86901b2fe28f008e881c}{thread\_A\_code}}(\textcolor{keywordtype}{void} *argA , \textcolor{keywordtype}{void} *argB, \textcolor{keywordtype}{void} *argC)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{   }
+\DoxyCodeLine{    int64\_t fin\_time=0, release\_time=0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} nact = 0;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} err=0;}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structdata__item__t}{data\_item\_t}} data\_ab;}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    printk(\textcolor{stringliteral}{"Thread A init (periodic)\(\backslash\)n"});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    release\_time = k\_uptime\_get() + \mbox{\hyperlink{main_8c_a2ed7791f41bc6281906a0878492b0894}{thread\_A\_period}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{   }
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_a445f79326d40128ece59a749adff6894}{adc\_dev}} = device\_get\_binding(DT\_LABEL(\mbox{\hyperlink{main_8c_a667158ed9af1b72bf062e54bda71dd4f}{ADC\_NID}}));}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (!\mbox{\hyperlink{main_8c_a445f79326d40128ece59a749adff6894}{adc\_dev}}) \{}
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"ADC device\_get\_binding() failed\(\backslash\)n"});}
+\DoxyCodeLine{    \} }
+\DoxyCodeLine{    err = adc\_channel\_setup(\mbox{\hyperlink{main_8c_a445f79326d40128ece59a749adff6894}{adc\_dev}}, \&my\_channel\_cfg);}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (err) \{}
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"adc\_channel\_setup() failed with error code \%d\(\backslash\)n"}, err);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{while}(1) \{}
+\DoxyCodeLine{        }
+\DoxyCodeLine{                 }
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)nThread A instance \%ld released at time: \%lld (ms). \(\backslash\)n"},++nact, k\_uptime\_get());  }
+\DoxyCodeLine{}
+\DoxyCodeLine{        }
+\DoxyCodeLine{        err=adc\_sample();}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(err) \{}
+\DoxyCodeLine{            printk(\textcolor{stringliteral}{"adc\_sample() failed with error code \%d\(\backslash\)n\(\backslash\)r"},err);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(adc\_sample\_buffer[0] > 1023) \{}
+\DoxyCodeLine{                printk(\textcolor{stringliteral}{"adc reading out of range\(\backslash\)n\(\backslash\)r"});}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{               }
+\DoxyCodeLine{                data\_ab.data = adc\_sample\_buffer[0];}
+\DoxyCodeLine{                }
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        k\_fifo\_put(\&\mbox{\hyperlink{main_8c_a765c9457bf0544d4ee26a355ff1116e3}{fifo\_ab}}, \&data\_ab);}
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Thread A data in fifo\_ab: \%d\(\backslash\)n"},data\_ab.data);  }
+\DoxyCodeLine{       }
+\DoxyCodeLine{        fin\_time = k\_uptime\_get();}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}( fin\_time < release\_time) \{}
+\DoxyCodeLine{            k\_msleep(release\_time -\/ fin\_time);}
+\DoxyCodeLine{            release\_time += \mbox{\hyperlink{main_8c_a2ed7791f41bc6281906a0878492b0894}{thread\_A\_period}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & void $\ast$argA , void $\ast$argB, void $\ast$argC. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns ~\newline
+ 
+\end{DoxyReturn}
+A\+DC setup\+: bind and initialize
+
+Gets one sample and checks for errors
+
+A\+DC is set to use gain of 1/4 and reference V\+D\+D/4, so input range is \mbox{[}0...V\+D\+D\+\_\+3V\mbox{]}, with 10 bit resolution
+
+Global variable ab will assume values between \mbox{[}0, 1023\mbox{]}
+
+A\+DC setup\+: bind and initialize
+
+Gets one sample and checks for errors
+
+A\+DC is set to use gain of 1/4 and reference V\+D\+D/4, so input range is \mbox{[}0...V\+D\+D\+\_\+3V\mbox{]}, with 10 bit resolution
+
+Global variable ab will assume values between \mbox{[}0, 1023\mbox{]}\mbox{\Hypertarget{fifo_8h_a99cef2c8673e9c73162dd97f0247ca8e}\label{fifo_8h_a99cef2c8673e9c73162dd97f0247ca8e}} 
+\index{fifo.h@{fifo.h}!thread\_B\_code@{thread\_B\_code}}
+\index{thread\_B\_code@{thread\_B\_code}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{thread\_B\_code()}{thread\_B\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+B\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+calculates the average of 10 values read from the adc and if the value is outside 10\% it is rejected. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ *\textcolor{keywordtype}{void} \mbox{\hyperlink{fifo_8h_a99cef2c8673e9c73162dd97f0247ca8e}{thread\_B\_code}}(\textcolor{keywordtype}{void} *argA , \textcolor{keywordtype}{void} *argB, \textcolor{keywordtype}{void} *argC)}
+\DoxyCodeLine{\{    }
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} Array\_dados[\mbox{\hyperlink{main_8c_a6f1906b9c40734b4c243278466d4ec0b}{len\_dados}}]=\{0\};}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} k=0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    printk(\textcolor{stringliteral}{"Thread B init (sporadic, waits on a semaphore by task A)\(\backslash\)n"});}
+\DoxyCodeLine{    \textcolor{keywordflow}{while}(1) \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordtype}{int} sumador=0,somador\_2=0,media=0, media\_filtered=0;}
+\DoxyCodeLine{        \textcolor{keywordtype}{int} contador=0;}
+\DoxyCodeLine{       }
+\DoxyCodeLine{        k\_sem\_take(\&sem\_ab,  K\_FOREVER);}
+\DoxyCodeLine{        }
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Task B read ab value: \%d\(\backslash\)n"},ab);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        Array\_dados[0]= ab;}
+\DoxyCodeLine{        Array\_dados[(k+1)\%10]= Array\_dados[(k)\%10];}
+\DoxyCodeLine{        k=k+1;}
+\DoxyCodeLine{    }
+\DoxyCodeLine{       }
+\DoxyCodeLine{       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{main_8c_a6f1906b9c40734b4c243278466d4ec0b}{len\_dados}}; i++)\{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(Array\_dados[i] != 0)\{}
+\DoxyCodeLine{                sumador = sumador + Array\_dados[i];}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        media=sumador/\mbox{\hyperlink{main_8c_a6f1906b9c40734b4c243278466d4ec0b}{len\_dados}};}
+\DoxyCodeLine{        contador=0;}
+\DoxyCodeLine{               }
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{main_8c_a6f1906b9c40734b4c243278466d4ec0b}{len\_dados}}; j++)\{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(Array\_dados[j] < (media -\/ media*0.1) || Array\_dados[j] > (media + media*0.1))}
+\DoxyCodeLine{                somador\_2=somador\_2;}
+\DoxyCodeLine{            \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{                somador\_2 = somador\_2 + Array\_dados[j];}
+\DoxyCodeLine{                contador =contador +1;}
+\DoxyCodeLine{                }
+\DoxyCodeLine{            \}             }
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{       }
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(somador\_2 != 0)}
+\DoxyCodeLine{            media\_filtered=somador\_2/contador;}
+\DoxyCodeLine{        \textcolor{keywordflow}{else} }
+\DoxyCodeLine{            media\_filtered = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        bc=media;}
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Thread B set bc value to: \%d\(\backslash\)n"},bc);  }
+\DoxyCodeLine{        k\_sem\_give(\&sem\_bc);        }
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg3} & void $\ast$argA , void $\ast$argB, void $\ast$argC. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+Choose the values that are not acording to the average
+
+Choose the values that are not acording to the average\mbox{\Hypertarget{fifo_8h_a6eec62f04743b40b6d744ecd2f31cdd2}\label{fifo_8h_a6eec62f04743b40b6d744ecd2f31cdd2}} 
+\index{fifo.h@{fifo.h}!thread\_C\_code@{thread\_C\_code}}
+\index{thread\_C\_code@{thread\_C\_code}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{thread\_C\_code()}{thread\_C\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+C\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A$\ast$. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ *\textcolor{keywordtype}{void} \mbox{\hyperlink{fifo_8h_a6eec62f04743b40b6d744ecd2f31cdd2}{thread\_C\_code}}(\textcolor{keywordtype}{void} *argA , \textcolor{keywordtype}{void} *argB, \textcolor{keywordtype}{void} *argC)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} nact = 0;}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structdata__item__t}{data\_item\_t}} *data\_bc;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    printk(\textcolor{stringliteral}{"Thread C init (sporadic, waits on a semaphore by task A)\(\backslash\)n"});}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{const} \textcolor{keyword}{struct }device *gpio0\_dev;         }
+\DoxyCodeLine{    \textcolor{keyword}{const} \textcolor{keyword}{struct }device *pwm0\_dev;          }
+\DoxyCodeLine{    \textcolor{keywordtype}{int} ret=0;                      }
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pwmPeriod\_us = 1000;       }
+\DoxyCodeLine{}
+\DoxyCodeLine{    printk(\textcolor{stringliteral}{"Thread C init (sporadic, waits on a semaphore by task B)\(\backslash\)n"});}
+\DoxyCodeLine{    }
+\DoxyCodeLine{   }
+\DoxyCodeLine{    gpio0\_dev = device\_get\_binding(DT\_LABEL(\mbox{\hyperlink{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}{GPIO0\_NID}}));}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (gpio0\_dev == NULL) \{}
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Error: Failed to bind to GPIO0\(\backslash\)n\(\backslash\)r"});        }
+\DoxyCodeLine{    \textcolor{keywordflow}{return};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{        }
+\DoxyCodeLine{    pwm0\_dev = device\_get\_binding(DT\_LABEL(\mbox{\hyperlink{main_8c_ab48b150a8660d0152dfde25b42c1755f}{PWM0\_NID}}));}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (pwm0\_dev == NULL) \{}
+\DoxyCodeLine{    printk(\textcolor{stringliteral}{"Error: Failed to bind to PWM0\(\backslash\)n r"});}
+\DoxyCodeLine{    \textcolor{keywordflow}{return};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while}(1) \{}
+\DoxyCodeLine{        data\_bc = k\_fifo\_get(\&\mbox{\hyperlink{main_8c_ae8984bc4afe8a3abec87f1dc0520292b}{fifo\_bc}}, K\_FOREVER);}
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Thread C instance \%5ld released at time: \%lld (ms). \(\backslash\)n"},++nact, k\_uptime\_get());          }
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Task C read bc value: \%d\(\backslash\)n"},data\_bc-\/>\mbox{\hyperlink{structdata__item__t_aa44c51b27e80e5419c08170ba391f9dd}{data}});}
+\DoxyCodeLine{        ret=0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        ret = pwm\_pin\_set\_usec(pwm0\_dev, \mbox{\hyperlink{main_8c_ad66f6c0ce6fd44d24653df422e7a8c92}{BOARDLED1}},}
+\DoxyCodeLine{              pwmPeriod\_us,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})((pwmPeriod\_us*data\_bc-\/>\mbox{\hyperlink{structdata__item__t_aa44c51b27e80e5419c08170ba391f9dd}{data}})/1023), PWM\_POLARITY\_NORMAL);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (ret) \{}
+\DoxyCodeLine{            printk(\textcolor{stringliteral}{"Error \%d: failed to set pulse width\(\backslash\)n"}, ret);}
+\DoxyCodeLine{            \textcolor{keywordflow}{return};}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{                       }
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Task C -\/ PWM: \%u \% \(\backslash\)n"}, (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})(((pwmPeriod\_us*data\_bc-\/>\mbox{\hyperlink{structdata__item__t_aa44c51b27e80e5419c08170ba391f9dd}{data}})/1023)/10));  }
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em arg3} & void $\ast$argA , void $\ast$argB, void $\ast$argC. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No returns 
+\end{DoxyReturn}
+Pointer to G\+P\+IO device structure
+
+Pointer to P\+WM device structure
+
+Generic return value variable
+
+P\+WM period in us
+
+Bind to G\+P\+IO 0 and P\+W\+M0
+
+Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A
+
+Prints dutty-\/cycle
+
+Pointer to G\+P\+IO device structure
+
+Pointer to P\+WM device structure
+
+Generic return value variable
+
+P\+WM period in us
+
+Bind to G\+P\+IO 0 and P\+W\+M0
+
+Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A
+
+Prints dutty-\/cycle

@@ -1,5 +1,5 @@
 /*
- * Paulo Pedreiras, 2022/02
+ *
  * Zephyr: Simple thread creation example (3)
  * 
  * One of the tasks is periodc, the other two synchronzie via a fifo 

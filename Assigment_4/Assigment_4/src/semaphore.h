@@ -1,135 +1,24 @@
-/** @file main.c
- * @brief main.c It reads the input voltage from an analog sensor, digitally filters the signal and outputs it.
- *  
- * 
- * @author Ana Sousa, Frederico Moreira, Pedro Rodrigues
- * @date 31 March 2022
+/** @file semaphore.h
+ * @brief The system to implement does a basic processing of an analog signal. It reads the input voltage
+from an analog sensor, digitally filters the signal and outputs it using a semaphore.
+ *
+ * Contains the functions needed to process the analog signal
+ * @author Frederico Moreira, Ana Sousa, Pedro Rodrigues
+ * @date 31 May 2022
  * @bug No known bugs.
  */
 
-#include <zephyr.h>
-#include <device.h>
-#include <devicetree.h>
-#include <drivers/gpio.h>
-#include <drivers/adc.h>
-#include <drivers/pwm.h>
-#include <sys/printk.h>
-#include <sys/__assert.h>
-#include <string.h>
-#include <timing/timing.h>
-#include <stdlib.h>
-#include <stdio.h>
-
-
-/** Number of samples for the average*/
-#define len_dados 10
-
-/** Size of stack area used by each thread (can be thread specific, if necessary)*/
-#define STACK_SIZE 1024
-
-/** Thread scheduling priority */
-#define thread_A_prio 1
-#define thread_B_prio 1
-#define thread_C_prio 1
-
-/** Therad periodicity (in ms)*/
-#define thread_A_period 100       /** Set to have the same period as the PWM, 1ms*/
-
-/** ADC definitions and includes*/
-#include <hal/nrf_saadc.h>
-#define ADC_NID DT_NODELABEL(adc) 
-#define ADC_RESOLUTION 10
-#define ADC_GAIN ADC_GAIN_1_4
-#define ADC_REFERENCE ADC_REF_VDD_1_4
-#define ADC_ACQUISITION_TIME ADC_ACQ_TIME(ADC_ACQ_TIME_MICROSECONDS, 40)
-#define ADC_CHANNEL_ID 1  
-
-#define ADC_CHANNEL_INPUT NRF_SAADC_INPUT_AIN1        
-
-#define BUFFER_SIZE 1
-
-/** Refer to dts file */
-#define GPIO0_NID DT_NODELABEL(gpio0) 
-#define PWM0_NID DT_NODELABEL(pwm0) 
-#define BOARDLED1 0x0d                 
-                
-
-/** Create thread stack space */
-K_THREAD_STACK_DEFINE(thread_A_stack, STACK_SIZE);
-K_THREAD_STACK_DEFINE(thread_B_stack, STACK_SIZE);
-K_THREAD_STACK_DEFINE(thread_C_stack, STACK_SIZE);
-  
-/** Create variables for thread data */
-struct k_thread thread_A_data;
-struct k_thread thread_B_data;
-struct k_thread thread_C_data;
-
-/** Create task IDs */
-k_tid_t thread_A_tid;
-k_tid_t thread_B_tid;
-k_tid_t thread_C_tid;
-
-/** Global vars (shared memory between tasks A/B and B/C, resp) */
-int ab = 0;
-int bc = 0;
-
-/** Semaphores for task synch */
-struct k_sem sem_ab;
-struct k_sem sem_bc;
-
-/** Thread code prototypes */
-void thread_A_code(void *argA, void *argB, void *argC);
-void thread_B_code(void *argA, void *argB, void *argC);
-void thread_C_code(void *argA, void *argB, void *argC);
-
-/** ADC channel configuration */
-static const struct adc_channel_cfg my_channel_cfg = {
-	.gain = ADC_GAIN,
-	.reference = ADC_REFERENCE,
-	.acquisition_time = ADC_ACQUISITION_TIME,
-	.channel_id = ADC_CHANNEL_ID,
-	.input_positive = ADC_CHANNEL_INPUT
-};
-
-/** Global vars */
-struct k_timer my_timer;
-const struct device *adc_dev = NULL;
-static uint16_t adc_sample_buffer[BUFFER_SIZE];
-
-/** Takes one sample */
-static int adc_sample(void)
-{
-	int ret;
-	const struct adc_sequence sequence = {
-		.channels = BIT(ADC_CHANNEL_ID),
-		.buffer = adc_sample_buffer,
-		.buffer_size = sizeof(adc_sample_buffer),
-		.resolution = ADC_RESOLUTION,
-	};
-
-	if (adc_dev == NULL) {
-            printk("adc_sample(): error, must bind to adc first \n\r");
-            return -1;
-	}
-
-	ret = adc_read(adc_dev, &sequence);
-	if (ret) {
-            printk("adc_read() failed with code %d\n", ret);
-	}	
-
-	return ret;
-}
-
-/** Main function */
-void main(void) {
-    
-   
+/**
+ * @brief Main funtion: Initialize semaphores
+ *
+ * @code
+ * void main(void) {
     printf("\n\r Illustration of the use of shmem + semaphores\n\r");
-    /
+    
     k_sem_init(&sem_ab, 0, 1);
     k_sem_init(&sem_bc, 0, 1);
     
-    
+ 
     thread_A_tid = k_thread_create(&thread_A_data, thread_A_stack,
         K_THREAD_STACK_SIZEOF(thread_A_stack), thread_A_code,
         NULL, NULL, NULL, thread_A_prio, 0, K_NO_WAIT);
@@ -144,7 +33,17 @@ void main(void) {
     
     return;
 } 
+    
+ * @endcode
+ * @param NO_args without arguments
+ * @return No returns
+ */
+void main(void); 
 
+/**
+ * @brief Read the adc value and save it.
+ * @code
+ * 
 void thread_A_code(void *argA , void *argB, void *argC)
 {
     
@@ -154,10 +53,9 @@ void thread_A_code(void *argA , void *argB, void *argC)
     
     printk("Thread A init (periodic)\n");
 
-    
+   
     release_time = k_uptime_get() + thread_A_period;
 
-  
     adc_dev = device_get_binding(DT_LABEL(ADC_NID));
     if (!adc_dev) {
         printk("ADC device_get_binding() failed\n");
@@ -166,13 +64,10 @@ void thread_A_code(void *argA , void *argB, void *argC)
     if (err) {
         printk("adc_channel_setup() failed with error code %d\n", err);
     }
-    
- 
     NRF_SAADC->TASKS_CALIBRATEOFFSET = 1;
 
     while(1) {
         
-    
         err=adc_sample();
         if(err) {
             printk("adc_sample() failed with error code %d\n\r",err);
@@ -191,6 +86,7 @@ void thread_A_code(void *argA , void *argB, void *argC)
         
         k_sem_give(&sem_ab);
        
+      
         fin_time = k_uptime_get();
         if( fin_time < release_time) {        
             k_msleep(release_time - fin_time);            
@@ -198,8 +94,16 @@ void thread_A_code(void *argA , void *argB, void *argC)
         }
     }
 }
-
-void thread_B_code(void *argA , void *argB, void *argC)
+ * @endcode
+ * @param arg3 void *argA , void *argB, void *argC.
+ * @return No returns  
+ */
+void thread_A_code(void *argA , void *argB, void *argC);
+/**
+ * @brief calculates the average of 10 values read from the adc and if the value is outside 10% it is rejected.
+ * 
+ * @code
+ *void thread_B_code(void *argA , void *argB, void *argC)
 {    
 
     int Array_dados[len_dados]={0};
@@ -218,7 +122,7 @@ void thread_B_code(void *argA , void *argB, void *argC)
         Array_dados[0]= ab;
         Array_dados[(k+1)%10]= Array_dados[(k)%10];
         k=k+1;
-        
+    
        
        for(int i = 0; i < len_dados; i++){
             if(Array_dados[i] != 0){
@@ -249,17 +153,28 @@ void thread_B_code(void *argA , void *argB, void *argC)
         k_sem_give(&sem_bc);        
   }
 }
+ * @endcode
+ * 
+ * @param arg3 void *argA , void *argB, void *argC.
+ * @return No returns
+ */
 
-void thread_C_code(void *argA , void *argB, void *argC)
+void thread_B_code(void *argA , void *argB, void *argC);
+
+/**
+ * @brief Sets the PWM DC value to the average of the samples got from ADC module in thread A*
+ * @code
+ *void thread_C_code(void *argA , void *argB, void *argC)
 {
     const struct device *gpio0_dev;         
-    const struct device *pwm0_dev;         
-    int ret=0;                            
+    const struct device *pwm0_dev;          
+    int ret=0;                             
     
     unsigned int pwmPeriod_us = 1000;       
 
     printk("Thread C init (sporadic, waits on a semaphore by task B)\n");
     
+ 
     gpio0_dev = device_get_binding(DT_LABEL(GPIO0_NID));
     if (gpio0_dev == NULL) {
         printk("Error: Failed to bind to GPIO0\n\r");        
@@ -284,6 +199,44 @@ void thread_C_code(void *argA , void *argB, void *argC)
             return;
         }
                        
-        printk("Task C - PWM: %u % \n", (unsigned int)(((pwmPeriod_us*bc)/1023)/10));   
+        printk("Task C - PWM: %u % \n", (unsigned int)(((pwmPeriod_us*bc)/1023)/10));  
     }
 }
+ * @endcode
+ * @param arg3 void *argA , void *argB, void *argC.
+ * @return No returns
+ */
+
+void thread_C_code(void *argA , void *argB, void *argC);
+
+/**
+ * @brief Takes one adc_sample
+ * @code
+ *static int adc_sample(void)
+{
+	int ret;
+	const struct adc_sequence sequence = {
+		.channels = BIT(ADC_CHANNEL_ID),
+		.buffer = adc_sample_buffer,
+		.buffer_size = sizeof(adc_sample_buffer),
+		.resolution = ADC_RESOLUTION,
+	};
+
+	if (adc_dev == NULL) {
+            printk("adc_sample(): error, must bind to adc first \n\r");
+            return -1;
+	}
+
+	ret = adc_read(adc_dev, &sequence);
+	if (ret) {
+            printk("adc_read() failed with code %d\n", ret);
+	}	
+
+	return ret;
+}
+
+ * @endcode
+ * @param NO_args without arguments
+ * @return Read ADC_sample value (static int)
+ */
+static int adc_sample(void);
