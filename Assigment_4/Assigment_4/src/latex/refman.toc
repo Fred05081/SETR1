@@ -1,0 +1,57 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Bug List}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Make\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lists.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}txt File Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Function Documentation}{5}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}cmake\_minimum\_required()}{5}{subsubsection.3.1.1.1}%
+\contentsline {section}{\numberline {3.2}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{5}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{7}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Macro Definition Documentation}{7}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}ADC\_ACQUISITION\_TIME}{7}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}ADC\_CHANNEL\_ID}{7}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}ADC\_CHANNEL\_INPUT}{7}{subsubsection.3.2.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.2.4}ADC\_GAIN}{7}{subsubsection.3.2.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.2.5}ADC\_NID}{7}{subsubsection.3.2.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.2.6}ADC\_REFERENCE}{8}{subsubsection.3.2.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.2.7}ADC\_RESOLUTION}{8}{subsubsection.3.2.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.2.8}BOARDLED1}{8}{subsubsection.3.2.2.8}%
+\contentsline {subsubsection}{\numberline {3.2.2.9}BUFFER\_SIZE}{8}{subsubsection.3.2.2.9}%
+\contentsline {subsubsection}{\numberline {3.2.2.10}GPIO0\_NID}{8}{subsubsection.3.2.2.10}%
+\contentsline {subsubsection}{\numberline {3.2.2.11}len\_dados}{8}{subsubsection.3.2.2.11}%
+\contentsline {subsubsection}{\numberline {3.2.2.12}PWM0\_NID}{8}{subsubsection.3.2.2.12}%
+\contentsline {subsubsection}{\numberline {3.2.2.13}STACK\_SIZE}{8}{subsubsection.3.2.2.13}%
+\contentsline {subsubsection}{\numberline {3.2.2.14}thread\_A\_period}{9}{subsubsection.3.2.2.14}%
+\contentsline {subsubsection}{\numberline {3.2.2.15}thread\_A\_prio}{9}{subsubsection.3.2.2.15}%
+\contentsline {subsubsection}{\numberline {3.2.2.16}thread\_B\_prio}{9}{subsubsection.3.2.2.16}%
+\contentsline {subsubsection}{\numberline {3.2.2.17}thread\_C\_prio}{9}{subsubsection.3.2.2.17}%
+\contentsline {subsection}{\numberline {3.2.3}Function Documentation}{9}{subsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}K\_THREAD\_STACK\_DEFINE()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{9}{subsubsection.3.2.3.1}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}K\_THREAD\_STACK\_DEFINE()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{9}{subsubsection.3.2.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.3.3}K\_THREAD\_STACK\_DEFINE()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{10}{subsubsection.3.2.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.4}main()}{10}{subsubsection.3.2.3.4}%
+\contentsline {subsubsection}{\numberline {3.2.3.5}thread\_A\_code()}{10}{subsubsection.3.2.3.5}%
+\contentsline {subsubsection}{\numberline {3.2.3.6}thread\_B\_code()}{10}{subsubsection.3.2.3.6}%
+\contentsline {subsubsection}{\numberline {3.2.3.7}thread\_C\_code()}{11}{subsubsection.3.2.3.7}%
+\contentsline {subsection}{\numberline {3.2.4}Variable Documentation}{12}{subsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.4.1}ab}{12}{subsubsection.3.2.4.1}%
+\contentsline {subsubsection}{\numberline {3.2.4.2}adc\_dev}{12}{subsubsection.3.2.4.2}%
+\contentsline {subsubsection}{\numberline {3.2.4.3}bc}{12}{subsubsection.3.2.4.3}%
+\contentsline {subsubsection}{\numberline {3.2.4.4}my\_timer}{12}{subsubsection.3.2.4.4}%
+\contentsline {subsubsection}{\numberline {3.2.4.5}sem\_ab}{12}{subsubsection.3.2.4.5}%
+\contentsline {subsubsection}{\numberline {3.2.4.6}sem\_bc}{13}{subsubsection.3.2.4.6}%
+\contentsline {subsubsection}{\numberline {3.2.4.7}thread\_A\_data}{13}{subsubsection.3.2.4.7}%
+\contentsline {subsubsection}{\numberline {3.2.4.8}thread\_A\_tid}{13}{subsubsection.3.2.4.8}%
+\contentsline {subsubsection}{\numberline {3.2.4.9}thread\_B\_data}{13}{subsubsection.3.2.4.9}%
+\contentsline {subsubsection}{\numberline {3.2.4.10}thread\_B\_tid}{13}{subsubsection.3.2.4.10}%
+\contentsline {subsubsection}{\numberline {3.2.4.11}thread\_C\_data}{13}{subsubsection.3.2.4.11}%
+\contentsline {subsubsection}{\numberline {3.2.4.12}thread\_C\_tid}{13}{subsubsection.3.2.4.12}%
+\contentsline {section}{\numberline {3.3}semaphore.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{13}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{14}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Function Documentation}{14}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}main()}{14}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}thread\_A\_code()}{15}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}thread\_B\_code()}{16}{subsubsection.3.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.3.2.4}thread\_C\_code()}{17}{subsubsection.3.3.2.4}%
+\contentsline {chapter}{Index}{19}{section*.7}%

@@ -1,0 +1,147 @@
+\begin{theindex}
+
+  \item {ab}
+    \subitem {main.c}, \hyperpage{12}
+  \item {ADC\_ACQUISITION\_TIME}
+    \subitem {main.c}, \hyperpage{7}
+  \item {ADC\_CHANNEL\_ID}
+    \subitem {main.c}, \hyperpage{7}
+  \item {ADC\_CHANNEL\_INPUT}
+    \subitem {main.c}, \hyperpage{7}
+  \item {adc\_dev}
+    \subitem {main.c}, \hyperpage{12}
+  \item {ADC\_GAIN}
+    \subitem {main.c}, \hyperpage{7}
+  \item {ADC\_NID}
+    \subitem {main.c}, \hyperpage{7}
+  \item {ADC\_REFERENCE}
+    \subitem {main.c}, \hyperpage{7}
+  \item {ADC\_RESOLUTION}
+    \subitem {main.c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {bc}
+    \subitem {main.c}, \hyperpage{12}
+  \item {BOARDLED1}
+    \subitem {main.c}, \hyperpage{8}
+  \item {BUFFER\_SIZE}
+    \subitem {main.c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {cmake\_minimum\_required}
+    \subitem {CMakeLists.txt}, \hyperpage{5}
+  \item {CMakeLists.txt}, \hyperpage{5}
+    \subitem {cmake\_minimum\_required}, \hyperpage{5}
+
+  \indexspace
+
+  \item {GPIO0\_NID}
+    \subitem {main.c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {K\_THREAD\_STACK\_DEFINE}
+    \subitem {main.c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {len\_dados}
+    \subitem {main.c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{10}
+    \subitem {semaphore.h}, \hyperpage{14}
+  \item {main.c}, \hyperpage{5}
+    \subitem {ab}, \hyperpage{12}
+    \subitem {ADC\_ACQUISITION\_TIME}, \hyperpage{7}
+    \subitem {ADC\_CHANNEL\_ID}, \hyperpage{7}
+    \subitem {ADC\_CHANNEL\_INPUT}, \hyperpage{7}
+    \subitem {adc\_dev}, \hyperpage{12}
+    \subitem {ADC\_GAIN}, \hyperpage{7}
+    \subitem {ADC\_NID}, \hyperpage{7}
+    \subitem {ADC\_REFERENCE}, \hyperpage{7}
+    \subitem {ADC\_RESOLUTION}, \hyperpage{8}
+    \subitem {bc}, \hyperpage{12}
+    \subitem {BOARDLED1}, \hyperpage{8}
+    \subitem {BUFFER\_SIZE}, \hyperpage{8}
+    \subitem {GPIO0\_NID}, \hyperpage{8}
+    \subitem {K\_THREAD\_STACK\_DEFINE}, \hyperpage{9}
+    \subitem {len\_dados}, \hyperpage{8}
+    \subitem {main}, \hyperpage{10}
+    \subitem {my\_timer}, \hyperpage{12}
+    \subitem {PWM0\_NID}, \hyperpage{8}
+    \subitem {sem\_ab}, \hyperpage{12}
+    \subitem {sem\_bc}, \hyperpage{12}
+    \subitem {STACK\_SIZE}, \hyperpage{8}
+    \subitem {thread\_A\_code}, \hyperpage{10}
+    \subitem {thread\_A\_data}, \hyperpage{13}
+    \subitem {thread\_A\_period}, \hyperpage{8}
+    \subitem {thread\_A\_prio}, \hyperpage{9}
+    \subitem {thread\_A\_tid}, \hyperpage{13}
+    \subitem {thread\_B\_code}, \hyperpage{10}
+    \subitem {thread\_B\_data}, \hyperpage{13}
+    \subitem {thread\_B\_prio}, \hyperpage{9}
+    \subitem {thread\_B\_tid}, \hyperpage{13}
+    \subitem {thread\_C\_code}, \hyperpage{11}
+    \subitem {thread\_C\_data}, \hyperpage{13}
+    \subitem {thread\_C\_prio}, \hyperpage{9}
+    \subitem {thread\_C\_tid}, \hyperpage{13}
+  \item {my\_timer}
+    \subitem {main.c}, \hyperpage{12}
+
+  \indexspace
+
+  \item {PWM0\_NID}
+    \subitem {main.c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {sem\_ab}
+    \subitem {main.c}, \hyperpage{12}
+  \item {sem\_bc}
+    \subitem {main.c}, \hyperpage{12}
+  \item {semaphore.h}, \hyperpage{13}
+    \subitem {main}, \hyperpage{14}
+    \subitem {thread\_A\_code}, \hyperpage{15}
+    \subitem {thread\_B\_code}, \hyperpage{16}
+    \subitem {thread\_C\_code}, \hyperpage{16}
+  \item {STACK\_SIZE}
+    \subitem {main.c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {thread\_A\_code}
+    \subitem {main.c}, \hyperpage{10}
+    \subitem {semaphore.h}, \hyperpage{15}
+  \item {thread\_A\_data}
+    \subitem {main.c}, \hyperpage{13}
+  \item {thread\_A\_period}
+    \subitem {main.c}, \hyperpage{8}
+  \item {thread\_A\_prio}
+    \subitem {main.c}, \hyperpage{9}
+  \item {thread\_A\_tid}
+    \subitem {main.c}, \hyperpage{13}
+  \item {thread\_B\_code}
+    \subitem {main.c}, \hyperpage{10}
+    \subitem {semaphore.h}, \hyperpage{16}
+  \item {thread\_B\_data}
+    \subitem {main.c}, \hyperpage{13}
+  \item {thread\_B\_prio}
+    \subitem {main.c}, \hyperpage{9}
+  \item {thread\_B\_tid}
+    \subitem {main.c}, \hyperpage{13}
+  \item {thread\_C\_code}
+    \subitem {main.c}, \hyperpage{11}
+    \subitem {semaphore.h}, \hyperpage{16}
+  \item {thread\_C\_data}
+    \subitem {main.c}, \hyperpage{13}
+  \item {thread\_C\_prio}
+    \subitem {main.c}, \hyperpage{9}
+  \item {thread\_C\_tid}
+    \subitem {main.c}, \hyperpage{13}
+
+\end{theindex}

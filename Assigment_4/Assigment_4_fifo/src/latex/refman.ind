@@ -1,0 +1,154 @@
+\begin{theindex}
+
+  \item {ADC\_ACQUISITION\_TIME}
+    \subitem {main.c}, \hyperpage{15}
+  \item {ADC\_CHANNEL\_ID}
+    \subitem {main.c}, \hyperpage{15}
+  \item {ADC\_CHANNEL\_INPUT}
+    \subitem {main.c}, \hyperpage{15}
+  \item {adc\_dev}
+    \subitem {main.c}, \hyperpage{21}
+  \item {ADC\_GAIN}
+    \subitem {main.c}, \hyperpage{15}
+  \item {ADC\_NID}
+    \subitem {main.c}, \hyperpage{15}
+  \item {ADC\_REFERENCE}
+    \subitem {main.c}, \hyperpage{15}
+  \item {ADC\_RESOLUTION}
+    \subitem {main.c}, \hyperpage{16}
+
+  \indexspace
+
+  \item {BOARDLED1}
+    \subitem {main.c}, \hyperpage{16}
+  \item {BUFFER\_SIZE}
+    \subitem {main.c}, \hyperpage{16}
+
+  \indexspace
+
+  \item {cmake\_minimum\_required}
+    \subitem {CMakeLists.txt}, \hyperpage{9}
+  \item {CMakeLists.txt}, \hyperpage{9}
+    \subitem {cmake\_minimum\_required}, \hyperpage{9}
+
+  \indexspace
+
+  \item {data}
+    \subitem {data\_item\_t}, \hyperpage{7}
+  \item {data\_item\_t}, \hyperpage{7}
+    \subitem {data}, \hyperpage{7}
+    \subitem {fifo\_reserved}, \hyperpage{7}
+
+  \indexspace
+
+  \item {fifo.h}, \hyperpage{9}
+    \subitem {main}, \hyperpage{10}
+    \subitem {thread\_A\_code}, \hyperpage{10}
+    \subitem {thread\_B\_code}, \hyperpage{11}
+    \subitem {thread\_C\_code}, \hyperpage{12}
+  \item {fifo\_ab}
+    \subitem {main.c}, \hyperpage{21}
+  \item {fifo\_bc}
+    \subitem {main.c}, \hyperpage{21}
+  \item {fifo\_reserved}
+    \subitem {data\_item\_t}, \hyperpage{7}
+
+  \indexspace
+
+  \item {GPIO0\_NID}
+    \subitem {main.c}, \hyperpage{16}
+
+  \indexspace
+
+  \item {K\_THREAD\_STACK\_DEFINE}
+    \subitem {main.c}, \hyperpage{17}
+
+  \indexspace
+
+  \item {len\_dados}
+    \subitem {main.c}, \hyperpage{16}
+
+  \indexspace
+
+  \item {main}
+    \subitem {fifo.h}, \hyperpage{10}
+    \subitem {main.c}, \hyperpage{18}
+  \item {main.c}, \hyperpage{13}
+    \subitem {ADC\_ACQUISITION\_TIME}, \hyperpage{15}
+    \subitem {ADC\_CHANNEL\_ID}, \hyperpage{15}
+    \subitem {ADC\_CHANNEL\_INPUT}, \hyperpage{15}
+    \subitem {adc\_dev}, \hyperpage{21}
+    \subitem {ADC\_GAIN}, \hyperpage{15}
+    \subitem {ADC\_NID}, \hyperpage{15}
+    \subitem {ADC\_REFERENCE}, \hyperpage{15}
+    \subitem {ADC\_RESOLUTION}, \hyperpage{16}
+    \subitem {BOARDLED1}, \hyperpage{16}
+    \subitem {BUFFER\_SIZE}, \hyperpage{16}
+    \subitem {fifo\_ab}, \hyperpage{21}
+    \subitem {fifo\_bc}, \hyperpage{21}
+    \subitem {GPIO0\_NID}, \hyperpage{16}
+    \subitem {K\_THREAD\_STACK\_DEFINE}, \hyperpage{17}
+    \subitem {len\_dados}, \hyperpage{16}
+    \subitem {main}, \hyperpage{18}
+    \subitem {my\_timer}, \hyperpage{21}
+    \subitem {PWM0\_NID}, \hyperpage{16}
+    \subitem {STACK\_SIZE}, \hyperpage{16}
+    \subitem {thread\_A\_code}, \hyperpage{18}
+    \subitem {thread\_A\_data}, \hyperpage{21}
+    \subitem {thread\_A\_period}, \hyperpage{16}
+    \subitem {thread\_A\_prio}, \hyperpage{17}
+    \subitem {thread\_A\_tid}, \hyperpage{22}
+    \subitem {thread\_B\_code}, \hyperpage{19}
+    \subitem {thread\_B\_data}, \hyperpage{22}
+    \subitem {thread\_B\_prio}, \hyperpage{17}
+    \subitem {thread\_B\_tid}, \hyperpage{22}
+    \subitem {thread\_C\_code}, \hyperpage{20}
+    \subitem {thread\_C\_data}, \hyperpage{22}
+    \subitem {thread\_C\_prio}, \hyperpage{17}
+    \subitem {thread\_C\_tid}, \hyperpage{22}
+  \item {my\_timer}
+    \subitem {main.c}, \hyperpage{21}
+
+  \indexspace
+
+  \item {PWM0\_NID}
+    \subitem {main.c}, \hyperpage{16}
+
+  \indexspace
+
+  \item {STACK\_SIZE}
+    \subitem {main.c}, \hyperpage{16}
+
+  \indexspace
+
+  \item {thread\_A\_code}
+    \subitem {fifo.h}, \hyperpage{10}
+    \subitem {main.c}, \hyperpage{18}
+  \item {thread\_A\_data}
+    \subitem {main.c}, \hyperpage{21}
+  \item {thread\_A\_period}
+    \subitem {main.c}, \hyperpage{16}
+  \item {thread\_A\_prio}
+    \subitem {main.c}, \hyperpage{17}
+  \item {thread\_A\_tid}
+    \subitem {main.c}, \hyperpage{22}
+  \item {thread\_B\_code}
+    \subitem {fifo.h}, \hyperpage{11}
+    \subitem {main.c}, \hyperpage{19}
+  \item {thread\_B\_data}
+    \subitem {main.c}, \hyperpage{22}
+  \item {thread\_B\_prio}
+    \subitem {main.c}, \hyperpage{17}
+  \item {thread\_B\_tid}
+    \subitem {main.c}, \hyperpage{22}
+  \item {thread\_C\_code}
+    \subitem {fifo.h}, \hyperpage{12}
+    \subitem {main.c}, \hyperpage{20}
+  \item {thread\_C\_data}
+    \subitem {main.c}, \hyperpage{22}
+  \item {thread\_C\_prio}
+    \subitem {main.c}, \hyperpage{17}
+  \item {thread\_C\_tid}
+    \subitem {main.c}, \hyperpage{22}
+
+\end{theindex}
