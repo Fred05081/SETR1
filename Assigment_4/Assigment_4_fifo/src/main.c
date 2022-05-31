@@ -127,14 +127,14 @@ static int adc_sample(void)
 /* Main function */
 void main(void) {
 
-    /* Welcome message */
+    
      printk("\n\r IPC via FIFO example \n\r");
     
-    /* Create/Init fifos */
+    
     k_fifo_init(&fifo_ab);
     k_fifo_init(&fifo_bc);
         
-    /* Create tasks */
+    
     thread_A_tid = k_thread_create(&thread_A_data, thread_A_stack,
         K_THREAD_STACK_SIZEOF(thread_A_stack), thread_A_code,
         NULL, NULL, NULL, thread_A_prio, 0, K_NO_WAIT);
@@ -155,21 +155,19 @@ void main(void) {
 /* Thread code implementation */
 void thread_A_code(void *argA , void *argB, void *argC)
 {
-    /* Timing variables to control task periodicity */
+    
     int64_t fin_time=0, release_time=0;
 
-    /* Other variables */
+   
     long int nact = 0;
     int err=0;
     struct data_item_t data_ab;
     
     printk("Thread A init (periodic)\n");
 
-    /* Compute next release instant */
     release_time = k_uptime_get() + thread_A_period;
 
     
-    /** ADC setup: bind and initialize */
     adc_dev = device_get_binding(DT_LABEL(ADC_NID));
     if (!adc_dev) {
         printk("ADC device_get_binding() failed\n");
@@ -182,10 +180,10 @@ void thread_A_code(void *argA , void *argB, void *argC)
     /* Thread loop */
     while(1) {
         
-        /* Do the workload */          
+                
         printk("\n\nThread A instance %ld released at time: %lld (ms). \n",++nact, k_uptime_get());  
 
-        /** Gets one sample and checks for errors*/
+   
         err=adc_sample();
         if(err) {
             printk("adc_sample() failed with error code %d\n\r",err);
@@ -195,16 +193,14 @@ void thread_A_code(void *argA , void *argB, void *argC)
                 printk("adc reading out of range\n\r");
             }
             else {
-                /** ADC is set to use gain of 1/4 and reference VDD/4, so input range is [0...VDD_3V], with 10 bit resolution */
-                /** Global variable ab will assume values between [0, 1023]*/
+                
                 data_ab.data = adc_sample_buffer[0];
                 
             }
         }
         k_fifo_put(&fifo_ab, &data_ab);
         printk("Thread A data in fifo_ab: %d\n",data_ab.data);  
-       
-        /* Wait for next release instant */ 
+      
         fin_time = k_uptime_get();
         if( fin_time < release_time) {
             k_msleep(release_time - fin_time);
@@ -231,11 +227,11 @@ void thread_B_code(void *argA , void *argB, void *argC)
         int contador=0;
         data_ab = k_fifo_get(&fifo_ab, K_FOREVER);
       
-        /*printk("Task B read fifo ab value: %d\n",data_ab->data);*/
+ 
         Array_dados[0]=data_ab->data ;
         Array_dados[(k+1)%10]= Array_dados[(k)%10];
         k=k+1;
-        /*printk("0: %d 1: %d 3: %d 4: %d 5: %d 6: %d 7: %d 8: %d 09: %d /n/r",Array_dados[0],Array_dados[1],Array_dados[2],Array_dados[3],Array_dados[4],Array_dados[5],Array_dados[6],Array_dados[7],Array_dados[8],Array_dados[9]);*/
+  
        
        for(int i = 0; i < len_dados; i++){
             if(Array_dados[i] != 0){
@@ -244,7 +240,7 @@ void thread_B_code(void *argA , void *argB, void *argC)
         }
         media=sumador/len_dados;
         contador=0;
-        /** Choose the values that are not acording to the average*/        
+              
         for(int j = 0; j < len_dados; j++){
             if(Array_dados[j] < (media - media*0.1) || Array_dados[j] > (media + media*0.1))
                 somador_2=somador_2;
@@ -275,15 +271,15 @@ void thread_C_code(void *argA , void *argB, void *argC)
     printk("Thread C init (sporadic, waits on a semaphore by task A)\n");
 
 
-    const struct device *gpio0_dev;         /** Pointer to GPIO device structure */
-    const struct device *pwm0_dev;          /** Pointer to PWM device structure */
-    int ret=0;                              /** Generic return value variable */
+    const struct device *gpio0_dev;         
+    const struct device *pwm0_dev;          
+    int ret=0;                              
     
-    unsigned int pwmPeriod_us = 1000;       /** PWM period in us */
+    unsigned int pwmPeriod_us = 1000;       
 
     printk("Thread C init (sporadic, waits on a semaphore by task B)\n");
     
-    /** Bind to GPIO 0 and PWM0 */
+   
     gpio0_dev = device_get_binding(DT_LABEL(GPIO0_NID));
     if (gpio0_dev == NULL) {
         printk("Error: Failed to bind to GPIO0\n\r");        
@@ -302,7 +298,7 @@ void thread_C_code(void *argA , void *argB, void *argC)
         printk("Task C read bc value: %d\n",data_bc->data);
         ret=0;
 
-        /** Sets the PWM DC value to the average of the samples got from ADC module in thread A*/
+      
         ret = pwm_pin_set_usec(pwm0_dev, BOARDLED1,
 		      pwmPeriod_us,(unsigned int)((pwmPeriod_us*data_bc->data)/1023), PWM_POLARITY_NORMAL);
         if (ret) {
@@ -310,7 +306,7 @@ void thread_C_code(void *argA , void *argB, void *argC)
             return;
         }
                        
-        printk("Task C - PWM: %u % \n", (unsigned int)(((pwmPeriod_us*data_bc->data)/1023)/10));   /** Prints dutty-cycle*/
+        printk("Task C - PWM: %u % \n", (unsigned int)(((pwmPeriod_us*data_bc->data)/1023)/10));   
             
   }
 }

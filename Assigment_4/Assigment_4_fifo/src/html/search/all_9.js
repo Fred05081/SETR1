@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stack_5fsize_24',['STACK_SIZE',['../main_8c.html#a6423a880df59733d2d9b509c7718d3a9',1,'main.c']]]
+  ['pwm0_5fnid_25',['PWM0_NID',['../main_8c.html#ab48b150a8660d0152dfde25b42c1755f',1,'main.c']]]
 ];

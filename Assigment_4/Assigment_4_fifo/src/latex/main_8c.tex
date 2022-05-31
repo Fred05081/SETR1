@@ -76,7 +76,7 @@ void \mbox{\hyperlink{main_8c_a2bae0ae425b2577868ad7c1482190439}{thread\+\_\+\+A
 void \mbox{\hyperlink{main_8c_a0bc8db7d99935e559b1164cf2e84e822}{thread\+\_\+\+B\+\_\+code}} (void $\ast$, void $\ast$, void $\ast$)
 \begin{DoxyCompactList}\small\item\em calculates the average of 10 values read from the adc and if the value is outside 10\% it is rejected. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a05a8f93095731e110abe668f996166c9}{thread\+\_\+\+C\+\_\+code}} (void $\ast$, void $\ast$, void $\ast$)
-\begin{DoxyCompactList}\small\item\em Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A$\ast$. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread B. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
 \begin{DoxyCompactList}\small\item\em Main funtion\+: Initialize semaphores. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
@@ -350,13 +350,7 @@ Read the adc value and save it.
 No returns ~\newline
  
 \end{DoxyReturn}
-A\+DC setup\+: bind and initialize
-
-Gets one sample and checks for errors
-
-A\+DC is set to use gain of 1/4 and reference V\+D\+D/4, so input range is \mbox{[}0...V\+D\+D\+\_\+3V\mbox{]}, with 10 bit resolution
-
-Global variable ab will assume values between \mbox{[}0, 1023\mbox{]}\mbox{\Hypertarget{main_8c_a0bc8db7d99935e559b1164cf2e84e822}\label{main_8c_a0bc8db7d99935e559b1164cf2e84e822}} 
+\mbox{\Hypertarget{main_8c_a0bc8db7d99935e559b1164cf2e84e822}\label{main_8c_a0bc8db7d99935e559b1164cf2e84e822}} 
 \index{main.c@{main.c}!thread\_B\_code@{thread\_B\_code}}
 \index{thread\_B\_code@{thread\_B\_code}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{thread\_B\_code()}{thread\_B\_code()}}
@@ -429,7 +423,7 @@ calculates the average of 10 values read from the adc and if the value is outsid
 \begin{DoxyReturn}{Returns}
 No returns 
 \end{DoxyReturn}
-Choose the values that are not acording to the average\mbox{\Hypertarget{main_8c_a05a8f93095731e110abe668f996166c9}\label{main_8c_a05a8f93095731e110abe668f996166c9}} 
+\mbox{\Hypertarget{main_8c_a05a8f93095731e110abe668f996166c9}\label{main_8c_a05a8f93095731e110abe668f996166c9}} 
 \index{main.c@{main.c}!thread\_C\_code@{thread\_C\_code}}
 \index{thread\_C\_code@{thread\_C\_code}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{thread\_C\_code()}{thread\_C\_code()}}
@@ -437,7 +431,7 @@ Choose the values that are not acording to the average\mbox{\Hypertarget{main_8c
 
 
 
-Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A$\ast$. 
+Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread B. 
 
 
 \begin{DoxyCode}{0}
@@ -495,19 +489,7 @@ Sets the P\+WM DC value to the average of the samples got from A\+DC module in t
 \begin{DoxyReturn}{Returns}
 No returns 
 \end{DoxyReturn}
-Pointer to G\+P\+IO device structure
 
-Pointer to P\+WM device structure
-
-Generic return value variable
-
-P\+WM period in us
-
-Bind to G\+P\+IO 0 and P\+W\+M0
-
-Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A
-
-Prints dutty-\/cycle
 
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{main_8c_a445f79326d40128ece59a749adff6894}\label{main_8c_a445f79326d40128ece59a749adff6894}} 
