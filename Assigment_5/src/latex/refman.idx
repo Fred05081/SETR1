@@ -82,10 +82,10 @@
 \indexentry{thread\_A1\_code@{thread\_A1\_code}!main.c@{main.c}|hyperpage}{14}
 \indexentry{main.c@{main.c}!thread\_A\_code@{thread\_A\_code}|hyperpage}{15}
 \indexentry{thread\_A\_code@{thread\_A\_code}!main.c@{main.c}|hyperpage}{15}
-\indexentry{main.c@{main.c}!thread\_B\_code@{thread\_B\_code}|hyperpage}{16}
-\indexentry{thread\_B\_code@{thread\_B\_code}!main.c@{main.c}|hyperpage}{16}
-\indexentry{main.c@{main.c}!thread\_C\_code@{thread\_C\_code}|hyperpage}{17}
-\indexentry{thread\_C\_code@{thread\_C\_code}!main.c@{main.c}|hyperpage}{17}
+\indexentry{main.c@{main.c}!thread\_B\_code@{thread\_B\_code}|hyperpage}{15}
+\indexentry{thread\_B\_code@{thread\_B\_code}!main.c@{main.c}|hyperpage}{15}
+\indexentry{main.c@{main.c}!thread\_C\_code@{thread\_C\_code}|hyperpage}{16}
+\indexentry{thread\_C\_code@{thread\_C\_code}!main.c@{main.c}|hyperpage}{16}
 \indexentry{main.c@{main.c}!thread\_D\_code@{thread\_D\_code}|hyperpage}{17}
 \indexentry{thread\_D\_code@{thread\_D\_code}!main.c@{main.c}|hyperpage}{17}
 \indexentry{main.c@{main.c}!a1a@{a1a}|hyperpage}{19}

@@ -143,11 +143,11 @@
     \subitem {thread\_A\_data}, \hyperpage{21}
     \subitem {thread\_A\_prio}, \hyperpage{10}
     \subitem {thread\_A\_tid}, \hyperpage{21}
-    \subitem {thread\_B\_code}, \hyperpage{16}
+    \subitem {thread\_B\_code}, \hyperpage{15}
     \subitem {thread\_B\_data}, \hyperpage{21}
     \subitem {thread\_B\_prio}, \hyperpage{11}
     \subitem {thread\_B\_tid}, \hyperpage{22}
-    \subitem {thread\_C\_code}, \hyperpage{17}
+    \subitem {thread\_C\_code}, \hyperpage{16}
     \subitem {thread\_C\_data}, \hyperpage{22}
     \subitem {thread\_C\_prio}, \hyperpage{11}
     \subitem {thread\_C\_tid}, \hyperpage{22}
@@ -226,7 +226,7 @@
   \item {thread\_A\_tid}
     \subitem {main.c}, \hyperpage{21}
   \item {thread\_B\_code}
-    \subitem {main.c}, \hyperpage{16}
+    \subitem {main.c}, \hyperpage{15}
     \subitem {main.h}, \hyperpage{28}
   \item {thread\_B\_data}
     \subitem {main.c}, \hyperpage{21}
@@ -235,7 +235,7 @@
   \item {thread\_B\_tid}
     \subitem {main.c}, \hyperpage{22}
   \item {thread\_C\_code}
-    \subitem {main.c}, \hyperpage{17}
+    \subitem {main.c}, \hyperpage{16}
     \subitem {main.h}, \hyperpage{29}
   \item {thread\_C\_data}
     \subitem {main.c}, \hyperpage{22}

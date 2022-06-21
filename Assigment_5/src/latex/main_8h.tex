@@ -9,17 +9,17 @@ Application to control the light intensity of a given region. The system compris
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{main_8h_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
-\begin{DoxyCompactList}\small\item\em Main funtion\+: Initialize semaphores and configure G\+P\+I\+O\+\_\+\+P\+IN (U\+A\+RT) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Main funtion\+: Initialize semaphores and configure G\+P\+I\+O\+\_\+\+P\+IN. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8h_a61675a61bbec86901b2fe28f008e881c}{thread\+\_\+\+A\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em É o valor da A\+DC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8h_a7e3fa2c87f08ae9cfff992653a3ac0b6}{thread\+\_\+\+A1\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em É o valor da A\+DC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8h_a99cef2c8673e9c73162dd97f0247ca8e}{thread\+\_\+\+B\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10\% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8h_a6eec62f04743b40b6d744ecd2f31cdd2}{thread\+\_\+\+C\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
 \item 
+void \mbox{\hyperlink{main_8h_a99cef2c8673e9c73162dd97f0247ca8e}{thread\+\_\+\+B\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em É efectuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na Thread A e o filtro rejeita todos os valores que estejam abaixo ou acima de 10\% da média. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_a6eec62f04743b40b6d744ecd2f31cdd2}{thread\+\_\+\+C\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Modo manual, onde se faz o toggle sempre que carregar no botão 2 incrementa a luminosidade, ao clicar no botão 4 a luminosidade decrementa, ou seja, diminui a percentagem do P\+WM, quando está a 100\% está no maximo e o duty-\/cycle corresponde é de 0\%, que é quando está no máximo, e assim succesivamente. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8h_a66dec4e923ae4b8177536366d462a1cd}{thread\+\_\+\+D\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC) static int adc\+\_\+sample(void)
-\begin{DoxyCompactList}\small\item\em Takes one adc\+\_\+sample. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Modo automático\+: Recebe o valor da A\+DC e faz o take que vem do bd (após a filtragem); Se o valor for menor que 500, o led está apagado, ou seja, é detetada muita luminiosidade logo; Quando estamos à luz ambiente o led está com a luminiosidade a meio; Se não existir luminiosidade o led acede. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8h_ae7d90a3db3be4d74a95d59cb9bc36764}{but1press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
 \begin{DoxyCompactList}\small\item\em If button 1 is pressed, Update Flag 1. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8h_ad5a577fea0419d075e8b4de7c1416f9b}{but2press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
@@ -127,7 +127,7 @@ No returns
 
 
 
-Main funtion\+: Initialize semaphores and configure G\+P\+I\+O\+\_\+\+P\+IN (U\+A\+RT) 
+Main funtion\+: Initialize semaphores and configure G\+P\+I\+O\+\_\+\+P\+IN. 
 
 
 \begin{DoxyCode}{0}
@@ -216,11 +216,7 @@ Create tasks\mbox{\Hypertarget{main_8h_a7e3fa2c87f08ae9cfff992653a3ac0b6}\label{
 \doxysubsubsection{\texorpdfstring{thread\_A1\_code()}{thread\_A1\_code()}}
 {\footnotesize\ttfamily void thread\+\_\+\+A1\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
 
-
-
-É o valor da A\+DC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. 
-
-
+Lê o valor da A\+DC e guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. É o valor da A\+DC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_a7e3fa2c87f08ae9cfff992653a3ac0b6}{thread\_A1\_code}}(\textcolor{keywordtype}{void} *argA , \textcolor{keywordtype}{void} *argB, \textcolor{keywordtype}{void} *argC)}
 \DoxyCodeLine{\{}
@@ -275,7 +271,7 @@ Thread code prototypes \mbox{\Hypertarget{main_8h_a61675a61bbec86901b2fe28f008e8
 
 
 
-É o valor da A\+DC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. 
+Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico. 
 
 
 \begin{DoxyCode}{0}
@@ -340,7 +336,7 @@ No returns ~\newline
 
 
 
-é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10\% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC. 
+É efectuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na Thread A e o filtro rejeita todos os valores que estejam abaixo ou acima de 10\% da média. 
 
 
 \begin{DoxyCode}{0}
@@ -410,6 +406,10 @@ array de dados da adc\mbox{\Hypertarget{main_8h_a6eec62f04743b40b6d744ecd2f31cdd
 \index{thread\_C\_code@{thread\_C\_code}!main.h@{main.h}}
 \doxysubsubsection{\texorpdfstring{thread\_C\_code()}{thread\_C\_code()}}
 {\footnotesize\ttfamily void thread\+\_\+\+C\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Modo manual, onde se faz o toggle sempre que carregar no botão 2 incrementa a luminosidade, ao clicar no botão 4 a luminosidade decrementa, ou seja, diminui a percentagem do P\+WM, quando está a 100\% está no maximo e o duty-\/cycle corresponde é de 0\%, que é quando está no máximo, e assim succesivamente. 
 
 
 \begin{DoxyCode}{0}
@@ -491,7 +491,7 @@ Prints dutty-\/cycle\mbox{\Hypertarget{main_8h_a66dec4e923ae4b8177536366d462a1cd
 
 
 
-Takes one adc\+\_\+sample. 
+Modo automático\+: Recebe o valor da A\+DC e faz o take que vem do bd (após a filtragem); Se o valor for menor que 500, o led está apagado, ou seja, é detetada muita luminiosidade logo; Quando estamos à luz ambiente o led está com a luminiosidade a meio; Se não existir luminiosidade o led acede. 
 
 
 \begin{DoxyCode}{0}
@@ -554,7 +554,7 @@ Takes one adc\+\_\+sample.
 {\em arg3} & void $\ast$argA , void $\ast$argB, void $\ast$argC.\\
 \hline
 \end{DoxyParams}
-
+Takes one adc\+\_\+sample 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{  \textcolor{keyword}{static} \textcolor{keywordtype}{int} adc\_sample(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\{}
