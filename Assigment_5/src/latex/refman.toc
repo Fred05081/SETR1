@@ -1,0 +1,99 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Bug List}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Make\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lists.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}txt File Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Function Documentation}{5}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}cmake\_minimum\_required()}{5}{subsubsection.3.1.1.1}%
+\contentsline {section}{\numberline {3.2}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{5}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Macro Definition Documentation}{7}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}ADC\_ACQUISITION\_TIME}{7}{subsubsection.3.2.1.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.2}ADC\_CHANNEL\_ID}{8}{subsubsection.3.2.1.2}%
+\contentsline {subsubsection}{\numberline {3.2.1.3}ADC\_CHANNEL\_INPUT}{8}{subsubsection.3.2.1.3}%
+\contentsline {subsubsection}{\numberline {3.2.1.4}ADC\_GAIN}{8}{subsubsection.3.2.1.4}%
+\contentsline {subsubsection}{\numberline {3.2.1.5}ADC\_NID}{8}{subsubsection.3.2.1.5}%
+\contentsline {subsubsection}{\numberline {3.2.1.6}ADC\_REFERENCE}{8}{subsubsection.3.2.1.6}%
+\contentsline {subsubsection}{\numberline {3.2.1.7}ADC\_RESOLUTION}{8}{subsubsection.3.2.1.7}%
+\contentsline {subsubsection}{\numberline {3.2.1.8}BOARDBUT1}{8}{subsubsection.3.2.1.8}%
+\contentsline {subsubsection}{\numberline {3.2.1.9}BOARDBUT2\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{9}{subsubsection.3.2.1.9}%
+\contentsline {subsubsection}{\numberline {3.2.1.10}BOARDBUT2\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{9}{subsubsection.3.2.1.10}%
+\contentsline {subsubsection}{\numberline {3.2.1.11}BOARDBUT4}{9}{subsubsection.3.2.1.11}%
+\contentsline {subsubsection}{\numberline {3.2.1.12}BOARDLED1}{9}{subsubsection.3.2.1.12}%
+\contentsline {subsubsection}{\numberline {3.2.1.13}BUFFER\_SIZE}{9}{subsubsection.3.2.1.13}%
+\contentsline {subsubsection}{\numberline {3.2.1.14}FATAL\_ERR}{9}{subsubsection.3.2.1.14}%
+\contentsline {subsubsection}{\numberline {3.2.1.15}GPIO0\_NID}{9}{subsubsection.3.2.1.15}%
+\contentsline {subsubsection}{\numberline {3.2.1.16}len\_dados}{9}{subsubsection.3.2.1.16}%
+\contentsline {subsubsection}{\numberline {3.2.1.17}MAIN\_SLEEP\_TIME\_MS}{10}{subsubsection.3.2.1.17}%
+\contentsline {subsubsection}{\numberline {3.2.1.18}PWM0\_NID}{10}{subsubsection.3.2.1.18}%
+\contentsline {subsubsection}{\numberline {3.2.1.19}RX\_TIMEOUT}{10}{subsubsection.3.2.1.19}%
+\contentsline {subsubsection}{\numberline {3.2.1.20}RXBUF\_SIZE}{10}{subsubsection.3.2.1.20}%
+\contentsline {subsubsection}{\numberline {3.2.1.21}SAMP\_PERIOD\_MS}{10}{subsubsection.3.2.1.21}%
+\contentsline {subsubsection}{\numberline {3.2.1.22}STACK\_SIZE}{10}{subsubsection.3.2.1.22}%
+\contentsline {subsubsection}{\numberline {3.2.1.23}thread\_A1\_prio}{10}{subsubsection.3.2.1.23}%
+\contentsline {subsubsection}{\numberline {3.2.1.24}thread\_A\_prio}{11}{subsubsection.3.2.1.24}%
+\contentsline {subsubsection}{\numberline {3.2.1.25}thread\_B\_prio}{11}{subsubsection.3.2.1.25}%
+\contentsline {subsubsection}{\numberline {3.2.1.26}thread\_C\_prio}{11}{subsubsection.3.2.1.26}%
+\contentsline {subsubsection}{\numberline {3.2.1.27}thread\_D\_prio}{11}{subsubsection.3.2.1.27}%
+\contentsline {subsubsection}{\numberline {3.2.1.28}TXBUF\_SIZE}{11}{subsubsection.3.2.1.28}%
+\contentsline {subsubsection}{\numberline {3.2.1.29}UART\_NID}{11}{subsubsection.3.2.1.29}%
+\contentsline {subsection}{\numberline {3.2.2}Function Documentation}{11}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}but1press\_cbfunction()}{11}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}but2press\_cbfunction()}{12}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}but4press\_cbfunction()}{12}{subsubsection.3.2.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.2.4}K\_THREAD\_STACK\_DEFINE()\hspace {0.1cm}{\footnotesize \ttfamily [1/5]}}{13}{subsubsection.3.2.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.2.5}K\_THREAD\_STACK\_DEFINE()\hspace {0.1cm}{\footnotesize \ttfamily [2/5]}}{13}{subsubsection.3.2.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.2.6}K\_THREAD\_STACK\_DEFINE()\hspace {0.1cm}{\footnotesize \ttfamily [3/5]}}{13}{subsubsection.3.2.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.2.7}K\_THREAD\_STACK\_DEFINE()\hspace {0.1cm}{\footnotesize \ttfamily [4/5]}}{13}{subsubsection.3.2.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.2.8}K\_THREAD\_STACK\_DEFINE()\hspace {0.1cm}{\footnotesize \ttfamily [5/5]}}{13}{subsubsection.3.2.2.8}%
+\contentsline {subsubsection}{\numberline {3.2.2.9}main()}{14}{subsubsection.3.2.2.9}%
+\contentsline {subsubsection}{\numberline {3.2.2.10}thread\_A1\_code()}{15}{subsubsection.3.2.2.10}%
+\contentsline {subsubsection}{\numberline {3.2.2.11}thread\_A\_code()}{15}{subsubsection.3.2.2.11}%
+\contentsline {subsubsection}{\numberline {3.2.2.12}thread\_B\_code()}{16}{subsubsection.3.2.2.12}%
+\contentsline {subsubsection}{\numberline {3.2.2.13}thread\_C\_code()}{17}{subsubsection.3.2.2.13}%
+\contentsline {subsubsection}{\numberline {3.2.2.14}thread\_D\_code()}{18}{subsubsection.3.2.2.14}%
+\contentsline {subsection}{\numberline {3.2.3}Variable Documentation}{19}{subsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}a1a}{19}{subsubsection.3.2.3.1}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}ab}{19}{subsubsection.3.2.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.3.3}adc\_dev}{19}{subsubsection.3.2.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.4}bc}{19}{subsubsection.3.2.3.4}%
+\contentsline {subsubsection}{\numberline {3.2.3.5}bd}{19}{subsubsection.3.2.3.5}%
+\contentsline {subsubsection}{\numberline {3.2.3.6}Flag\_1}{20}{subsubsection.3.2.3.6}%
+\contentsline {subsubsection}{\numberline {3.2.3.7}Flag\_2}{20}{subsubsection.3.2.3.7}%
+\contentsline {subsubsection}{\numberline {3.2.3.8}Flag\_3}{20}{subsubsection.3.2.3.8}%
+\contentsline {subsubsection}{\numberline {3.2.3.9}Flag\_4}{20}{subsubsection.3.2.3.9}%
+\contentsline {subsubsection}{\numberline {3.2.3.10}flag\_flag}{20}{subsubsection.3.2.3.10}%
+\contentsline {subsubsection}{\numberline {3.2.3.11}gpio0\_dev}{20}{subsubsection.3.2.3.11}%
+\contentsline {subsubsection}{\numberline {3.2.3.12}my\_timer}{20}{subsubsection.3.2.3.12}%
+\contentsline {subsubsection}{\numberline {3.2.3.13}rep\_mesg}{20}{subsubsection.3.2.3.13}%
+\contentsline {subsubsection}{\numberline {3.2.3.14}sem\_a1a}{21}{subsubsection.3.2.3.14}%
+\contentsline {subsubsection}{\numberline {3.2.3.15}sem\_ab}{21}{subsubsection.3.2.3.15}%
+\contentsline {subsubsection}{\numberline {3.2.3.16}sem\_bc}{21}{subsubsection.3.2.3.16}%
+\contentsline {subsubsection}{\numberline {3.2.3.17}sem\_bd}{21}{subsubsection.3.2.3.17}%
+\contentsline {subsubsection}{\numberline {3.2.3.18}thread\_A1\_data}{21}{subsubsection.3.2.3.18}%
+\contentsline {subsubsection}{\numberline {3.2.3.19}thread\_A1\_tid}{21}{subsubsection.3.2.3.19}%
+\contentsline {subsubsection}{\numberline {3.2.3.20}thread\_A\_data}{21}{subsubsection.3.2.3.20}%
+\contentsline {subsubsection}{\numberline {3.2.3.21}thread\_A\_tid}{21}{subsubsection.3.2.3.21}%
+\contentsline {subsubsection}{\numberline {3.2.3.22}thread\_B\_data}{22}{subsubsection.3.2.3.22}%
+\contentsline {subsubsection}{\numberline {3.2.3.23}thread\_B\_tid}{22}{subsubsection.3.2.3.23}%
+\contentsline {subsubsection}{\numberline {3.2.3.24}thread\_C\_data}{22}{subsubsection.3.2.3.24}%
+\contentsline {subsubsection}{\numberline {3.2.3.25}thread\_C\_tid}{22}{subsubsection.3.2.3.25}%
+\contentsline {subsubsection}{\numberline {3.2.3.26}thread\_D\_data}{22}{subsubsection.3.2.3.26}%
+\contentsline {subsubsection}{\numberline {3.2.3.27}thread\_D\_tid}{22}{subsubsection.3.2.3.27}%
+\contentsline {subsubsection}{\numberline {3.2.3.28}uart\_cfg}{22}{subsubsection.3.2.3.28}%
+\contentsline {subsubsection}{\numberline {3.2.3.29}uart\_dev}{23}{subsubsection.3.2.3.29}%
+\contentsline {subsubsection}{\numberline {3.2.3.30}uart\_rx\_rdy\_flag}{23}{subsubsection.3.2.3.30}%
+\contentsline {subsubsection}{\numberline {3.2.3.31}welcome\_mesg}{23}{subsubsection.3.2.3.31}%
+\contentsline {section}{\numberline {3.3}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{23}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{24}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Function Documentation}{24}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}but1press\_cbfunction()}{24}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}but2press\_cbfunction()}{24}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}but4press\_cbfunction()}{25}{subsubsection.3.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.3.2.4}main()}{25}{subsubsection.3.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.3.2.5}thread\_A1\_code()}{26}{subsubsection.3.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.3.2.6}thread\_A\_code()}{27}{subsubsection.3.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.3.2.7}thread\_B\_code()}{28}{subsubsection.3.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.3.2.8}thread\_C\_code()}{29}{subsubsection.3.3.2.8}%
+\contentsline {subsubsection}{\numberline {3.3.2.9}thread\_D\_code()}{30}{subsubsection.3.3.2.9}%
+\contentsline {chapter}{Index}{33}{section*.7}%

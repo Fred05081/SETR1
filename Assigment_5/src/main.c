@@ -139,7 +139,7 @@ void but4press_cbfunction(const struct device *dev, struct gpio_callback *cb, ui
 
 const struct device *gpio0_dev;
 
-/** Takes one sample */
+
 static int adc_sample(void)
 {
 	int ret;
@@ -267,14 +267,13 @@ int err=0;
 
 void thread_A1_code(void *argA , void *argB, void *argC)
 {
-    /** Timing variables to control task periodicity */
+   
     int64_t fin_time=0, release_time=0;
 
     int err=0;
 
     printk("Thread A1 init (periodic)\n");
 
-    /** Compute next release instant */
     release_time = k_uptime_get() + SAMP_PERIOD_MS;
 
     while(1) {
@@ -292,7 +291,6 @@ void thread_A1_code(void *argA , void *argB, void *argC)
           k_sem_give(&sem_a1a);
           }
 
-        /** Waits for next release instant */ 
         fin_time = k_uptime_get();
         if( fin_time < release_time) {        
             k_msleep(release_time - fin_time);            
@@ -308,10 +306,9 @@ void thread_A_code(void *argA , void *argB, void *argC)
     
     printk("Thread A init\n");
      
-    /** Compute next release instant */
+
     
 
-    /** ADC setup: bind and initialize */
     adc_dev = device_get_binding(DT_LABEL(ADC_NID));
     if (!adc_dev) {
         printk("ADC device_get_binding() failed\n");
@@ -321,12 +318,12 @@ void thread_A_code(void *argA , void *argB, void *argC)
         printk("adc_channel_setup() failed with error code %d\n", err);
     }
     
-    /** Calibration of the SAADC*/
+
     NRF_SAADC->TASKS_CALIBRATEOFFSET = 1;
 
     while(1) {
         k_sem_take(&sem_a1a,  K_FOREVER);
-        /** Gets one sample and checks for errors*/
+        
         err=adc_sample();
         if(err) {
             printk("adc_sample() failed with error code %d\n\r",err);
@@ -336,8 +333,7 @@ void thread_A_code(void *argA , void *argB, void *argC)
                 printk("adc reading out of range\n\r");
             }
             else {
-                /** ADC is set to use gain of 1/4 and reference VDD/4, so input range is [0...VDD_3V], with 10 bit resolution */
-                /** Global variable ab will assume values between [0, 1023]*/
+                
                 ab=adc_sample_buffer[0];
             }
         }
@@ -345,7 +341,7 @@ void thread_A_code(void *argA , void *argB, void *argC)
         printk("Thread A set ab value to: %d \n",ab);  
         
         k_sem_give(&sem_ab);
-        /** Waits for next release instant */ 
+       
        
 
     }
@@ -373,7 +369,7 @@ void thread_B_code(void *argA , void *argB, void *argC)
         }
         Array_dados[0]= ab;
         
-        /*printk("0: %d 1: %d 3: %d 4: %d 5: %d 6: %d 7: %d 8: %d 09: %d /n/r",Array_dados[0],Array_dados[1],Array_dados[2],Array_dados[3],Array_dados[4],Array_dados[5],Array_dados[6],Array_dados[7],Array_dados[8],Array_dados[9]);*/
+    
        
        for(int i = 0; i < len_dados; i++){
             if(Array_dados[i] != 0){
@@ -382,7 +378,7 @@ void thread_B_code(void *argA , void *argB, void *argC)
         }
         media=sumador/len_dados;
         contador=0;
-        /** Choose the values that are not acording to the average*/        
+            
         for(int j = 0; j < len_dados; j++){
             if(Array_dados[j] < (media - media*0.1) || Array_dados[j] > (media + media*0.1))
                 somador_2=somador_2;
@@ -393,7 +389,7 @@ void thread_B_code(void *argA , void *argB, void *argC)
             }             
         }
 
-        /** To avoid sumador dividing by 0*/
+      
         if(somador_2 != 0)
             media_filtered=somador_2/contador;
         else 
@@ -407,16 +403,16 @@ void thread_B_code(void *argA , void *argB, void *argC)
 
 void thread_C_code(void *argA , void *argB, void *argC)
 {
-    const struct device *gpio0_dev;         /** Pointer to GPIO device structure */
-    const struct device *pwm0_dev;          /** Pointer to PWM device structure */
-    int ret=0;                              /** Generic return value variable */
-    unsigned int dcValue[]={100,90,80,70,60,50,40,30,20,10,0};   /* Duty-cycle in % */
+    const struct device *gpio0_dev;         
+    const struct device *pwm0_dev;          
+    int ret=0;                        
+    unsigned int dcValue[]={100,90,80,70,60,50,40,30,20,10,0};   
     unsigned int dcIndex=0;   
-    unsigned int pwmPeriod_us = 100;       /** PWM period in us */
+    unsigned int pwmPeriod_us = 100;       
 
     printk("Thread C init (sporadic, waits on a semaphore by task B)\n");
     
-    /** Bind to GPIO 0 and PWM0 */
+    
     gpio0_dev = device_get_binding(DT_LABEL(GPIO0_NID));
     if (gpio0_dev == NULL) {
         printk("Error: Failed to bind to GPIO0\n\r");        
@@ -470,16 +466,16 @@ void thread_C_code(void *argA , void *argB, void *argC)
 
 void thread_D_code(void *argA , void *argB, void *argC)
 {
-    const struct device *gpio0_dev;         /** Pointer to GPIO device structure */
-    const struct device *pwm0_dev;          /** Pointer to PWM device structure */
-    int ret=0;                              /** Generic return value variable */
-    unsigned int dcValue[]={100,90,80,70,60,50,40,30,20,10,0};   /* Duty-cycle in % */
+    const struct device *gpio0_dev;         
+    const struct device *pwm0_dev;          
+    int ret=0;                             
+    unsigned int dcValue[]={100,90,80,70,60,50,40,30,20,10,0};  
     unsigned int dcIndex=0;   
-    unsigned int pwmPeriod_us = 100;       /** PWM period in us */
+    unsigned int pwmPeriod_us = 100;      
 
     printk("Thread C init (sporadic, waits on a semaphore by task B)\n");
     
-    /** Bind to GPIO 0 and PWM0 */
+ 
     gpio0_dev = device_get_binding(DT_LABEL(GPIO0_NID));
     if (gpio0_dev == NULL) {
         printk("Error: Failed to bind to GPIO0\n\r");        

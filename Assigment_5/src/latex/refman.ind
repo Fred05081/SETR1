@@ -1,0 +1,274 @@
+\begin{theindex}
+
+  \item {a1a}
+    \subitem {main.c}, \hyperpage{19}
+  \item {ab}
+    \subitem {main.c}, \hyperpage{19}
+  \item {ADC\_ACQUISITION\_TIME}
+    \subitem {main.c}, \hyperpage{7}
+  \item {ADC\_CHANNEL\_ID}
+    \subitem {main.c}, \hyperpage{7}
+  \item {ADC\_CHANNEL\_INPUT}
+    \subitem {main.c}, \hyperpage{8}
+  \item {adc\_dev}
+    \subitem {main.c}, \hyperpage{19}
+  \item {ADC\_GAIN}
+    \subitem {main.c}, \hyperpage{8}
+  \item {ADC\_NID}
+    \subitem {main.c}, \hyperpage{8}
+  \item {ADC\_REFERENCE}
+    \subitem {main.c}, \hyperpage{8}
+  \item {ADC\_RESOLUTION}
+    \subitem {main.c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {bc}
+    \subitem {main.c}, \hyperpage{19}
+  \item {bd}
+    \subitem {main.c}, \hyperpage{19}
+  \item {BOARDBUT1}
+    \subitem {main.c}, \hyperpage{8}
+  \item {BOARDBUT2}
+    \subitem {main.c}, \hyperpage{8, 9}
+  \item {BOARDBUT4}
+    \subitem {main.c}, \hyperpage{9}
+  \item {BOARDLED1}
+    \subitem {main.c}, \hyperpage{9}
+  \item {BUFFER\_SIZE}
+    \subitem {main.c}, \hyperpage{9}
+  \item {but1press\_cbfunction}
+    \subitem {main.c}, \hyperpage{11}
+    \subitem {main.h}, \hyperpage{24}
+  \item {but2press\_cbfunction}
+    \subitem {main.c}, \hyperpage{12}
+    \subitem {main.h}, \hyperpage{24}
+  \item {but4press\_cbfunction}
+    \subitem {main.c}, \hyperpage{12}
+    \subitem {main.h}, \hyperpage{25}
+
+  \indexspace
+
+  \item {cmake\_minimum\_required}
+    \subitem {CMakeLists.txt}, \hyperpage{5}
+  \item {CMakeLists.txt}, \hyperpage{5}
+    \subitem {cmake\_minimum\_required}, \hyperpage{5}
+
+  \indexspace
+
+  \item {FATAL\_ERR}
+    \subitem {main.c}, \hyperpage{9}
+  \item {Flag\_1}
+    \subitem {main.c}, \hyperpage{19}
+  \item {Flag\_2}
+    \subitem {main.c}, \hyperpage{20}
+  \item {Flag\_3}
+    \subitem {main.c}, \hyperpage{20}
+  \item {Flag\_4}
+    \subitem {main.c}, \hyperpage{20}
+  \item {flag\_flag}
+    \subitem {main.c}, \hyperpage{20}
+
+  \indexspace
+
+  \item {gpio0\_dev}
+    \subitem {main.c}, \hyperpage{20}
+  \item {GPIO0\_NID}
+    \subitem {main.c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {K\_THREAD\_STACK\_DEFINE}
+    \subitem {main.c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {len\_dados}
+    \subitem {main.c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{13}
+    \subitem {main.h}, \hyperpage{25}
+  \item {main.c}, \hyperpage{5}
+    \subitem {a1a}, \hyperpage{19}
+    \subitem {ab}, \hyperpage{19}
+    \subitem {ADC\_ACQUISITION\_TIME}, \hyperpage{7}
+    \subitem {ADC\_CHANNEL\_ID}, \hyperpage{7}
+    \subitem {ADC\_CHANNEL\_INPUT}, \hyperpage{8}
+    \subitem {adc\_dev}, \hyperpage{19}
+    \subitem {ADC\_GAIN}, \hyperpage{8}
+    \subitem {ADC\_NID}, \hyperpage{8}
+    \subitem {ADC\_REFERENCE}, \hyperpage{8}
+    \subitem {ADC\_RESOLUTION}, \hyperpage{8}
+    \subitem {bc}, \hyperpage{19}
+    \subitem {bd}, \hyperpage{19}
+    \subitem {BOARDBUT1}, \hyperpage{8}
+    \subitem {BOARDBUT2}, \hyperpage{8, 9}
+    \subitem {BOARDBUT4}, \hyperpage{9}
+    \subitem {BOARDLED1}, \hyperpage{9}
+    \subitem {BUFFER\_SIZE}, \hyperpage{9}
+    \subitem {but1press\_cbfunction}, \hyperpage{11}
+    \subitem {but2press\_cbfunction}, \hyperpage{12}
+    \subitem {but4press\_cbfunction}, \hyperpage{12}
+    \subitem {FATAL\_ERR}, \hyperpage{9}
+    \subitem {Flag\_1}, \hyperpage{19}
+    \subitem {Flag\_2}, \hyperpage{20}
+    \subitem {Flag\_3}, \hyperpage{20}
+    \subitem {Flag\_4}, \hyperpage{20}
+    \subitem {flag\_flag}, \hyperpage{20}
+    \subitem {gpio0\_dev}, \hyperpage{20}
+    \subitem {GPIO0\_NID}, \hyperpage{9}
+    \subitem {K\_THREAD\_STACK\_DEFINE}, \hyperpage{13}
+    \subitem {len\_dados}, \hyperpage{9}
+    \subitem {main}, \hyperpage{13}
+    \subitem {MAIN\_SLEEP\_TIME\_MS}, \hyperpage{9}
+    \subitem {my\_timer}, \hyperpage{20}
+    \subitem {PWM0\_NID}, \hyperpage{10}
+    \subitem {rep\_mesg}, \hyperpage{20}
+    \subitem {RX\_TIMEOUT}, \hyperpage{10}
+    \subitem {RXBUF\_SIZE}, \hyperpage{10}
+    \subitem {SAMP\_PERIOD\_MS}, \hyperpage{10}
+    \subitem {sem\_a1a}, \hyperpage{20}
+    \subitem {sem\_ab}, \hyperpage{21}
+    \subitem {sem\_bc}, \hyperpage{21}
+    \subitem {sem\_bd}, \hyperpage{21}
+    \subitem {STACK\_SIZE}, \hyperpage{10}
+    \subitem {thread\_A1\_code}, \hyperpage{14}
+    \subitem {thread\_A1\_data}, \hyperpage{21}
+    \subitem {thread\_A1\_prio}, \hyperpage{10}
+    \subitem {thread\_A1\_tid}, \hyperpage{21}
+    \subitem {thread\_A\_code}, \hyperpage{15}
+    \subitem {thread\_A\_data}, \hyperpage{21}
+    \subitem {thread\_A\_prio}, \hyperpage{10}
+    \subitem {thread\_A\_tid}, \hyperpage{21}
+    \subitem {thread\_B\_code}, \hyperpage{16}
+    \subitem {thread\_B\_data}, \hyperpage{21}
+    \subitem {thread\_B\_prio}, \hyperpage{11}
+    \subitem {thread\_B\_tid}, \hyperpage{22}
+    \subitem {thread\_C\_code}, \hyperpage{17}
+    \subitem {thread\_C\_data}, \hyperpage{22}
+    \subitem {thread\_C\_prio}, \hyperpage{11}
+    \subitem {thread\_C\_tid}, \hyperpage{22}
+    \subitem {thread\_D\_code}, \hyperpage{17}
+    \subitem {thread\_D\_data}, \hyperpage{22}
+    \subitem {thread\_D\_prio}, \hyperpage{11}
+    \subitem {thread\_D\_tid}, \hyperpage{22}
+    \subitem {TXBUF\_SIZE}, \hyperpage{11}
+    \subitem {uart\_cfg}, \hyperpage{22}
+    \subitem {uart\_dev}, \hyperpage{22}
+    \subitem {UART\_NID}, \hyperpage{11}
+    \subitem {uart\_rx\_rdy\_flag}, \hyperpage{23}
+    \subitem {welcome\_mesg}, \hyperpage{23}
+  \item {main.h}, \hyperpage{23}
+    \subitem {but1press\_cbfunction}, \hyperpage{24}
+    \subitem {but2press\_cbfunction}, \hyperpage{24}
+    \subitem {but4press\_cbfunction}, \hyperpage{25}
+    \subitem {main}, \hyperpage{25}
+    \subitem {thread\_A1\_code}, \hyperpage{26}
+    \subitem {thread\_A\_code}, \hyperpage{27}
+    \subitem {thread\_B\_code}, \hyperpage{28}
+    \subitem {thread\_C\_code}, \hyperpage{29}
+    \subitem {thread\_D\_code}, \hyperpage{30}
+  \item {MAIN\_SLEEP\_TIME\_MS}
+    \subitem {main.c}, \hyperpage{9}
+  \item {my\_timer}
+    \subitem {main.c}, \hyperpage{20}
+
+  \indexspace
+
+  \item {PWM0\_NID}
+    \subitem {main.c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {rep\_mesg}
+    \subitem {main.c}, \hyperpage{20}
+  \item {RX\_TIMEOUT}
+    \subitem {main.c}, \hyperpage{10}
+  \item {RXBUF\_SIZE}
+    \subitem {main.c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {SAMP\_PERIOD\_MS}
+    \subitem {main.c}, \hyperpage{10}
+  \item {sem\_a1a}
+    \subitem {main.c}, \hyperpage{20}
+  \item {sem\_ab}
+    \subitem {main.c}, \hyperpage{21}
+  \item {sem\_bc}
+    \subitem {main.c}, \hyperpage{21}
+  \item {sem\_bd}
+    \subitem {main.c}, \hyperpage{21}
+  \item {STACK\_SIZE}
+    \subitem {main.c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {thread\_A1\_code}
+    \subitem {main.c}, \hyperpage{14}
+    \subitem {main.h}, \hyperpage{26}
+  \item {thread\_A1\_data}
+    \subitem {main.c}, \hyperpage{21}
+  \item {thread\_A1\_prio}
+    \subitem {main.c}, \hyperpage{10}
+  \item {thread\_A1\_tid}
+    \subitem {main.c}, \hyperpage{21}
+  \item {thread\_A\_code}
+    \subitem {main.c}, \hyperpage{15}
+    \subitem {main.h}, \hyperpage{27}
+  \item {thread\_A\_data}
+    \subitem {main.c}, \hyperpage{21}
+  \item {thread\_A\_prio}
+    \subitem {main.c}, \hyperpage{10}
+  \item {thread\_A\_tid}
+    \subitem {main.c}, \hyperpage{21}
+  \item {thread\_B\_code}
+    \subitem {main.c}, \hyperpage{16}
+    \subitem {main.h}, \hyperpage{28}
+  \item {thread\_B\_data}
+    \subitem {main.c}, \hyperpage{21}
+  \item {thread\_B\_prio}
+    \subitem {main.c}, \hyperpage{11}
+  \item {thread\_B\_tid}
+    \subitem {main.c}, \hyperpage{22}
+  \item {thread\_C\_code}
+    \subitem {main.c}, \hyperpage{17}
+    \subitem {main.h}, \hyperpage{29}
+  \item {thread\_C\_data}
+    \subitem {main.c}, \hyperpage{22}
+  \item {thread\_C\_prio}
+    \subitem {main.c}, \hyperpage{11}
+  \item {thread\_C\_tid}
+    \subitem {main.c}, \hyperpage{22}
+  \item {thread\_D\_code}
+    \subitem {main.c}, \hyperpage{17}
+    \subitem {main.h}, \hyperpage{30}
+  \item {thread\_D\_data}
+    \subitem {main.c}, \hyperpage{22}
+  \item {thread\_D\_prio}
+    \subitem {main.c}, \hyperpage{11}
+  \item {thread\_D\_tid}
+    \subitem {main.c}, \hyperpage{22}
+  \item {TXBUF\_SIZE}
+    \subitem {main.c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {uart\_cfg}
+    \subitem {main.c}, \hyperpage{22}
+  \item {uart\_dev}
+    \subitem {main.c}, \hyperpage{22}
+  \item {UART\_NID}
+    \subitem {main.c}, \hyperpage{11}
+  \item {uart\_rx\_rdy\_flag}
+    \subitem {main.c}, \hyperpage{23}
+
+  \indexspace
+
+  \item {welcome\_mesg}
+    \subitem {main.c}, \hyperpage{23}
+
+\end{theindex}
