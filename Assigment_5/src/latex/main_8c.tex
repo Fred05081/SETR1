@@ -98,13 +98,14 @@ Include dependency graph for main.\+c\+:\nopagebreak
 void \mbox{\hyperlink{main_8c_a7e3fa2c87f08ae9cfff992653a3ac0b6}{thread\+\_\+\+A1\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
 \item 
 void \mbox{\hyperlink{main_8c_a61675a61bbec86901b2fe28f008e881c}{thread\+\_\+\+A\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Lê o valor da A\+DC e guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. ~\newline
+ \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a99cef2c8673e9c73162dd97f0247ca8e}{thread\+\_\+\+B\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em É efectuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na Thread A e o filtro rejeita todos os valores que estejam abaixo ou acima de 10\% da média. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Neste Script, feito o take do semáforo AB É efetuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na thread A e o filtro rejeita todos os valores que estejam abaixo ou acima de 10\% da média destas amostras e faz give do semáforo BD. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a6eec62f04743b40b6d744ecd2f31cdd2}{thread\+\_\+\+C\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em Modo manual, onde se faz o toggle sempre que carregar no botão 2 incrementa a luminosidade, ao clicar no botão 4 a luminosidade decrementa, ou seja, diminui a percentagem do P\+WM, quando está a 100\% está no maximo e o duty-\/cycle corresponde é de 0\%, que é quando está no máximo, e assim succesivamente. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Modo Manual, sempre que se carregar no botão 2 incrementa a luminosidade e ao clicar no botão 4 a luminosidade do led decrementa igualmente, ou seja, sempre que um dos botões for pressionado, o P\+WM varia em ± 10\% do período deste, dependendo do botão que for pressionado. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a1a621f0dfdf57a438495482f571278e7}{thread\+\_\+\+D\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em Modo automático\+: Recebe o valor da A\+DC e faz o take que vem do bd (após a filtragem); Se o valor for menor que 500, o led está apagado, ou seja, é detetada muita luminiosidade logo; Quando estamos à luz ambiente o led está com a luminiosidade a meio; Se não existir luminiosidade o led acede. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Modo Automatico\+: Faz o take que vem do semáforo BD (após a filtragem). Se o valor for menor que 500, significa que existe muita luz no meio, entao o led apaga. Quando estamos à luz ambiente, (valores lidos entre 500 e 900), o led está com uma intensidade de luz intermédia, se não existir luminosidade, (ambiente escuro) o led acende com a máxima intensidade. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}{but1press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
 \begin{DoxyCompactList}\small\item\em If button 1 is pressed, Update Flag 1. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}{but2press\+\_\+cbfunction}} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
@@ -570,7 +571,8 @@ Thread code prototypes \mbox{\Hypertarget{main_8c_a61675a61bbec86901b2fe28f008e8
 
 
 
-Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico. 
+Lê o valor da A\+DC e guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. ~\newline
+ 
 
 
 \begin{DoxyCode}{0}
@@ -635,7 +637,7 @@ No returns ~\newline
 
 
 
-É efectuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na Thread A e o filtro rejeita todos os valores que estejam abaixo ou acima de 10\% da média. 
+Neste Script, feito o take do semáforo AB É efetuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na thread A e o filtro rejeita todos os valores que estejam abaixo ou acima de 10\% da média destas amostras e faz give do semáforo BD. 
 
 
 \begin{DoxyCode}{0}
@@ -708,7 +710,7 @@ array de dados da adc\mbox{\Hypertarget{main_8c_a6eec62f04743b40b6d744ecd2f31cdd
 
 
 
-Modo manual, onde se faz o toggle sempre que carregar no botão 2 incrementa a luminosidade, ao clicar no botão 4 a luminosidade decrementa, ou seja, diminui a percentagem do P\+WM, quando está a 100\% está no maximo e o duty-\/cycle corresponde é de 0\%, que é quando está no máximo, e assim succesivamente. 
+Modo Manual, sempre que se carregar no botão 2 incrementa a luminosidade e ao clicar no botão 4 a luminosidade do led decrementa igualmente, ou seja, sempre que um dos botões for pressionado, o P\+WM varia em ± 10\% do período deste, dependendo do botão que for pressionado. 
 
 
 \begin{DoxyCode}{0}
@@ -790,22 +792,22 @@ Prints dutty-\/cycle\mbox{\Hypertarget{main_8c_a1a621f0dfdf57a438495482f571278e7
 
 
 
-Modo automático\+: Recebe o valor da A\+DC e faz o take que vem do bd (após a filtragem); Se o valor for menor que 500, o led está apagado, ou seja, é detetada muita luminiosidade logo; Quando estamos à luz ambiente o led está com a luminiosidade a meio; Se não existir luminiosidade o led acede. 
+Modo Automatico\+: Faz o take que vem do semáforo BD (após a filtragem). Se o valor for menor que 500, significa que existe muita luz no meio, entao o led apaga. Quando estamos à luz ambiente, (valores lidos entre 500 e 900), o led está com uma intensidade de luz intermédia, se não existir luminosidade, (ambiente escuro) o led acende com a máxima intensidade. 
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{ \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_a1a621f0dfdf57a438495482f571278e7}{thread\_D\_code}}(\textcolor{keywordtype}{void} *argA , \textcolor{keywordtype}{void} *argB, \textcolor{keywordtype}{void} *argC)}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{    \textcolor{keyword}{const} \textcolor{keyword}{struct }device *\mbox{\hyperlink{main_8c_ac8529dec83e91f71d383fb84302cfb27}{gpio0\_dev}};        }
+\DoxyCodeLine{    \textcolor{keyword}{const} \textcolor{keyword}{struct }device *\mbox{\hyperlink{main_8c_ac8529dec83e91f71d383fb84302cfb27}{gpio0\_dev}};         }
 \DoxyCodeLine{    \textcolor{keyword}{const} \textcolor{keyword}{struct }device *pwm0\_dev;          }
-\DoxyCodeLine{    \textcolor{keywordtype}{int} ret=0;                              }
-\DoxyCodeLine{    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} dcValue[]=\{100,90,80,70,60,50,40,30,20,10,0\};   }
+\DoxyCodeLine{    \textcolor{keywordtype}{int} ret=0;                             }
+\DoxyCodeLine{    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} dcValue[]=\{100,90,80,70,60,50,40,30,20,10,0\};  }
 \DoxyCodeLine{    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} dcIndex=0;   }
-\DoxyCodeLine{    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pwmPeriod\_us = 100;       }
+\DoxyCodeLine{    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pwmPeriod\_us = 100;      }
 \DoxyCodeLine{}
 \DoxyCodeLine{    printk(\textcolor{stringliteral}{"Thread C init (sporadic, waits on a semaphore by task B)\(\backslash\)n"});}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    }
+\DoxyCodeLine{ }
 \DoxyCodeLine{    \mbox{\hyperlink{main_8c_ac8529dec83e91f71d383fb84302cfb27}{gpio0\_dev}} = device\_get\_binding(DT\_LABEL(\mbox{\hyperlink{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}{GPIO0\_NID}}));}
 \DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8c_ac8529dec83e91f71d383fb84302cfb27}{gpio0\_dev}} == NULL) \{}
 \DoxyCodeLine{        printk(\textcolor{stringliteral}{"Error: Failed to bind to GPIO0\(\backslash\)n\(\backslash\)r"});        }
@@ -820,7 +822,7 @@ Modo automático\+: Recebe o valor da A\+DC e faz o take que vem do bd (após a 
 \DoxyCodeLine{   }
 \DoxyCodeLine{    \textcolor{keywordflow}{while}(1) \{}
 \DoxyCodeLine{        k\_sem\_take(\&\mbox{\hyperlink{main_8c_a87cd814a87f494b060e8c0903fc0068f}{sem\_bd}}, K\_FOREVER);}
-\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Valor lido para automatico \%d\(\backslash\)n r"},\mbox{\hyperlink{main_8c_ab36d1100473c16852c1b64d1917454a4}{bd}});}
+\DoxyCodeLine{        printk(\textcolor{stringliteral}{"Valor lido para automatico \%d\(\backslash\)n\(\backslash\)r"},\mbox{\hyperlink{main_8c_ab36d1100473c16852c1b64d1917454a4}{bd}});}
 \DoxyCodeLine{        ret=0;}
 \DoxyCodeLine{        }
 \DoxyCodeLine{}
@@ -828,6 +830,15 @@ Modo automático\+: Recebe o valor da A\+DC e faz o take que vem do bd (após a 
 \DoxyCodeLine{            }
 \DoxyCodeLine{            ret = pwm\_pin\_set\_usec(pwm0\_dev, \mbox{\hyperlink{main_8c_ad66f6c0ce6fd44d24653df422e7a8c92}{BOARDLED1}},}
 \DoxyCodeLine{              pwmPeriod\_us,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})(pwmPeriod\_us), PWM\_POLARITY\_NORMAL);}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (ret) \{}
+\DoxyCodeLine{                printk(\textcolor{stringliteral}{"Error \%d: failed to set pulse width\(\backslash\)n"}, ret);}
+\DoxyCodeLine{        \textcolor{keywordflow}{return};}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{        \} }
+\DoxyCodeLine{        \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{main_8c_ab36d1100473c16852c1b64d1917454a4}{bd}}>500 \&\& \mbox{\hyperlink{main_8c_ab36d1100473c16852c1b64d1917454a4}{bd}}<900) \{}
+\DoxyCodeLine{            }
+\DoxyCodeLine{            ret = pwm\_pin\_set\_usec(pwm0\_dev, \mbox{\hyperlink{main_8c_ad66f6c0ce6fd44d24653df422e7a8c92}{BOARDLED1}},}
+\DoxyCodeLine{              pwmPeriod\_us,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})(pwmPeriod\_us*0.5), PWM\_POLARITY\_NORMAL);}
 \DoxyCodeLine{            \textcolor{keywordflow}{if} (ret) \{}
 \DoxyCodeLine{                printk(\textcolor{stringliteral}{"Error \%d: failed to set pulse width\(\backslash\)n"}, ret);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return};}

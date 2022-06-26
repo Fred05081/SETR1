@@ -91,7 +91,8 @@ to set (increase/decrease) the desired intensity
 void main(void); 
 
 /**
- * @brief  Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico.
+ * @brief   Lê o valor da ADC e guarda numa variável global (shared memory between tasks A/B)
+ *  no nosso Código denominada por “ab” e no final faz give do semáforo AB.  
  * @code
  * 
 void thread_A_code(void *argA , void *argB, void *argC)
@@ -144,7 +145,11 @@ void thread_A_code(void *argA , void *argB, void *argC)
  */
 void thread_A_code(void *argA , void *argB, void *argC);
 
-/** Neste script faz-se o toggle entre o sistema manual e o sistema automático através do botão 1, sendo esta thread periódica. Caso estejamos perante o caso Modo Manual, a próxima thread a ser executada é a thread ‘C’, caso contrário, é a thread ‘A’ a ser executada.
+/** Neste script faz-se o toggle entre o sistema manual e o sistema automático através do botão 1, 
+ * sendo esta thread periódica. Caso estejamos perante o caso Modo Manual, 
+ * a próxima thread a ser executada é a thread ‘C’, caso contrário, é a thread ‘A’ a ser executada. 
+
+ 
  * @code
  * 
 void thread_A1_code(void *argA , void *argB, void *argC)
@@ -343,16 +348,16 @@ void thread_C_code(void *argA , void *argB, void *argC);
  *
  void thread_D_code(void *argA , void *argB, void *argC)
 {
-    const struct device *gpio0_dev;        
+    const struct device *gpio0_dev;         
     const struct device *pwm0_dev;          
-    int ret=0;                              
-    unsigned int dcValue[]={100,90,80,70,60,50,40,30,20,10,0};   
+    int ret=0;                             
+    unsigned int dcValue[]={100,90,80,70,60,50,40,30,20,10,0};  
     unsigned int dcIndex=0;   
-    unsigned int pwmPeriod_us = 100;       
+    unsigned int pwmPeriod_us = 100;      
 
     printk("Thread C init (sporadic, waits on a semaphore by task B)\n");
     
-    
+ 
     gpio0_dev = device_get_binding(DT_LABEL(GPIO0_NID));
     if (gpio0_dev == NULL) {
         printk("Error: Failed to bind to GPIO0\n\r");        
@@ -367,7 +372,7 @@ void thread_C_code(void *argA , void *argB, void *argC);
    
     while(1) {
         k_sem_take(&sem_bd, K_FOREVER);
-        printk("Valor lido para automatico %d\n r",bd);
+        printk("Valor lido para automatico %d\n\r",bd);
         ret=0;
         
 
@@ -375,6 +380,15 @@ void thread_C_code(void *argA , void *argB, void *argC);
             
             ret = pwm_pin_set_usec(pwm0_dev, BOARDLED1,
 		      pwmPeriod_us,(unsigned int)(pwmPeriod_us), PWM_POLARITY_NORMAL);
+            if (ret) {
+                printk("Error %d: failed to set pulse width\n", ret);
+		return;
+            }
+        } 
+        else if(bd>500 && bd<900) {
+            
+            ret = pwm_pin_set_usec(pwm0_dev, BOARDLED1,
+		      pwmPeriod_us,(unsigned int)(pwmPeriod_us*0.5), PWM_POLARITY_NORMAL);
             if (ret) {
                 printk("Error %d: failed to set pulse width\n", ret);
 		return;
@@ -392,6 +406,7 @@ void thread_C_code(void *argA , void *argB, void *argC);
         
  }
  }
+ 
  
  * @endcode
  * @param NO_args without arguments

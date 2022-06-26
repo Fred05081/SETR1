@@ -7,7 +7,7 @@
   \item {ADC\_ACQUISITION\_TIME}
     \subitem {main.c}, \hyperpage{7}
   \item {ADC\_CHANNEL\_ID}
-    \subitem {main.c}, \hyperpage{7}
+    \subitem {main.c}, \hyperpage{8}
   \item {ADC\_CHANNEL\_INPUT}
     \subitem {main.c}, \hyperpage{8}
   \item {adc\_dev}
@@ -42,7 +42,7 @@
     \subitem {main.h}, \hyperpage{24}
   \item {but2press\_cbfunction}
     \subitem {main.c}, \hyperpage{12}
-    \subitem {main.h}, \hyperpage{24}
+    \subitem {main.h}, \hyperpage{25}
   \item {but4press\_cbfunction}
     \subitem {main.c}, \hyperpage{12}
     \subitem {main.h}, \hyperpage{25}
@@ -59,7 +59,7 @@
   \item {FATAL\_ERR}
     \subitem {main.c}, \hyperpage{9}
   \item {Flag\_1}
-    \subitem {main.c}, \hyperpage{19}
+    \subitem {main.c}, \hyperpage{20}
   \item {Flag\_2}
     \subitem {main.c}, \hyperpage{20}
   \item {Flag\_3}
@@ -90,12 +90,12 @@
 
   \item {main}
     \subitem {main.c}, \hyperpage{13}
-    \subitem {main.h}, \hyperpage{25}
+    \subitem {main.h}, \hyperpage{26}
   \item {main.c}, \hyperpage{5}
     \subitem {a1a}, \hyperpage{19}
     \subitem {ab}, \hyperpage{19}
     \subitem {ADC\_ACQUISITION\_TIME}, \hyperpage{7}
-    \subitem {ADC\_CHANNEL\_ID}, \hyperpage{7}
+    \subitem {ADC\_CHANNEL\_ID}, \hyperpage{8}
     \subitem {ADC\_CHANNEL\_INPUT}, \hyperpage{8}
     \subitem {adc\_dev}, \hyperpage{19}
     \subitem {ADC\_GAIN}, \hyperpage{8}
@@ -113,7 +113,7 @@
     \subitem {but2press\_cbfunction}, \hyperpage{12}
     \subitem {but4press\_cbfunction}, \hyperpage{12}
     \subitem {FATAL\_ERR}, \hyperpage{9}
-    \subitem {Flag\_1}, \hyperpage{19}
+    \subitem {Flag\_1}, \hyperpage{20}
     \subitem {Flag\_2}, \hyperpage{20}
     \subitem {Flag\_3}, \hyperpage{20}
     \subitem {Flag\_4}, \hyperpage{20}
@@ -130,7 +130,7 @@
     \subitem {RX\_TIMEOUT}, \hyperpage{10}
     \subitem {RXBUF\_SIZE}, \hyperpage{10}
     \subitem {SAMP\_PERIOD\_MS}, \hyperpage{10}
-    \subitem {sem\_a1a}, \hyperpage{20}
+    \subitem {sem\_a1a}, \hyperpage{21}
     \subitem {sem\_ab}, \hyperpage{21}
     \subitem {sem\_bc}, \hyperpage{21}
     \subitem {sem\_bd}, \hyperpage{21}
@@ -143,8 +143,8 @@
     \subitem {thread\_A\_data}, \hyperpage{21}
     \subitem {thread\_A\_prio}, \hyperpage{10}
     \subitem {thread\_A\_tid}, \hyperpage{21}
-    \subitem {thread\_B\_code}, \hyperpage{15}
-    \subitem {thread\_B\_data}, \hyperpage{21}
+    \subitem {thread\_B\_code}, \hyperpage{16}
+    \subitem {thread\_B\_data}, \hyperpage{22}
     \subitem {thread\_B\_prio}, \hyperpage{11}
     \subitem {thread\_B\_tid}, \hyperpage{22}
     \subitem {thread\_C\_code}, \hyperpage{16}
@@ -157,18 +157,18 @@
     \subitem {thread\_D\_tid}, \hyperpage{22}
     \subitem {TXBUF\_SIZE}, \hyperpage{11}
     \subitem {uart\_cfg}, \hyperpage{22}
-    \subitem {uart\_dev}, \hyperpage{22}
+    \subitem {uart\_dev}, \hyperpage{23}
     \subitem {UART\_NID}, \hyperpage{11}
     \subitem {uart\_rx\_rdy\_flag}, \hyperpage{23}
     \subitem {welcome\_mesg}, \hyperpage{23}
   \item {main.h}, \hyperpage{23}
     \subitem {but1press\_cbfunction}, \hyperpage{24}
-    \subitem {but2press\_cbfunction}, \hyperpage{24}
+    \subitem {but2press\_cbfunction}, \hyperpage{25}
     \subitem {but4press\_cbfunction}, \hyperpage{25}
-    \subitem {main}, \hyperpage{25}
-    \subitem {thread\_A1\_code}, \hyperpage{26}
-    \subitem {thread\_A\_code}, \hyperpage{27}
-    \subitem {thread\_B\_code}, \hyperpage{28}
+    \subitem {main}, \hyperpage{26}
+    \subitem {thread\_A1\_code}, \hyperpage{27}
+    \subitem {thread\_A\_code}, \hyperpage{28}
+    \subitem {thread\_B\_code}, \hyperpage{29}
     \subitem {thread\_C\_code}, \hyperpage{29}
     \subitem {thread\_D\_code}, \hyperpage{30}
   \item {MAIN\_SLEEP\_TIME\_MS}
@@ -195,7 +195,7 @@
   \item {SAMP\_PERIOD\_MS}
     \subitem {main.c}, \hyperpage{10}
   \item {sem\_a1a}
-    \subitem {main.c}, \hyperpage{20}
+    \subitem {main.c}, \hyperpage{21}
   \item {sem\_ab}
     \subitem {main.c}, \hyperpage{21}
   \item {sem\_bc}
@@ -209,7 +209,7 @@
 
   \item {thread\_A1\_code}
     \subitem {main.c}, \hyperpage{14}
-    \subitem {main.h}, \hyperpage{26}
+    \subitem {main.h}, \hyperpage{27}
   \item {thread\_A1\_data}
     \subitem {main.c}, \hyperpage{21}
   \item {thread\_A1\_prio}
@@ -218,7 +218,7 @@
     \subitem {main.c}, \hyperpage{21}
   \item {thread\_A\_code}
     \subitem {main.c}, \hyperpage{15}
-    \subitem {main.h}, \hyperpage{27}
+    \subitem {main.h}, \hyperpage{28}
   \item {thread\_A\_data}
     \subitem {main.c}, \hyperpage{21}
   \item {thread\_A\_prio}
@@ -226,10 +226,10 @@
   \item {thread\_A\_tid}
     \subitem {main.c}, \hyperpage{21}
   \item {thread\_B\_code}
-    \subitem {main.c}, \hyperpage{15}
-    \subitem {main.h}, \hyperpage{28}
+    \subitem {main.c}, \hyperpage{16}
+    \subitem {main.h}, \hyperpage{29}
   \item {thread\_B\_data}
-    \subitem {main.c}, \hyperpage{21}
+    \subitem {main.c}, \hyperpage{22}
   \item {thread\_B\_prio}
     \subitem {main.c}, \hyperpage{11}
   \item {thread\_B\_tid}
@@ -260,7 +260,7 @@
   \item {uart\_cfg}
     \subitem {main.c}, \hyperpage{22}
   \item {uart\_dev}
-    \subitem {main.c}, \hyperpage{22}
+    \subitem {main.c}, \hyperpage{23}
   \item {UART\_NID}
     \subitem {main.c}, \hyperpage{11}
   \item {uart\_rx\_rdy\_flag}
