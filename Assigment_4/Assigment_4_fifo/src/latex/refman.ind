@@ -94,7 +94,7 @@
     \subitem {PWM0\_NID}, \hyperpage{16}
     \subitem {STACK\_SIZE}, \hyperpage{16}
     \subitem {thread\_A\_code}, \hyperpage{18}
-    \subitem {thread\_A\_data}, \hyperpage{21}
+    \subitem {thread\_A\_data}, \hyperpage{22}
     \subitem {thread\_A\_period}, \hyperpage{16}
     \subitem {thread\_A\_prio}, \hyperpage{17}
     \subitem {thread\_A\_tid}, \hyperpage{22}
@@ -125,7 +125,7 @@
     \subitem {fifo.h}, \hyperpage{10}
     \subitem {main.c}, \hyperpage{18}
   \item {thread\_A\_data}
-    \subitem {main.c}, \hyperpage{21}
+    \subitem {main.c}, \hyperpage{22}
   \item {thread\_A\_period}
     \subitem {main.c}, \hyperpage{16}
   \item {thread\_A\_prio}

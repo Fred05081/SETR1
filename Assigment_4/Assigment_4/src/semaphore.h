@@ -41,7 +41,7 @@ from an analog sensor, digitally filters the signal and outputs it using a semap
 void main(void); 
 
 /**
- * @brief Read the adc value and save it.
+ * @brief ê o valor da ADCe guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB.
  * @code
  * 
 void thread_A_code(void *argA , void *argB, void *argC)
@@ -100,7 +100,7 @@ void thread_A_code(void *argA , void *argB, void *argC)
  */
 void thread_A_code(void *argA , void *argB, void *argC);
 /**
- * @brief calculates the average of 10 values read from the adc and if the value is outside 10% it is rejected.
+ * @brief é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC.
  * 
  * @code
  *void thread_B_code(void *argA , void *argB, void *argC)
@@ -162,7 +162,8 @@ void thread_A_code(void *argA , void *argB, void *argC);
 void thread_B_code(void *argA , void *argB, void *argC);
 
 /**
- * @brief Sets the PWM DC value to the average of the samples got from ADC module in thread A*
+ * @brief é feito o take do semáforo BC e é criado um pwm signal que é depois aplicado a um led.
+Todo este  processo é repetido período após período.
  * @code
  *void thread_C_code(void *argA , void *argB, void *argC)
 {

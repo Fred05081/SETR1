@@ -51,7 +51,7 @@
 \contentsline {subsubsection}{\numberline {5.3.3.1}adc\_dev}{21}{subsubsection.5.3.3.1}%
 \contentsline {subsubsection}{\numberline {5.3.3.2}fifo\_ab}{21}{subsubsection.5.3.3.2}%
 \contentsline {subsubsection}{\numberline {5.3.3.3}fifo\_bc}{21}{subsubsection.5.3.3.3}%
-\contentsline {subsubsection}{\numberline {5.3.3.4}my\_timer}{21}{subsubsection.5.3.3.4}%
+\contentsline {subsubsection}{\numberline {5.3.3.4}my\_timer}{22}{subsubsection.5.3.3.4}%
 \contentsline {subsubsection}{\numberline {5.3.3.5}thread\_A\_data}{22}{subsubsection.5.3.3.5}%
 \contentsline {subsubsection}{\numberline {5.3.3.6}thread\_A\_tid}{22}{subsubsection.5.3.3.6}%
 \contentsline {subsubsection}{\numberline {5.3.3.7}thread\_B\_data}{22}{subsubsection.5.3.3.7}%

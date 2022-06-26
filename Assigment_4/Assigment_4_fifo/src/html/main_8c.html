@@ -157,13 +157,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a331fd55d9b95c3e662a4148fbc522271"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a331fd55d9b95c3e662a4148fbc522271">K_THREAD_STACK_DEFINE</a> (thread_C_stack, <a class="el" href="main_8c.html#a6423a880df59733d2d9b509c7718d3a9">STACK_SIZE</a>)</td></tr>
 <tr class="separator:a331fd55d9b95c3e662a4148fbc522271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bae0ae425b2577868ad7c1482190439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a2bae0ae425b2577868ad7c1482190439">thread_A_code</a> (void *, void *, void *)</td></tr>
-<tr class="memdesc:a2bae0ae425b2577868ad7c1482190439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the adc value and save it.  <a href="main_8c.html#a2bae0ae425b2577868ad7c1482190439">More...</a><br /></td></tr>
+<tr class="memdesc:a2bae0ae425b2577868ad7c1482190439"><td class="mdescLeft">&#160;</td><td class="mdescRight">lê o valor da ADC guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz get no FIFO  <a href="main_8c.html#a2bae0ae425b2577868ad7c1482190439">More...</a><br /></td></tr>
 <tr class="separator:a2bae0ae425b2577868ad7c1482190439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bc8db7d99935e559b1164cf2e84e822"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a0bc8db7d99935e559b1164cf2e84e822">thread_B_code</a> (void *, void *, void *)</td></tr>
-<tr class="memdesc:a0bc8db7d99935e559b1164cf2e84e822"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the average of 10 values read from the adc and if the value is outside 10% it is rejected.  <a href="main_8c.html#a0bc8db7d99935e559b1164cf2e84e822">More...</a><br /></td></tr>
+<tr class="memdesc:a0bc8db7d99935e559b1164cf2e84e822"><td class="mdescLeft">&#160;</td><td class="mdescRight">é feito put do FIFO AB e é realizada uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz get do FIFO BC.  <a href="main_8c.html#a0bc8db7d99935e559b1164cf2e84e822">More...</a><br /></td></tr>
 <tr class="separator:a0bc8db7d99935e559b1164cf2e84e822"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05a8f93095731e110abe668f996166c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a05a8f93095731e110abe668f996166c9">thread_C_code</a> (void *, void *, void *)</td></tr>
-<tr class="memdesc:a05a8f93095731e110abe668f996166c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the PWM DC value to the average of the samples got from ADC module in thread B.  <a href="main_8c.html#a05a8f93095731e110abe668f996166c9">More...</a><br /></td></tr>
+<tr class="memdesc:a05a8f93095731e110abe668f996166c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">é feito o put do FIFO BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo é repetido período após período.  <a href="main_8c.html#a05a8f93095731e110abe668f996166c9">More...</a><br /></td></tr>
 <tr class="separator:a05a8f93095731e110abe668f996166c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6288eba0f8e8ad3ab1544ad731eb7667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">main</a> (void)</td></tr>
 <tr class="memdesc:a6288eba0f8e8ad3ab1544ad731eb7667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main funtion: Initialize semaphores.  <a href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">More...</a><br /></td></tr>
@@ -600,7 +600,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read the adc value and save it. </p>
+<p>lê o valor da ADC guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz get no FIFO </p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="fifo_8h.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{</div>
 <div class="line">   </div>
@@ -701,7 +701,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>calculates the average of 10 values read from the adc and if the value is outside 10% it is rejected. </p>
+<p>é feito put do FIFO AB e é realizada uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz get do FIFO BC. </p>
 <div class="fragment"><div class="line"> *<span class="keywordtype">void</span> <a class="code" href="fifo_8h.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{    </div>
 <div class="line"> </div>
@@ -794,7 +794,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the PWM DC value to the average of the samples got from ADC module in thread B. </p>
+<p>é feito o put do FIFO BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo é repetido período após período. </p>
 <div class="fragment"><div class="line"> *<span class="keywordtype">void</span> <a class="code" href="fifo_8h.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">long</span> <span class="keywordtype">int</span> nact = 0;</div>
@@ -994,15 +994,15 @@ Variables</h2></td></tr>
 </div>
 </div><!-- contents -->
 <div class="ttc" id="amain_8c_html_af2bd9deb85bd5ac0cdf3a0b077411289"><div class="ttname"><a href="main_8c.html#af2bd9deb85bd5ac0cdf3a0b077411289">thread_B_tid</a></div><div class="ttdeci">k_tid_t thread_B_tid</div><div class="ttdef"><b>Definition:</b> main.c:70</div></div>
-<div class="ttc" id="afifo_8h_html_a99cef2c8673e9c73162dd97f0247ca8e"><div class="ttname"><a href="fifo_8h.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a></div><div class="ttdeci">void thread_B_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">calculates the average of 10 values read from the adc and if the value is outside 10% it is rejected.</div><div class="ttdef"><b>Definition:</b> main.c:214</div></div>
+<div class="ttc" id="afifo_8h_html_a99cef2c8673e9c73162dd97f0247ca8e"><div class="ttname"><a href="fifo_8h.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a></div><div class="ttdeci">void thread_B_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">é feito put do FIFO AB e é realizada uma média das últimas 10 amostras calculadas na thread A e é fei...</div><div class="ttdef"><b>Definition:</b> main.c:214</div></div>
 <div class="ttc" id="amain_8c_html_a4c0e6f34369bef1deb3a9efae6ac14fb"><div class="ttname"><a href="main_8c.html#a4c0e6f34369bef1deb3a9efae6ac14fb">GPIO0_NID</a></div><div class="ttdeci">#define GPIO0_NID</div><div class="ttdef"><b>Definition:</b> main.c:53</div></div>
 <div class="ttc" id="amain_8c_html_ae8984bc4afe8a3abec87f1dc0520292b"><div class="ttname"><a href="main_8c.html#ae8984bc4afe8a3abec87f1dc0520292b">fifo_bc</a></div><div class="ttdeci">struct k_fifo fifo_bc</div><div class="ttdef"><b>Definition:</b> main.c:75</div></div>
 <div class="ttc" id="amain_8c_html_ab48b150a8660d0152dfde25b42c1755f"><div class="ttname"><a href="main_8c.html#ab48b150a8660d0152dfde25b42c1755f">PWM0_NID</a></div><div class="ttdeci">#define PWM0_NID</div><div class="ttdef"><b>Definition:</b> main.c:54</div></div>
-<div class="ttc" id="afifo_8h_html_a61675a61bbec86901b2fe28f008e881c"><div class="ttname"><a href="fifo_8h.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a></div><div class="ttdeci">void thread_A_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">Read the adc value and save it.</div><div class="ttdef"><b>Definition:</b> main.c:156</div></div>
+<div class="ttc" id="afifo_8h_html_a61675a61bbec86901b2fe28f008e881c"><div class="ttname"><a href="fifo_8h.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a></div><div class="ttdeci">void thread_A_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">lê o valor da ADC guarda numa variável global (shared memory between tasks A/B) no nosso Código denom...</div><div class="ttdef"><b>Definition:</b> main.c:156</div></div>
 <div class="ttc" id="amain_8c_html_aaac68d6bd12397c115c8f5fb8b8dae16"><div class="ttname"><a href="main_8c.html#aaac68d6bd12397c115c8f5fb8b8dae16">thread_A_tid</a></div><div class="ttdeci">k_tid_t thread_A_tid</div><div class="ttdef"><b>Definition:</b> main.c:69</div></div>
 <div class="ttc" id="amain_8c_html_ad66f6c0ce6fd44d24653df422e7a8c92"><div class="ttname"><a href="main_8c.html#ad66f6c0ce6fd44d24653df422e7a8c92">BOARDLED1</a></div><div class="ttdeci">#define BOARDLED1</div><div class="ttdef"><b>Definition:</b> main.c:55</div></div>
 <div class="ttc" id="amain_8c_html_a2ed7791f41bc6281906a0878492b0894"><div class="ttname"><a href="main_8c.html#a2ed7791f41bc6281906a0878492b0894">thread_A_period</a></div><div class="ttdeci">#define thread_A_period</div><div class="ttdef"><b>Definition:</b> main.c:37</div></div>
-<div class="ttc" id="afifo_8h_html_a6eec62f04743b40b6d744ecd2f31cdd2"><div class="ttname"><a href="fifo_8h.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a></div><div class="ttdeci">void thread_C_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">Sets the PWM DC value to the average of the samples got from ADC module in thread B.</div><div class="ttdef"><b>Definition:</b> main.c:265</div></div>
+<div class="ttc" id="afifo_8h_html_a6eec62f04743b40b6d744ecd2f31cdd2"><div class="ttname"><a href="fifo_8h.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a></div><div class="ttdeci">void thread_C_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">é feito o put do FIFO BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo ...</div><div class="ttdef"><b>Definition:</b> main.c:268</div></div>
 <div class="ttc" id="amain_8c_html_a445f79326d40128ece59a749adff6894"><div class="ttname"><a href="main_8c.html#a445f79326d40128ece59a749adff6894">adc_dev</a></div><div class="ttdeci">const struct device * adc_dev</div><div class="ttdef"><b>Definition:</b> main.c:100</div></div>
 <div class="ttc" id="amain_8c_html_aa9928aa4491a20c74a19c5904ba9530a"><div class="ttname"><a href="main_8c.html#aa9928aa4491a20c74a19c5904ba9530a">thread_B_prio</a></div><div class="ttdeci">#define thread_B_prio</div><div class="ttdef"><b>Definition:</b> main.c:33</div></div>
 <div class="ttc" id="amain_8c_html_ad832c1a3de4a77b89216efc38eddcb72"><div class="ttname"><a href="main_8c.html#ad832c1a3de4a77b89216efc38eddcb72">thread_B_data</a></div><div class="ttdeci">struct k_thread thread_B_data</div><div class="ttdef"><b>Definition:</b> main.c:65</div></div>

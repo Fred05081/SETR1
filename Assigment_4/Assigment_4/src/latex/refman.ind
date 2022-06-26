@@ -108,7 +108,7 @@
     \subitem {main}, \hyperpage{14}
     \subitem {thread\_A\_code}, \hyperpage{15}
     \subitem {thread\_B\_code}, \hyperpage{16}
-    \subitem {thread\_C\_code}, \hyperpage{16}
+    \subitem {thread\_C\_code}, \hyperpage{17}
   \item {STACK\_SIZE}
     \subitem {main.c}, \hyperpage{8}
 
@@ -136,7 +136,7 @@
     \subitem {main.c}, \hyperpage{13}
   \item {thread\_C\_code}
     \subitem {main.c}, \hyperpage{11}
-    \subitem {semaphore.h}, \hyperpage{16}
+    \subitem {semaphore.h}, \hyperpage{17}
   \item {thread\_C\_data}
     \subitem {main.c}, \hyperpage{13}
   \item {thread\_C\_prio}

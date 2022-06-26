@@ -80,13 +80,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a6288eba0f8e8ad3ab1544ad731eb7667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main funtion: Initialize semaphores.  <a href="semaphore_8h.html#a6288eba0f8e8ad3ab1544ad731eb7667">More...</a><br /></td></tr>
 <tr class="separator:a6288eba0f8e8ad3ab1544ad731eb7667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61675a61bbec86901b2fe28f008e881c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="semaphore_8h.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a> (void *argA, void *argB, void *argC)</td></tr>
-<tr class="memdesc:a61675a61bbec86901b2fe28f008e881c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the adc value and save it.  <a href="semaphore_8h.html#a61675a61bbec86901b2fe28f008e881c">More...</a><br /></td></tr>
+<tr class="memdesc:a61675a61bbec86901b2fe28f008e881c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ê o valor da ADCe guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB.  <a href="semaphore_8h.html#a61675a61bbec86901b2fe28f008e881c">More...</a><br /></td></tr>
 <tr class="separator:a61675a61bbec86901b2fe28f008e881c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99cef2c8673e9c73162dd97f0247ca8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="semaphore_8h.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a> (void *argA, void *argB, void *argC)</td></tr>
-<tr class="memdesc:a99cef2c8673e9c73162dd97f0247ca8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the average of 10 values read from the adc and if the value is outside 10% it is rejected.  <a href="semaphore_8h.html#a99cef2c8673e9c73162dd97f0247ca8e">More...</a><br /></td></tr>
+<tr class="memdesc:a99cef2c8673e9c73162dd97f0247ca8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC.  <a href="semaphore_8h.html#a99cef2c8673e9c73162dd97f0247ca8e">More...</a><br /></td></tr>
 <tr class="separator:a99cef2c8673e9c73162dd97f0247ca8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eec62f04743b40b6d744ecd2f31cdd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="semaphore_8h.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a> (void *argA, void *argB, void *argC)</td></tr>
-<tr class="memdesc:a6eec62f04743b40b6d744ecd2f31cdd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the PWM DC value to the average of the samples got from ADC module in thread A*.  <a href="semaphore_8h.html#a6eec62f04743b40b6d744ecd2f31cdd2">More...</a><br /></td></tr>
+<tr class="memdesc:a6eec62f04743b40b6d744ecd2f31cdd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">é feito o take do semáforo BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo é repetido período após período.  <a href="semaphore_8h.html#a6eec62f04743b40b6d744ecd2f31cdd2">More...</a><br /></td></tr>
 <tr class="separator:a6eec62f04743b40b6d744ecd2f31cdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -176,7 +176,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read the adc value and save it. </p>
+<p>ê o valor da ADCe guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. </p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{</div>
 <div class="line">    </div>
@@ -271,7 +271,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>calculates the average of 10 values read from the adc and if the value is outside 10% it is rejected. </p>
+<p>é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC. </p>
 <div class="fragment"><div class="line"> *<span class="keywordtype">void</span> <a class="code" href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{    </div>
 <div class="line"> </div>
@@ -364,7 +364,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the PWM DC value to the average of the samples got from ADC module in thread A*. </p>
+<p>é feito o take do semáforo BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo é repetido período após período. </p>
 <div class="fragment"><div class="line"> *<span class="keywordtype">void</span> <a class="code" href="main_8c.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">const</span> <span class="keyword">struct </span>device *gpio0_dev;         </div>
@@ -422,9 +422,9 @@ Functions</h2></td></tr>
 <div class="ttc" id="amain_8c_html_ad66f6c0ce6fd44d24653df422e7a8c92"><div class="ttname"><a href="main_8c.html#ad66f6c0ce6fd44d24653df422e7a8c92">BOARDLED1</a></div><div class="ttdeci">#define BOARDLED1</div><div class="ttdef"><b>Definition:</b> main.c:54</div></div>
 <div class="ttc" id="amain_8c_html_a2ed7791f41bc6281906a0878492b0894"><div class="ttname"><a href="main_8c.html#a2ed7791f41bc6281906a0878492b0894">thread_A_period</a></div><div class="ttdeci">#define thread_A_period</div><div class="ttdef"><b>Definition:</b> main.c:36</div></div>
 <div class="ttc" id="amain_8c_html_a82e13125c2f279157fcf738219ff21ba"><div class="ttname"><a href="main_8c.html#a82e13125c2f279157fcf738219ff21ba">sem_ab</a></div><div class="ttdeci">struct k_sem sem_ab</div><div class="ttdef"><b>Definition:</b> main.c:77</div></div>
-<div class="ttc" id="amain_8c_html_a6eec62f04743b40b6d744ecd2f31cdd2"><div class="ttname"><a href="main_8c.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a></div><div class="ttdeci">void thread_C_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">Sets the PWM DC value to the average of the samples got from ADC module in thread A*.</div><div class="ttdef"><b>Definition:</b> main.c:253</div></div>
+<div class="ttc" id="amain_8c_html_a6eec62f04743b40b6d744ecd2f31cdd2"><div class="ttname"><a href="main_8c.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a></div><div class="ttdeci">void thread_C_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">é feito o take do semáforo BC e é criado um pwm signal que é depois aplicado a um led....</div><div class="ttdef"><b>Definition:</b> main.c:256</div></div>
 <div class="ttc" id="amain_8c_html_a445f79326d40128ece59a749adff6894"><div class="ttname"><a href="main_8c.html#a445f79326d40128ece59a749adff6894">adc_dev</a></div><div class="ttdeci">const struct device * adc_dev</div><div class="ttdef"><b>Definition:</b> main.c:96</div></div>
-<div class="ttc" id="amain_8c_html_a99cef2c8673e9c73162dd97f0247ca8e"><div class="ttname"><a href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a></div><div class="ttdeci">void thread_B_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">calculates the average of 10 values read from the adc and if the value is outside 10% it is rejected.</div><div class="ttdef"><b>Definition:</b> main.c:202</div></div>
+<div class="ttc" id="amain_8c_html_a99cef2c8673e9c73162dd97f0247ca8e"><div class="ttname"><a href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a></div><div class="ttdeci">void thread_B_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e ...</div><div class="ttdef"><b>Definition:</b> main.c:202</div></div>
 <div class="ttc" id="amain_8c_html_aa9928aa4491a20c74a19c5904ba9530a"><div class="ttname"><a href="main_8c.html#aa9928aa4491a20c74a19c5904ba9530a">thread_B_prio</a></div><div class="ttdeci">#define thread_B_prio</div><div class="ttdef"><b>Definition:</b> main.c:32</div></div>
 <div class="ttc" id="amain_8c_html_ad832c1a3de4a77b89216efc38eddcb72"><div class="ttname"><a href="main_8c.html#ad832c1a3de4a77b89216efc38eddcb72">thread_B_data</a></div><div class="ttdeci">struct k_thread thread_B_data</div><div class="ttdef"><b>Definition:</b> main.c:64</div></div>
 <div class="ttc" id="amain_8c_html_a9723f8aa3cfd56015ee57bc31879f8ec"><div class="ttname"><a href="main_8c.html#a9723f8aa3cfd56015ee57bc31879f8ec">thread_C_data</a></div><div class="ttdeci">struct k_thread thread_C_data</div><div class="ttdef"><b>Definition:</b> main.c:65</div></div>
@@ -434,7 +434,7 @@ Functions</h2></td></tr>
 <div class="ttc" id="amain_8c_html_a97102b52a1cf13a343a1a414bc865cde"><div class="ttname"><a href="main_8c.html#a97102b52a1cf13a343a1a414bc865cde">bc</a></div><div class="ttdeci">int bc</div><div class="ttdef"><b>Definition:</b> main.c:74</div></div>
 <div class="ttc" id="amain_8c_html_a2c9b173c6ea51db9d371f2d06fd8582f"><div class="ttname"><a href="main_8c.html#a2c9b173c6ea51db9d371f2d06fd8582f">ab</a></div><div class="ttdeci">int ab</div><div class="ttdef"><b>Definition:</b> main.c:73</div></div>
 <div class="ttc" id="amain_8c_html_a6288eba0f8e8ad3ab1544ad731eb7667"><div class="ttname"><a href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">main</a></div><div class="ttdeci">void main(void)</div><div class="ttdoc">Main funtion: Initialize semaphores.</div><div class="ttdef"><b>Definition:</b> main.c:124</div></div>
-<div class="ttc" id="amain_8c_html_a61675a61bbec86901b2fe28f008e881c"><div class="ttname"><a href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a></div><div class="ttdeci">void thread_A_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">Read the adc value and save it.</div><div class="ttdef"><b>Definition:</b> main.c:148</div></div>
+<div class="ttc" id="amain_8c_html_a61675a61bbec86901b2fe28f008e881c"><div class="ttname"><a href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a></div><div class="ttdeci">void thread_A_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">ê o valor da ADCe guarda numa variável global (shared memory between tasks A/B) no nosso Código denom...</div><div class="ttdef"><b>Definition:</b> main.c:148</div></div>
 <div class="ttc" id="amain_8c_html_a5936222e9802dbe8ceb1e99bd667466a"><div class="ttname"><a href="main_8c.html#a5936222e9802dbe8ceb1e99bd667466a">thread_A_prio</a></div><div class="ttdeci">#define thread_A_prio</div><div class="ttdef"><b>Definition:</b> main.c:31</div></div>
 <div class="ttc" id="amain_8c_html_a1bd72aae8d0dd6e887547a1d5e0a8902"><div class="ttname"><a href="main_8c.html#a1bd72aae8d0dd6e887547a1d5e0a8902">thread_C_prio</a></div><div class="ttdeci">#define thread_C_prio</div><div class="ttdef"><b>Definition:</b> main.c:33</div></div>
 <!-- start footer part -->

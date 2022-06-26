@@ -14,7 +14,7 @@ to set (increase/decrease) the desired intensity
  */
 
 /**
- * @brief Main funtion: Initialize semaphores and configure GPIO_PIN (UART)
+ * @brief Main funtion: Initialize semaphores and configure GPIO_PIN
  *
  * @code
  * 
@@ -91,7 +91,7 @@ to set (increase/decrease) the desired intensity
 void main(void); 
 
 /**
- * @brief É o valor da ADC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB.
+ * @brief  Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico.
  * @code
  * 
 void thread_A_code(void *argA , void *argB, void *argC)
@@ -144,8 +144,7 @@ void thread_A_code(void *argA , void *argB, void *argC)
  */
 void thread_A_code(void *argA , void *argB, void *argC);
 
-/**
- * @brief É o valor da ADC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB.
+/** Neste script faz-se o toggle entre o sistema manual e o sistema automático através do botão 1, sendo esta thread periódica. Caso estejamos perante o caso Modo Manual, a próxima thread a ser executada é a thread ‘C’, caso contrário, é a thread ‘A’ a ser executada.
  * @code
  * 
 void thread_A1_code(void *argA , void *argB, void *argC)
@@ -191,7 +190,10 @@ void thread_A1_code(void *argA , void *argB, void *argC)
 void thread_A1_code(void *argA , void *argB, void *argC);
 
 /**
- * @brief é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC.
+ * @brief Neste Script, feito o take do semáforo AB É efetuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na thread A 
+ * e o filtro rejeita todos os valores que estejam abaixo ou acima de 10% da média destas amostras e faz give do semáforo BD. 
+
+ 
  * 
  * @code
  *
@@ -255,7 +257,10 @@ void thread_B_code(void *argA , void *argB, void *argC)
 void thread_B_code(void *argA , void *argB, void *argC);
 
 /**
- * @brief 
+ * @brief Modo Manual, sempre que se carregar no botão 2 incrementa a luminosidade e ao clicar no botão 4 a luminosidade do led decrementa igualmente, 
+ * ou seja, sempre que um dos botões for pressionado, 
+ * o PWM varia em ± 10% do período deste, dependendo do botão que for pressionado. 
+ *
  * @code
  *
  void thread_C_code(void *argA , void *argB, void *argC)
@@ -328,7 +333,12 @@ void thread_B_code(void *argA , void *argB, void *argC);
 void thread_C_code(void *argA , void *argB, void *argC);
 
 /**
- * @brief Takes one adc_sample
+ * @brief Modo Automatico: Faz o take que vem do semáforo BD (após a filtragem). Se o valor for menor que 500, significa que existe muita luz no meio, 
+ * entao o led apaga. Quando estamos à luz ambiente, (valores lidos entre 500 e 900), 
+ * o led está com uma intensidade de luz intermédia, se não existir luminosidade, 
+ * (ambiente escuro) o led acende com a máxima intensidade. 
+
+ 
  * @code
  *
  void thread_D_code(void *argA , void *argB, void *argC)
@@ -389,7 +399,7 @@ void thread_C_code(void *argA , void *argB, void *argC);
  */
 void thread_D_code(void *argA , void *argB, void *argC)
 /**
- * @brief 
+ * @brief Takes one adc_sample
  * @code
  *
   static int adc_sample(void)

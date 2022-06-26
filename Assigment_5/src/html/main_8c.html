@@ -181,18 +181,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a1aa340a38690690e42169ae37089ca8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1aa340a38690690e42169ae37089ca8f">K_THREAD_STACK_DEFINE</a> (thread_D_stack, <a class="el" href="main_8c.html#a6423a880df59733d2d9b509c7718d3a9">STACK_SIZE</a>)</td></tr>
 <tr class="separator:a1aa340a38690690e42169ae37089ca8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e3fa2c87f08ae9cfff992653a3ac0b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7e3fa2c87f08ae9cfff992653a3ac0b6">thread_A1_code</a> (void *argA, void *argB, void *argC)</td></tr>
-<tr class="memdesc:a7e3fa2c87f08ae9cfff992653a3ac0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">É o valor da ADC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB.  <a href="main_8c.html#a7e3fa2c87f08ae9cfff992653a3ac0b6">More...</a><br /></td></tr>
 <tr class="separator:a7e3fa2c87f08ae9cfff992653a3ac0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61675a61bbec86901b2fe28f008e881c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a> (void *argA, void *argB, void *argC)</td></tr>
-<tr class="memdesc:a61675a61bbec86901b2fe28f008e881c"><td class="mdescLeft">&#160;</td><td class="mdescRight">É o valor da ADC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB.  <a href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">More...</a><br /></td></tr>
+<tr class="memdesc:a61675a61bbec86901b2fe28f008e881c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico.  <a href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">More...</a><br /></td></tr>
 <tr class="separator:a61675a61bbec86901b2fe28f008e881c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99cef2c8673e9c73162dd97f0247ca8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a> (void *argA, void *argB, void *argC)</td></tr>
-<tr class="memdesc:a99cef2c8673e9c73162dd97f0247ca8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC.  <a href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">More...</a><br /></td></tr>
+<tr class="memdesc:a99cef2c8673e9c73162dd97f0247ca8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">É efectuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na Thread A e o filtro rejeita todos os valores que estejam abaixo ou acima de 10% da média.  <a href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">More...</a><br /></td></tr>
 <tr class="separator:a99cef2c8673e9c73162dd97f0247ca8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eec62f04743b40b6d744ecd2f31cdd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a> (void *argA, void *argB, void *argC)</td></tr>
+<tr class="memdesc:a6eec62f04743b40b6d744ecd2f31cdd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modo manual, onde se faz o toggle sempre que carregar no botão 2 incrementa a luminosidade, ao clicar no botão 4 a luminosidade decrementa, ou seja, diminui a percentagem do PWM, quando está a 100% está no maximo e o duty-cycle corresponde é de 0%, que é quando está no máximo, e assim succesivamente.  <a href="main_8c.html#a6eec62f04743b40b6d744ecd2f31cdd2">More...</a><br /></td></tr>
 <tr class="separator:a6eec62f04743b40b6d744ecd2f31cdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a621f0dfdf57a438495482f571278e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1a621f0dfdf57a438495482f571278e7">thread_D_code</a> (void *argA, void *argB, void *argC)</td></tr>
-<tr class="memdesc:a1a621f0dfdf57a438495482f571278e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes one adc_sample.  <a href="main_8c.html#a1a621f0dfdf57a438495482f571278e7">More...</a><br /></td></tr>
+<tr class="memdesc:a1a621f0dfdf57a438495482f571278e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modo automático: Recebe o valor da ADC e faz o take que vem do bd (após a filtragem); Se o valor for menor que 500, o led está apagado, ou seja, é detetada muita luminiosidade logo; Quando estamos à luz ambiente o led está com a luminiosidade a meio; Se não existir luminiosidade o led acede.  <a href="main_8c.html#a1a621f0dfdf57a438495482f571278e7">More...</a><br /></td></tr>
 <tr class="separator:a1a621f0dfdf57a438495482f571278e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7d90a3db3be4d74a95d59cb9bc36764"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae7d90a3db3be4d74a95d59cb9bc36764">but1press_cbfunction</a> (const struct device *dev, struct gpio_callback *cb, uint32_t pins)</td></tr>
 <tr class="memdesc:ae7d90a3db3be4d74a95d59cb9bc36764"><td class="mdescLeft">&#160;</td><td class="mdescRight">If button 1 is pressed, Update Flag 1.  <a href="main_8c.html#ae7d90a3db3be4d74a95d59cb9bc36764">More...</a><br /></td></tr>
@@ -204,7 +204,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad98aaf56309e1b0b996d247f18b73b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If button 4 is pressed, Update Flag 4.  <a href="main_8c.html#ad98aaf56309e1b0b996d247f18b73b0e">More...</a><br /></td></tr>
 <tr class="separator:ad98aaf56309e1b0b996d247f18b73b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6288eba0f8e8ad3ab1544ad731eb7667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">main</a> (void)</td></tr>
-<tr class="memdesc:a6288eba0f8e8ad3ab1544ad731eb7667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main funtion: Initialize semaphores and configure GPIO_PIN (UART)  <a href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">More...</a><br /></td></tr>
+<tr class="memdesc:a6288eba0f8e8ad3ab1544ad731eb7667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main funtion: Initialize semaphores and configure GPIO_PIN.  <a href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">More...</a><br /></td></tr>
 <tr class="separator:a6288eba0f8e8ad3ab1544ad731eb7667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -986,7 +986,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Main funtion: Initialize semaphores and configure GPIO_PIN (UART) </p>
+<p>Main funtion: Initialize semaphores and configure GPIO_PIN. </p>
 <div class="fragment"><div class="line"> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">main</a>(<span class="keywordtype">void</span>) {</div>
 <div class="line">  <span class="keywordtype">int</span> err=0;    </div>
 <div class="line"> </div>
@@ -1097,8 +1097,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>É o valor da ADC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. </p>
 <p>Thread code prototypes </p>
 
 </div>
@@ -1135,7 +1133,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>É o valor da ADC que é guardado numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. </p>
+<p>Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico. </p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">int</span> err=0;</div>
@@ -1222,7 +1220,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC. </p>
+<p>É efectuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na Thread A e o filtro rejeita todos os valores que estejam abaixo ou acima de 10% da média. </p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{    </div>
 <div class="line"> </div>
@@ -1315,6 +1313,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Modo manual, onde se faz o toggle sempre que carregar no botão 2 incrementa a luminosidade, ao clicar no botão 4 a luminosidade decrementa, ou seja, diminui a percentagem do PWM, quando está a 100% está no maximo e o duty-cycle corresponde é de 0%, que é quando está no máximo, e assim succesivamente. </p>
 <div class="fragment"><div class="line"> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">const</span> <span class="keyword">struct </span>device *<a class="code" href="main_8c.html#ac8529dec83e91f71d383fb84302cfb27">gpio0_dev</a>;        </div>
@@ -1419,7 +1419,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Takes one adc_sample. </p>
+<p>Modo automático: Recebe o valor da ADC e faz o take que vem do bd (após a filtragem); Se o valor for menor que 500, o led está apagado, ou seja, é detetada muita luminiosidade logo; Quando estamos à luz ambiente o led está com a luminiosidade a meio; Se não existir luminiosidade o led acede. </p>
 <div class="fragment"><div class="line"> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a1a621f0dfdf57a438495482f571278e7">thread_D_code</a>(<span class="keywordtype">void</span> *argA , <span class="keywordtype">void</span> *argB, <span class="keywordtype">void</span> *argC)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">const</span> <span class="keyword">struct </span>device *<a class="code" href="main_8c.html#ac8529dec83e91f71d383fb84302cfb27">gpio0_dev</a>;        </div>
@@ -1478,7 +1478,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line">  <span class="keyword">static</span> <span class="keywordtype">int</span> adc_sample(<span class="keywordtype">void</span>)</div>
+<p>Takes one adc_sample </p><div class="fragment"><div class="line">  <span class="keyword">static</span> <span class="keywordtype">int</span> adc_sample(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">int</span> ret;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keyword">struct </span>adc_sequence sequence = {</div>
@@ -1962,7 +1962,7 @@ Variables</h2></td></tr>
 <div class="ttc" id="amain_8c_html_af2bd9deb85bd5ac0cdf3a0b077411289"><div class="ttname"><a href="main_8c.html#af2bd9deb85bd5ac0cdf3a0b077411289">thread_B_tid</a></div><div class="ttdeci">k_tid_t thread_B_tid</div><div class="ttdef"><b>Definition:</b> main.c:70</div></div>
 <div class="ttc" id="amain_8c_html_ae7d90a3db3be4d74a95d59cb9bc36764"><div class="ttname"><a href="main_8c.html#ae7d90a3db3be4d74a95d59cb9bc36764">but1press_cbfunction</a></div><div class="ttdeci">void but1press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)</div><div class="ttdoc">If button 1 is pressed, Update Flag 1.</div><div class="ttdef"><b>Definition:</b> main.c:117</div></div>
 <div class="ttc" id="amain_8c_html_a4c0e6f34369bef1deb3a9efae6ac14fb"><div class="ttname"><a href="main_8c.html#a4c0e6f34369bef1deb3a9efae6ac14fb">GPIO0_NID</a></div><div class="ttdeci">#define GPIO0_NID</div><div class="ttdef"><b>Definition:</b> main.c:44</div></div>
-<div class="ttc" id="amain_8c_html_a1a621f0dfdf57a438495482f571278e7"><div class="ttname"><a href="main_8c.html#a1a621f0dfdf57a438495482f571278e7">thread_D_code</a></div><div class="ttdeci">void thread_D_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">Takes one adc_sample.</div><div class="ttdef"><b>Definition:</b> main.c:467</div></div>
+<div class="ttc" id="amain_8c_html_a1a621f0dfdf57a438495482f571278e7"><div class="ttname"><a href="main_8c.html#a1a621f0dfdf57a438495482f571278e7">thread_D_code</a></div><div class="ttdeci">void thread_D_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">Modo automático: Recebe o valor da ADC e faz o take que vem do bd (após a filtragem); Se o valor for ...</div><div class="ttdef"><b>Definition:</b> main.c:467</div></div>
 <div class="ttc" id="amain_8c_html_ae130441eb06f8e1d532010c32c8fd15c"><div class="ttname"><a href="main_8c.html#ae130441eb06f8e1d532010c32c8fd15c">thread_D_tid</a></div><div class="ttdeci">k_tid_t thread_D_tid</div><div class="ttdef"><b>Definition:</b> main.c:72</div></div>
 <div class="ttc" id="amain_8c_html_addc907d18e7e98a64a832ac1c7be5ad1"><div class="ttname"><a href="main_8c.html#addc907d18e7e98a64a832ac1c7be5ad1">sem_bc</a></div><div class="ttdeci">struct k_sem sem_bc</div><div class="ttdef"><b>Definition:</b> main.c:83</div></div>
 <div class="ttc" id="amain_8c_html_a694d4d09f94a0fa64224f38ced19a053"><div class="ttname"><a href="main_8c.html#a694d4d09f94a0fa64224f38ced19a053">sem_a1a</a></div><div class="ttdeci">struct k_sem sem_a1a</div><div class="ttdef"><b>Definition:</b> main.c:81</div></div>
@@ -1972,15 +1972,15 @@ Variables</h2></td></tr>
 <div class="ttc" id="amain_8c_html_a3a480200b92d24ef74a3d1673fe80352"><div class="ttname"><a href="main_8c.html#a3a480200b92d24ef74a3d1673fe80352">rep_mesg</a></div><div class="ttdeci">uint8_t rep_mesg[TXBUF_SIZE]</div><div class="ttdef"><b>Definition:</b> main.c:197</div></div>
 <div class="ttc" id="amain_8c_html_a8bfca74ee546715af6682194ea92286a"><div class="ttname"><a href="main_8c.html#a8bfca74ee546715af6682194ea92286a">ADC_CHANNEL_ID</a></div><div class="ttdeci">#define ADC_CHANNEL_ID</div><div class="ttdef"><b>Definition:</b> main.c:37</div></div>
 <div class="ttc" id="amain_8c_html_aaac68d6bd12397c115c8f5fb8b8dae16"><div class="ttname"><a href="main_8c.html#aaac68d6bd12397c115c8f5fb8b8dae16">thread_A_tid</a></div><div class="ttdeci">k_tid_t thread_A_tid</div><div class="ttdef"><b>Definition:</b> main.c:69</div></div>
-<div class="ttc" id="amain_8c_html_a7e3fa2c87f08ae9cfff992653a3ac0b6"><div class="ttname"><a href="main_8c.html#a7e3fa2c87f08ae9cfff992653a3ac0b6">thread_A1_code</a></div><div class="ttdeci">void thread_A1_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">É o valor da ADC que é guardado numa variável global (shared memory between tasks A/B) no nosso Códig...</div><div class="ttdef"><b>Definition:</b> main.c:268</div></div>
+<div class="ttc" id="amain_8c_html_a7e3fa2c87f08ae9cfff992653a3ac0b6"><div class="ttname"><a href="main_8c.html#a7e3fa2c87f08ae9cfff992653a3ac0b6">thread_A1_code</a></div><div class="ttdeci">void thread_A1_code(void *argA, void *argB, void *argC)</div><div class="ttdef"><b>Definition:</b> main.c:268</div></div>
 <div class="ttc" id="amain_8c_html_ad66f6c0ce6fd44d24653df422e7a8c92"><div class="ttname"><a href="main_8c.html#ad66f6c0ce6fd44d24653df422e7a8c92">BOARDLED1</a></div><div class="ttdeci">#define BOARDLED1</div><div class="ttdef"><b>Definition:</b> main.c:46</div></div>
 <div class="ttc" id="amain_8c_html_a82e13125c2f279157fcf738219ff21ba"><div class="ttname"><a href="main_8c.html#a82e13125c2f279157fcf738219ff21ba">sem_ab</a></div><div class="ttdeci">struct k_sem sem_ab</div><div class="ttdef"><b>Definition:</b> main.c:82</div></div>
 <div class="ttc" id="amain_8c_html_a91a7abf451804f293c55d5fc507cee31"><div class="ttname"><a href="main_8c.html#a91a7abf451804f293c55d5fc507cee31">thread_D_data</a></div><div class="ttdeci">struct k_thread thread_D_data</div><div class="ttdef"><b>Definition:</b> main.c:65</div></div>
 <div class="ttc" id="amain_8c_html_a923af2d146f214e75816a7f5993cee29"><div class="ttname"><a href="main_8c.html#a923af2d146f214e75816a7f5993cee29">TXBUF_SIZE</a></div><div class="ttdeci">#define TXBUF_SIZE</div><div class="ttdef"><b>Definition:</b> main.c:173</div></div>
-<div class="ttc" id="amain_8c_html_a6eec62f04743b40b6d744ecd2f31cdd2"><div class="ttname"><a href="main_8c.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a></div><div class="ttdeci">void thread_C_code(void *argA, void *argB, void *argC)</div><div class="ttdef"><b>Definition:</b> main.c:404</div></div>
+<div class="ttc" id="amain_8c_html_a6eec62f04743b40b6d744ecd2f31cdd2"><div class="ttname"><a href="main_8c.html#a6eec62f04743b40b6d744ecd2f31cdd2">thread_C_code</a></div><div class="ttdeci">void thread_C_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">Modo manual, onde se faz o toggle sempre que carregar no botão 2 incrementa a luminosidade,...</div><div class="ttdef"><b>Definition:</b> main.c:404</div></div>
 <div class="ttc" id="amain_8c_html_a445f79326d40128ece59a749adff6894"><div class="ttname"><a href="main_8c.html#a445f79326d40128ece59a749adff6894">adc_dev</a></div><div class="ttdeci">const struct device * adc_dev</div><div class="ttdef"><b>Definition:</b> main.c:103</div></div>
 <div class="ttc" id="amain_8c_html_ad5a577fea0419d075e8b4de7c1416f9b"><div class="ttname"><a href="main_8c.html#ad5a577fea0419d075e8b4de7c1416f9b">but2press_cbfunction</a></div><div class="ttdeci">void but2press_cbfunction(const struct device *dev, struct gpio_callback *cb, uint32_t pins)</div><div class="ttdoc">If button 2 is pressed, Update Flag 2.</div><div class="ttdef"><b>Definition:</b> main.c:125</div></div>
-<div class="ttc" id="amain_8c_html_a99cef2c8673e9c73162dd97f0247ca8e"><div class="ttname"><a href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a></div><div class="ttdeci">void thread_B_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e ...</div><div class="ttdef"><b>Definition:</b> main.c:350</div></div>
+<div class="ttc" id="amain_8c_html_a99cef2c8673e9c73162dd97f0247ca8e"><div class="ttname"><a href="main_8c.html#a99cef2c8673e9c73162dd97f0247ca8e">thread_B_code</a></div><div class="ttdeci">void thread_B_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">É efectuada a filtragem, em que é realizado a média das últimas 10 amostras calculadas na Thread A e ...</div><div class="ttdef"><b>Definition:</b> main.c:350</div></div>
 <div class="ttc" id="amain_8c_html_aa9928aa4491a20c74a19c5904ba9530a"><div class="ttname"><a href="main_8c.html#aa9928aa4491a20c74a19c5904ba9530a">thread_B_prio</a></div><div class="ttdeci">#define thread_B_prio</div><div class="ttdef"><b>Definition:</b> main.c:23</div></div>
 <div class="ttc" id="amain_8c_html_ad832c1a3de4a77b89216efc38eddcb72"><div class="ttname"><a href="main_8c.html#ad832c1a3de4a77b89216efc38eddcb72">thread_B_data</a></div><div class="ttdeci">struct k_thread thread_B_data</div><div class="ttdef"><b>Definition:</b> main.c:63</div></div>
 <div class="ttc" id="amain_8c_html_a9723f8aa3cfd56015ee57bc31879f8ec"><div class="ttname"><a href="main_8c.html#a9723f8aa3cfd56015ee57bc31879f8ec">thread_C_data</a></div><div class="ttdeci">struct k_thread thread_C_data</div><div class="ttdef"><b>Definition:</b> main.c:64</div></div>
@@ -2000,9 +2000,9 @@ Variables</h2></td></tr>
 <div class="ttc" id="amain_8c_html_a1b93c31a3a5406a58cf35e15fdfe4cfa"><div class="ttname"><a href="main_8c.html#a1b93c31a3a5406a58cf35e15fdfe4cfa">Flag_1</a></div><div class="ttdeci">volatile int Flag_1</div><div class="ttdef"><b>Definition:</b> main.c:111</div></div>
 <div class="ttc" id="amain_8c_html_ad3c05b8933cd253785fdd123f6dbfc18"><div class="ttname"><a href="main_8c.html#ad3c05b8933cd253785fdd123f6dbfc18">BOARDBUT1</a></div><div class="ttdeci">#define BOARDBUT1</div><div class="ttdef"><b>Definition:</b> main.c:48</div></div>
 <div class="ttc" id="amain_8c_html_a65e8d83f25fef7705df61d0ba2e7aeed"><div class="ttname"><a href="main_8c.html#a65e8d83f25fef7705df61d0ba2e7aeed">thread_A1_tid</a></div><div class="ttdeci">k_tid_t thread_A1_tid</div><div class="ttdef"><b>Definition:</b> main.c:68</div></div>
-<div class="ttc" id="amain_8c_html_a6288eba0f8e8ad3ab1544ad731eb7667"><div class="ttname"><a href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">main</a></div><div class="ttdeci">void main(void)</div><div class="ttdoc">Main funtion: Initialize semaphores and configure GPIO_PIN (UART)</div><div class="ttdef"><b>Definition:</b> main.c:198</div></div>
+<div class="ttc" id="amain_8c_html_a6288eba0f8e8ad3ab1544ad731eb7667"><div class="ttname"><a href="main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667">main</a></div><div class="ttdeci">void main(void)</div><div class="ttdoc">Main funtion: Initialize semaphores and configure GPIO_PIN.</div><div class="ttdef"><b>Definition:</b> main.c:198</div></div>
 <div class="ttc" id="amain_8c_html_a00978ca9e8220475258dcbbbb7d29129"><div class="ttname"><a href="main_8c.html#a00978ca9e8220475258dcbbbb7d29129">ADC_RESOLUTION</a></div><div class="ttdeci">#define ADC_RESOLUTION</div><div class="ttdef"><b>Definition:</b> main.c:33</div></div>
-<div class="ttc" id="amain_8c_html_a61675a61bbec86901b2fe28f008e881c"><div class="ttname"><a href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a></div><div class="ttdeci">void thread_A_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">É o valor da ADC que é guardado numa variável global (shared memory between tasks A/B) no nosso Códig...</div><div class="ttdef"><b>Definition:</b> main.c:302</div></div>
+<div class="ttc" id="amain_8c_html_a61675a61bbec86901b2fe28f008e881c"><div class="ttname"><a href="main_8c.html#a61675a61bbec86901b2fe28f008e881c">thread_A_code</a></div><div class="ttdeci">void thread_A_code(void *argA, void *argB, void *argC)</div><div class="ttdoc">Lê o botao 1, faz o toggle entre o manual e o automatico, sendo periódico.</div><div class="ttdef"><b>Definition:</b> main.c:302</div></div>
 <div class="ttc" id="amain_8c_html_ab36d1100473c16852c1b64d1917454a4"><div class="ttname"><a href="main_8c.html#ab36d1100473c16852c1b64d1917454a4">bd</a></div><div class="ttdeci">int bd</div><div class="ttdef"><b>Definition:</b> main.c:78</div></div>
 <div class="ttc" id="amain_8c_html_a5936222e9802dbe8ceb1e99bd667466a"><div class="ttname"><a href="main_8c.html#a5936222e9802dbe8ceb1e99bd667466a">thread_A_prio</a></div><div class="ttdeci">#define thread_A_prio</div><div class="ttdef"><b>Definition:</b> main.c:22</div></div>
 <div class="ttc" id="amain_8c_html_abee96e1280405ff973ee2b6b07eec104"><div class="ttname"><a href="main_8c.html#abee96e1280405ff973ee2b6b07eec104">BOARDBUT4</a></div><div class="ttdeci">#define BOARDBUT4</div><div class="ttdef"><b>Definition:</b> main.c:51</div></div>

@@ -72,8 +72,8 @@
 \indexentry{fifo\_bc@{fifo\_bc}!main.c@{main.c}|hyperpage}{21}
 \indexentry{main.c@{main.c}!my\_timer@{my\_timer}|hyperpage}{21}
 \indexentry{my\_timer@{my\_timer}!main.c@{main.c}|hyperpage}{21}
-\indexentry{main.c@{main.c}!thread\_A\_data@{thread\_A\_data}|hyperpage}{21}
-\indexentry{thread\_A\_data@{thread\_A\_data}!main.c@{main.c}|hyperpage}{21}
+\indexentry{main.c@{main.c}!thread\_A\_data@{thread\_A\_data}|hyperpage}{22}
+\indexentry{thread\_A\_data@{thread\_A\_data}!main.c@{main.c}|hyperpage}{22}
 \indexentry{main.c@{main.c}!thread\_A\_tid@{thread\_A\_tid}|hyperpage}{22}
 \indexentry{thread\_A\_tid@{thread\_A\_tid}!main.c@{main.c}|hyperpage}{22}
 \indexentry{main.c@{main.c}!thread\_B\_data@{thread\_B\_data}|hyperpage}{22}

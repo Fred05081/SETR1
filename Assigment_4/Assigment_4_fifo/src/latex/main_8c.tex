@@ -72,11 +72,11 @@ struct \mbox{\hyperlink{structdata__item__t}{data\+\_\+item\+\_\+t}}
 \mbox{\hyperlink{main_8c_a331fd55d9b95c3e662a4148fbc522271}{K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE}} (thread\+\_\+\+C\+\_\+stack, \mbox{\hyperlink{main_8c_a6423a880df59733d2d9b509c7718d3a9}{S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}})
 \item 
 void \mbox{\hyperlink{main_8c_a2bae0ae425b2577868ad7c1482190439}{thread\+\_\+\+A\+\_\+code}} (void $\ast$, void $\ast$, void $\ast$)
-\begin{DoxyCompactList}\small\item\em Read the adc value and save it. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em lê o valor da A\+DC guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz get no F\+I\+FO \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a0bc8db7d99935e559b1164cf2e84e822}{thread\+\_\+\+B\+\_\+code}} (void $\ast$, void $\ast$, void $\ast$)
-\begin{DoxyCompactList}\small\item\em calculates the average of 10 values read from the adc and if the value is outside 10\% it is rejected. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em é feito put do F\+I\+FO AB e é realizada uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10\% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz get do F\+I\+FO BC. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a05a8f93095731e110abe668f996166c9}{thread\+\_\+\+C\+\_\+code}} (void $\ast$, void $\ast$, void $\ast$)
-\begin{DoxyCompactList}\small\item\em Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread B. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em é feito o put do F\+I\+FO BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo é repetido período após período. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
 \begin{DoxyCompactList}\small\item\em Main funtion\+: Initialize semaphores. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
@@ -279,7 +279,7 @@ No returns
 
 
 
-Read the adc value and save it. 
+lê o valor da A\+DC guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz get no F\+I\+FO 
 
 
 \begin{DoxyCode}{0}
@@ -358,7 +358,7 @@ No returns ~\newline
 
 
 
-calculates the average of 10 values read from the adc and if the value is outside 10\% it is rejected. 
+é feito put do F\+I\+FO AB e é realizada uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10\% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz get do F\+I\+FO BC. 
 
 
 \begin{DoxyCode}{0}
@@ -431,7 +431,7 @@ No returns
 
 
 
-Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread B. 
+é feito o put do F\+I\+FO BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo é repetido período após período. 
 
 
 \begin{DoxyCode}{0}

@@ -38,7 +38,7 @@ Include dependency graph for main.\+c\+:\nopagebreak
 \item 
 \#define \mbox{\hyperlink{main_8c_a1bd72aae8d0dd6e887547a1d5e0a8902}{thread\+\_\+\+C\+\_\+prio}}~1
 \item 
-\#define \mbox{\hyperlink{main_8c_a2ed7791f41bc6281906a0878492b0894}{thread\+\_\+\+A\+\_\+period}}~100       /$\ast$$\ast$ Set to have the same period as the P\+WM, 1ms$\ast$/
+\#define \mbox{\hyperlink{main_8c_a2ed7791f41bc6281906a0878492b0894}{thread\+\_\+\+A\+\_\+period}}~1000       /$\ast$$\ast$ Set to have the same period as the P\+WM, 1ms$\ast$/
 \item 
 \#define \mbox{\hyperlink{main_8c_a667158ed9af1b72bf062e54bda71dd4f}{A\+D\+C\+\_\+\+N\+ID}}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(adc)
 \item 
@@ -72,11 +72,11 @@ Include dependency graph for main.\+c\+:\nopagebreak
 \mbox{\hyperlink{main_8c_a331fd55d9b95c3e662a4148fbc522271}{K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE}} (thread\+\_\+\+C\+\_\+stack, \mbox{\hyperlink{main_8c_a6423a880df59733d2d9b509c7718d3a9}{S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}})
 \item 
 void \mbox{\hyperlink{main_8c_a61675a61bbec86901b2fe28f008e881c}{thread\+\_\+\+A\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em Read the adc value and save it. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em ê o valor da A\+D\+Ce guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a99cef2c8673e9c73162dd97f0247ca8e}{thread\+\_\+\+B\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em calculates the average of 10 values read from the adc and if the value is outside 10\% it is rejected. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10\% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a6eec62f04743b40b6d744ecd2f31cdd2}{thread\+\_\+\+C\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
-\begin{DoxyCompactList}\small\item\em Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A$\ast$. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em é feito o take do semáforo BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo é repetido período após período. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
 \begin{DoxyCompactList}\small\item\em Main funtion\+: Initialize semaphores. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
@@ -204,7 +204,7 @@ Size of stack area used by each thread (can be thread specific, if necessary) \m
 \index{main.c@{main.c}!thread\_A\_period@{thread\_A\_period}}
 \index{thread\_A\_period@{thread\_A\_period}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{thread\_A\_period}{thread\_A\_period}}
-{\footnotesize\ttfamily \#define thread\+\_\+\+A\+\_\+period~100       /$\ast$$\ast$ Set to have the same period as the P\+WM, 1ms$\ast$/}
+{\footnotesize\ttfamily \#define thread\+\_\+\+A\+\_\+period~1000       /$\ast$$\ast$ Set to have the same period as the P\+WM, 1ms$\ast$/}
 
 Therad periodicity (in ms) \mbox{\Hypertarget{main_8c_a5936222e9802dbe8ceb1e99bd667466a}\label{main_8c_a5936222e9802dbe8ceb1e99bd667466a}} 
 \index{main.c@{main.c}!thread\_A\_prio@{thread\_A\_prio}}
@@ -263,7 +263,7 @@ Main function \mbox{\Hypertarget{main_8c_a61675a61bbec86901b2fe28f008e881c}\labe
 
 
 
-Read the adc value and save it. 
+ê o valor da A\+D\+Ce guarda numa variável global (shared memory between tasks A/B) no nosso Código denominada por “ab” e no final faz give do semáforo AB. 
 
 Thread code prototypes \mbox{\Hypertarget{main_8c_a99cef2c8673e9c73162dd97f0247ca8e}\label{main_8c_a99cef2c8673e9c73162dd97f0247ca8e}} 
 \index{main.c@{main.c}!thread\_B\_code@{thread\_B\_code}}
@@ -273,7 +273,7 @@ Thread code prototypes \mbox{\Hypertarget{main_8c_a99cef2c8673e9c73162dd97f0247c
 
 
 
-calculates the average of 10 values read from the adc and if the value is outside 10\% it is rejected. 
+é feito o take do semáforo AB é realizado uma média das últimas 10 amostras calculadas na thread A e é feito um filtro rejeitando todos os valores que estejam abaixo ou acima de 10\% da média, sendo que este output é colocado numa variável global (shared memory between tasks B/C) no nosso Código denominada por “cb” e no final faz give do semáforo BC. 
 
 
 \begin{DoxyCode}{0}
@@ -346,7 +346,7 @@ No returns
 
 
 
-Sets the P\+WM DC value to the average of the samples got from A\+DC module in thread A$\ast$. 
+é feito o take do semáforo BC e é criado um pwm signal que é depois aplicado a um led. Todo este processo é repetido período após período. 
 
 
 \begin{DoxyCode}{0}
