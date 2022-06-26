@@ -490,7 +490,7 @@ void thread_D_code(void *argA , void *argB, void *argC)
    
     while(1) {
         k_sem_take(&sem_bd, K_FOREVER);
-        printk("Valor lido para automatico %d\n r",bd);
+        printk("Valor lido para automatico %d\n\r",bd);
         ret=0;
         
 
@@ -498,6 +498,15 @@ void thread_D_code(void *argA , void *argB, void *argC)
             
             ret = pwm_pin_set_usec(pwm0_dev, BOARDLED1,
 		      pwmPeriod_us,(unsigned int)(pwmPeriod_us), PWM_POLARITY_NORMAL);
+            if (ret) {
+                printk("Error %d: failed to set pulse width\n", ret);
+		return;
+            }
+        } 
+        else if(bd>500 && bd<900) {
+            
+            ret = pwm_pin_set_usec(pwm0_dev, BOARDLED1,
+		      pwmPeriod_us,(unsigned int)(pwmPeriod_us*0.5), PWM_POLARITY_NORMAL);
             if (ret) {
                 printk("Error %d: failed to set pulse width\n", ret);
 		return;
